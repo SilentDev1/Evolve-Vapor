@@ -1,12 +1,12 @@
 # Evolve Vapor — Custom WordPress & Elementor Development
 
-A custom WordPress implementation for **Evolve Vapor**, built by **Hung Cao / Cao-Tech** with a Hello Elementor child theme, a companion plugin, and a separate WooCommerce recommendation module.
+A custom WordPress implementation for **Evolve Vapor**, built by **Hung Cao / Cao-Tech** with a Hello Elementor child theme, a companion plugin, and a separate AI-powered WooCommerce recommendation module.
 
 This repository presents the custom development behind the website: reusable Elementor components, shared store information, responsive styling, WordPress admin tools, and integrations. The editing system lets staff manage content and settings through WordPress and Elementor while keeping common layouts and behavior in reusable code.
 
 ## My contribution
 
-I built the child theme and custom plugins that connect the website's visual design to WordPress and WooCommerce. My work includes PHP plugin architecture, Elementor widgets and dynamic tags, JavaScript interfaces, responsive CSS, template import tooling, and an API-backed recommendation module.
+I built the child theme and custom plugins that connect the website's visual design to WordPress and WooCommerce. My work includes PHP plugin architecture, Elementor widgets and dynamic tags, JavaScript interfaces, responsive CSS, template import tooling, AI matching based on questionnaire answers, and an OmniSuggest AI search integration that matches customer search wording to catalog products.
 
 The core plugin registers **5 custom Elementor widgets**, **4 dynamic tags**, and ships **20 JSON templates** for page layouts, Theme Builder components, popups, and global styling.
 
@@ -52,7 +52,7 @@ The core plugin adds an **Evolve** category to Elementor and registers these wid
 | Widget | Technical purpose |
 | --- | --- |
 | Shop Filter | Filter controls connected to a custom AJAX query handler. |
-| Header Search | Reusable search interface with dedicated frontend assets and a server-side handler. |
+| Header Search | AI-ranked product matches through OmniSuggest, with per-result explanations and a local search fallback. |
 | Subscribe | Configurable form backed by the shared subscription implementation. |
 | Vape Match Button | Connects Elementor layouts to the separate questionnaire interface. |
 | Shop Menu | Reusable catalog navigation component. |
@@ -66,20 +66,40 @@ The 20 bundled JSON templates cover headers, footer, homepage, contact, default 
 - **Age confirmation:** a PHP-rendered dialog, AJAX confirmation handler, configurable cookie duration, and configurable exit destination. This is a self-attestation interface, not identity verification.
 - **Template importer:** an administrative tool for importing the project's bundled Elementor JSON templates.
 - **WooCommerce integration:** theme support, shared WooCommerce styles, pickup notices, and custom display hooks.
-- **Search and filtering:** dedicated PHP handlers and JavaScript components for catalog interaction.
+- **AI product search and filtering:** a custom search handler connects customer queries to OmniSuggest AI, renders ranked results and explanations, and falls back to local WordPress search. Separate filter controls use dedicated PHP and JavaScript components.
 - **Subscription handling:** optional GhostPilot Ghost-Convert integration, with a local lead-record and admin-email fallback.
 - **Popup integration:** supporting code for connecting interface triggers and popup layouts.
 - **Announcement and promotion modules:** existing settings, popup rendering, and WooCommerce cart hooks maintained in separate classes.
 - **Reusable animation helper:** the `evolve_pulse` shortcode exposes animation options through a shared CSS system.
 - **Responsive presentation:** child-theme styles, typography, layout rules, and JavaScript UI behavior.
 
-## Recommendation module architecture
+## AI features
 
-`evolve-ai-vape-match` is a separate plugin with its own bootstrap, administration, product metadata, REST endpoint, frontend questionnaire, and OpenAI client.
+### AI matching based on user answers
 
-The code separates catalog candidate selection and rule-based scoring from the optional model call. The OpenAI client receives a candidate list for re-ranking and explanation generation; configuration and fallback behavior are handled within the plugin. The integration is part of the implemented application, and its API credential is configured in WordPress rather than bundled with the source.
+The custom **Evolve AI Vape Match** plugin uses answers from a multi-step questionnaire to produce personalized catalog matches. The answer data includes experience, product type, flavor preferences, intensity preferences, budget, and brand preferences.
 
-This separation makes the questionnaire interface, catalog logic, and external API integration identifiable as distinct parts of the codebase.
+The implementation first selects and scores eligible WooCommerce catalog candidates. It then passes the user's answers and structured candidate data to OpenAI for re-ranking and short match explanations. The response supports a primary match, alternative matches, and a separate accessory group. Returned product IDs are validated against the supplied candidate lists before results are assembled.
+
+The frontend presents the results through the custom questionnaire interface. A configurable rule-based fallback handles disabled or unavailable AI service calls.
+
+### AI product search from customer wording
+
+The custom **Header Search** widget integrates with **OmniSuggest AI** to match the customer's search wording to catalog products and display AI-ranked results with short explanations.
+
+When its **Use OmniSuggest AI** option is enabled and the dependency is available, the Evolve search handler forwards the query to `/omnisuggest/v1/search-suggest`. It maps the returned product data and match reasons into the site's own result cards. The interface also handles the service's alternative-match flag. If the service is unavailable, fails, or returns no matches, the handler falls back to local WordPress product search.
+
+This repository contains the Evolve widget, integration handler, and result presentation. The separate OmniSuggest plugin supplies the AI search engine and must be installed and configured independently.
+
+### AI-assisted product metadata
+
+The recommendation plugin also includes AI-assisted metadata filling. Its OpenAI client can read a product's title, description, categories, and tags and return structured fields used by the matching system. Product editing controls and bulk administration tools expose this functionality to staff.
+
+This supports catalog maintenance alongside the customer-facing AI interfaces. The generated fields pass through the plugin's sanitization and metadata handling code.
+
+### Implementation structure
+
+`evolve-ai-vape-match` separates administration, product metadata, the REST endpoint, frontend questionnaire, rule-based candidate scoring, and the OpenAI client into dedicated modules. API credentials are configured in WordPress rather than bundled with the source.
 
 ## Project structure
 
@@ -120,10 +140,12 @@ docs/
 - [Child theme setup](evolve-child/functions.php)
 - [Recommendation plugin initialization](evolve-ai-vape-match/evolve-ai-vape-match.php)
 - [REST interface](evolve-ai-vape-match/includes/class-rest-api.php)
+- [AI matching and metadata client](evolve-ai-vape-match/includes/class-openai.php)
+- [OmniSuggest AI search integration](evolve-core/includes/class-search.php)
 
 ## Technology and requirements
 
-**WordPress · PHP · JavaScript · CSS · WooCommerce · Elementor · Elementor Pro · Hello Elementor**
+**WordPress · PHP · JavaScript · CSS · WooCommerce · Elementor · Elementor Pro · Hello Elementor · OpenAI API · OmniSuggest AI integration**
 
 The core plugin declares WordPress 6.4+ and PHP 7.4+. The separate recommendation plugin declares PHP 8.0+ and WooCommerce 7.0+, so the complete build requires PHP 8.0 or later. Elementor Pro supplies the Theme Builder and popup functionality used by the layouts.
 
