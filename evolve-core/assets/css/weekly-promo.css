@@ -1,0 +1,115 @@
+/* Evolve — Weekly Promo popup */
+
+.evolve-weekly-promo {
+	position: fixed; inset: 0; z-index: 99998;
+	display: flex; align-items: center; justify-content: center;
+	padding: 24px;
+	opacity: 0;
+	transition: opacity .35s cubic-bezier(.2,.7,.2,1);
+}
+.evolve-weekly-promo.is-visible { opacity: 1; }
+.evolve-weekly-promo.is-hidden  { opacity: 0; pointer-events: none; }
+
+.evolve-weekly-promo__bg {
+	position: absolute; inset: 0;
+	background:
+		radial-gradient(600px 400px at 30% 20%, rgba(183,255,0,0.10), transparent 60%),
+		radial-gradient(500px 350px at 80% 80%, rgba(124,255,79,0.08), transparent 60%),
+		rgba(5,5,5,0.88);
+	backdrop-filter: blur(14px);
+	-webkit-backdrop-filter: blur(14px);
+}
+
+.evolve-weekly-promo__card {
+	position: relative;
+	max-width: 420px;
+	width: 100%;
+	text-align: center;
+	background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+	border: 1px solid rgba(255,255,255,0.10);
+	border-radius: var(--evolve-radius, 20px);
+	padding: 40px 28px 32px;
+	box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(183,255,0,0.08);
+	animation: evolvePromoSlideUp .4s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes evolvePromoSlideUp {
+	from { opacity: 0; transform: translateY(24px) scale(0.97); }
+	to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Close button */
+.evolve-weekly-promo__close {
+	position: absolute; top: 12px; right: 14px;
+	background: none; border: none; cursor: pointer;
+	color: var(--evolve-accent, #B7FF00);
+	font-size: 28px; line-height: 1;
+	padding: 4px 8px;
+	opacity: .7;
+	transition: opacity .2s;
+}
+.evolve-weekly-promo__close:hover { opacity: 1; }
+
+/* Product image */
+.evolve-weekly-promo__img {
+	display: block;
+	max-width: 200px; max-height: 200px;
+	width: auto; height: auto;
+	margin: 0 auto 18px;
+	border-radius: var(--evolve-radius, 12px);
+	object-fit: contain;
+}
+
+/* Headline */
+.evolve-weekly-promo__title {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	color: var(--evolve-accent, #B7FF00);
+	font-size: clamp(1.1rem, 3vw, 1.4rem);
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	margin: 0 0 6px;
+}
+
+/* Product name */
+.evolve-weekly-promo__product-name {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	color: var(--evolve-text, #fff);
+	font-size: clamp(1rem, 3vw, 1.25rem);
+	margin: 0 0 4px;
+}
+
+/* Price */
+.evolve-weekly-promo__price {
+	color: var(--evolve-accent, #B7FF00);
+	font-family: 'Inter', sans-serif;
+	font-weight: 700;
+	font-size: 1.15rem;
+	margin: 0 0 10px;
+}
+
+/* Description */
+.evolve-weekly-promo__desc {
+	color: #B3B3B3;
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	margin: 0 0 20px;
+}
+
+/* CTA button */
+.evolve-weekly-promo__cta {
+	display: inline-block;
+	text-decoration: none;
+}
+
+/* Lock body scroll while popup is visible */
+body:has(#evolveWeeklyPromo.is-visible) { overflow: hidden; }
+
+/* Responsive */
+@media (max-width: 480px) {
+	.evolve-weekly-promo { padding: 16px; }
+	.evolve-weekly-promo__card { padding: 32px 20px 24px; }
+	.evolve-weekly-promo__img  { max-width: 160px; max-height: 160px; }
+}

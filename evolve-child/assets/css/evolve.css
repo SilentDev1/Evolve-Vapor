@@ -1,0 +1,1677 @@
+/* ============================================================================
+   Evolve — Design System (Hello Elementor child)
+   Dark luxury vape retail UI. All tokens live in :root so Elementor's
+   Site Settings → Global Colors can override at runtime if needed.
+   ========================================================================= */
+
+:root {
+	/* Colors */
+	--evolve-bg:           #050505;
+	--evolve-bg-2:         #0D0D0D;
+	--evolve-card:         #111111;
+	--evolve-card-2:       #161616;
+	--evolve-border:       #1E1E1E;
+	--evolve-border-soft:  rgba(255,255,255,0.06);
+	--evolve-accent:       #B7FF00;
+	--evolve-accent-2:     #7CFF4F;
+	--evolve-text:         #FFFFFF;
+	--evolve-text-dim:     #B3B3B3;
+	--evolve-text-mute:    #6E6E6E;
+	--evolve-error:        #FF4D4D;
+	--evolve-success:      #00FF99;
+
+	/* Glows */
+	--evolve-glow:         0 0 24px rgba(183,255,0,0.35);
+	--evolve-glow-soft:    0 0 12px rgba(183,255,0,0.18);
+	--evolve-glow-strong:  0 0 48px rgba(183,255,0,0.55);
+
+	/* Type */
+	--evolve-font-head:    'Poppins', system-ui, -apple-system, sans-serif;
+	--evolve-font-body:    'Inter',   system-ui, -apple-system, sans-serif;
+
+	/* Geometry */
+	--evolve-radius:       20px;
+	--evolve-radius-sm:    14px;
+	--evolve-radius-xs:    10px;
+	--evolve-container:    1200px;
+
+	/* Motion */
+	--evolve-ease:         cubic-bezier(.2,.7,.2,1);
+	--evolve-dur:          .35s;
+}
+
+/* ---------- Base ---------- */
+html, body {
+	background: var(--evolve-bg);
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-body);
+	font-size: 16px;
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+body.evolve-theme { background: var(--evolve-bg); }
+
+h1, h2, h3, h4, h5, h6,
+.elementor-heading-title {
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	color: var(--evolve-text);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+}
+h1, .elementor-heading-title.evolve-display { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 900; }
+h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
+h3 { font-size: clamp(1.3rem, 2vw, 1.6rem); }
+
+a { color: var(--evolve-text); text-decoration: none; transition: color var(--evolve-dur) var(--evolve-ease); }
+a:hover { color: var(--evolve-accent); }
+
+::selection { background: var(--evolve-accent); color: #000; }
+
+/* ---------- Containers / spacing ---------- */
+.elementor-section.elementor-section-boxed > .elementor-container,
+.evolve-container {
+	max-width: var(--evolve-container);
+	margin-inline: auto;
+	padding-inline: 24px;
+}
+@media (max-width: 1024px) {
+	.elementor-section.elementor-section-boxed > .elementor-container,
+	.evolve-container { padding-inline: 20px; }
+}
+
+/* ---------- Buttons (Elementor + WooCommerce) ---------- */
+.elementor-button,
+.evolve-btn,
+.wp-block-button__link,
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce-page a.button,
+.woocommerce-page button.button,
+.woocommerce input[type="submit"].button,
+.woocommerce #respond input#submit {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	padding: 14px 26px;
+	border-radius: var(--evolve-radius-sm);
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 14px;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	border: 1px solid var(--evolve-border);
+	background: transparent;
+	color: var(--evolve-text);
+	cursor: pointer;
+	transition: transform var(--evolve-dur) var(--evolve-ease),
+				box-shadow var(--evolve-dur) var(--evolve-ease),
+				background var(--evolve-dur) var(--evolve-ease),
+				color var(--evolve-dur) var(--evolve-ease);
+}
+
+/* Primary — neon */
+.elementor-button.evolve-btn--primary,
+.evolve-btn--primary,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input[type="submit"].button.alt,
+.woocommerce #respond input#submit.alt,
+.woocommerce .single_add_to_cart_button,
+.woocommerce-page button[type="submit"]#place_order {
+	background: var(--evolve-accent);
+	color: #000;
+	border-color: var(--evolve-accent);
+}
+.elementor-button.evolve-btn--primary:hover,
+.evolve-btn--primary:hover,
+.woocommerce a.button.alt:hover,
+.woocommerce button.button.alt:hover,
+.woocommerce .single_add_to_cart_button:hover,
+.woocommerce-page button[type="submit"]#place_order:hover {
+	background: var(--evolve-accent-2);
+	color: #000;
+	box-shadow: var(--evolve-glow);
+	transform: translateY(-1px);
+}
+
+/* Ghost (outline) */
+.evolve-btn--ghost,
+.woocommerce a.button:not(.alt):hover,
+.elementor-button:not(.evolve-btn--primary):hover {
+	border-color: var(--evolve-accent);
+	color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+
+/* ---------- Header ---------- */
+.evolve-topbar {
+	background: #000;
+	color: var(--evolve-text-dim);
+	font-size: 12.5px;
+	letter-spacing: .04em;
+	border-bottom: 1px solid var(--evolve-border);
+}
+.evolve-topbar__inner {
+	max-width: var(--evolve-container);
+	margin-inline: auto;
+	padding: 8px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	flex-wrap: wrap;
+}
+.evolve-topbar__pill {
+	display: inline-flex; align-items: center; gap: 6px;
+	padding: 2px 10px; border-radius: 999px;
+	background: rgba(183,255,0,0.08);
+	color: var(--evolve-accent);
+	font-weight: 600;
+}
+.evolve-topbar__sep { opacity: .25; }
+
+.evolve-header {
+	position: sticky; top: 0; z-index: 60;
+	background: rgba(5,5,5,0.55);
+	backdrop-filter: saturate(140%) blur(14px);
+	-webkit-backdrop-filter: saturate(140%) blur(14px);
+	border-bottom: 1px solid var(--evolve-border-soft);
+	transition: background var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-header.is-scrolled {
+	background: rgba(5,5,5,0.85);
+	border-bottom-color: var(--evolve-border);
+}
+.evolve-header__inner {
+	max-width: var(--evolve-container);
+	margin-inline: auto;
+	padding: 16px 24px;
+	display: grid;
+	grid-template-columns: auto 1fr auto;
+	align-items: center;
+	gap: 32px;
+}
+.evolve-header__logo img { display: block; max-height: 36px; width: auto; }
+.evolve-nav {
+	display: flex; gap: 28px; justify-content: center;
+}
+.evolve-nav a {
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	color: var(--evolve-text);
+	position: relative;
+	padding: 6px 0;
+}
+.evolve-nav a::after {
+	content: ""; position: absolute; left: 0; right: 100%; bottom: 0;
+	height: 2px; background: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+	transition: right var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-nav a:hover { color: var(--evolve-accent); }
+.evolve-nav a:hover::after, .evolve-nav .current-menu-item > a::after { right: 0; }
+
+.evolve-header__actions { display: flex; align-items: center; gap: 14px; }
+.evolve-iconbtn {
+	width: 38px; height: 38px;
+	display: inline-flex; align-items: center; justify-content: center;
+	border-radius: 12px;
+	color: var(--evolve-text);
+	background: transparent;
+	border: 1px solid transparent;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+	position: relative;
+}
+.evolve-iconbtn:hover { border-color: var(--evolve-border); color: var(--evolve-accent); }
+.evolve-iconbtn .evolve-badge {
+	position: absolute; top: -4px; right: -4px;
+	min-width: 18px; height: 18px; padding: 0 5px;
+	background: var(--evolve-accent); color: #000;
+	border-radius: 999px;
+	font-size: 10px; font-weight: 700;
+	display: inline-flex; align-items: center; justify-content: center;
+	box-shadow: var(--evolve-glow-soft);
+}
+
+@media (max-width: 1024px) {
+	.evolve-header__inner { grid-template-columns: auto auto; }
+	.evolve-nav { display: none; }
+}
+
+/* ---------- Hero ---------- */
+.evolve-hero {
+	position: relative;
+	padding: 80px 0 120px;
+	overflow: hidden;
+	background:
+		radial-gradient(900px 500px at 80% 30%, rgba(183,255,0,0.15), transparent 60%),
+		radial-gradient(700px 400px at 20% 80%, rgba(124,255,79,0.08), transparent 70%),
+		var(--evolve-bg);
+}
+.evolve-hero__grid {
+	max-width: var(--evolve-container);
+	margin-inline: auto;
+	padding: 0 24px;
+	display: grid;
+	grid-template-columns: 1.05fr 1fr;
+	gap: 48px;
+	align-items: center;
+}
+.evolve-hero__eyebrow {
+	font-family: var(--evolve-font-head);
+	color: var(--evolve-accent);
+	text-transform: uppercase;
+	letter-spacing: .18em;
+	font-weight: 600; font-size: 12px;
+	margin-bottom: 18px;
+	display: inline-block;
+}
+.evolve-hero__title {
+	font-size: clamp(2.6rem, 5.5vw, 5rem);
+	font-weight: 900;
+	line-height: 1.02;
+	letter-spacing: -0.02em;
+	margin: 0 0 22px;
+}
+.evolve-hero__lede {
+	color: var(--evolve-text-dim);
+	max-width: 540px;
+	font-size: 17px;
+	margin-bottom: 32px;
+}
+.evolve-hero__cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.evolve-hero__promo {
+	margin-top: 36px;
+	display: inline-flex; align-items: center; gap: 12px;
+	padding: 12px 18px;
+	border: 1px solid var(--evolve-border);
+	background: rgba(255,255,255,0.02);
+	border-radius: var(--evolve-radius-sm);
+	font-size: 13px; color: var(--evolve-text-dim);
+}
+.evolve-hero__promo strong { color: var(--evolve-accent); font-weight: 700; }
+@media (max-width: 900px) {
+	.evolve-hero { padding: 50px 0 70px; }
+	.evolve-hero__grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Cards / glass ---------- */
+.evolve-card,
+.evolve-glass {
+	background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	backdrop-filter: blur(8px);
+	transition: transform var(--evolve-dur) var(--evolve-ease),
+				border-color var(--evolve-dur) var(--evolve-ease),
+				box-shadow var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-card:hover {
+	transform: translateY(-4px);
+	border-color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+
+/* ---------- Category cards (Homepage Section 2) ---------- */
+.evolve-cats {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	gap: 18px;
+}
+.evolve-cat {
+	position: relative; overflow: hidden;
+	aspect-ratio: 3 / 4;
+	border-radius: var(--evolve-radius);
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	display: flex; flex-direction: column; justify-content: flex-end;
+	padding: 18px;
+	transition: transform var(--evolve-dur) var(--evolve-ease),
+				border-color var(--evolve-dur) var(--evolve-ease),
+				box-shadow var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-cat::before {
+	content:""; position:absolute; inset:0;
+	background:
+		linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.85) 100%),
+		var(--evolve-cat-img, none) center/cover no-repeat;
+	z-index: 0;
+}
+.evolve-cat > * { position: relative; z-index: 1; }
+.evolve-cat__icon { width: 32px; height: 32px; color: var(--evolve-accent); margin-bottom: auto; }
+.evolve-cat__name { font-family: var(--evolve-font-head); font-weight: 800; font-size: 1.05rem; }
+.evolve-cat__cta  { color: var(--evolve-accent); font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-top: 6px; }
+.evolve-cat:hover { transform: translateY(-4px); border-color: var(--evolve-accent); box-shadow: var(--evolve-glow); }
+@media (max-width: 1024px) { .evolve-cats { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 600px)  { .evolve-cats { grid-template-columns: repeat(2, 1fr); } }
+
+/* ---------- Promo strip ---------- */
+.evolve-promo-strip {
+	margin: 24px 0;
+	border-radius: var(--evolve-radius);
+	border: 1px solid var(--evolve-border);
+	background:
+		linear-gradient(90deg, rgba(183,255,0,0.08), transparent 60%),
+		linear-gradient(180deg, var(--evolve-card-2), var(--evolve-card));
+	padding: 22px 28px;
+	display: flex; align-items: center; justify-content: space-between; gap: 24px;
+	flex-wrap: wrap;
+}
+.evolve-promo-strip__title {
+	font-family: var(--evolve-font-head); font-weight: 800;
+	font-size: clamp(1.1rem, 2vw, 1.4rem); letter-spacing: -0.01em;
+}
+.evolve-promo-strip__title em { color: var(--evolve-accent); font-style: normal; }
+.evolve-promo-strip__small { color: var(--evolve-text-dim); font-size: 13px; }
+
+/* ---------- Section titles ---------- */
+.evolve-section { padding: 100px 0; }
+@media (max-width:1024px){ .evolve-section { padding: 70px 0; } }
+@media (max-width: 600px){ .evolve-section { padding: 50px 0; } }
+
+.evolve-section__head {
+	display: flex; justify-content: space-between; align-items: end;
+	margin-bottom: 28px; gap: 24px; flex-wrap: wrap;
+}
+.evolve-section__title {
+	font-family: var(--evolve-font-head); font-weight: 800;
+	font-size: clamp(1.4rem, 2.5vw, 2rem); letter-spacing: -0.01em;
+	margin: 0;
+}
+.evolve-section__link {
+	font-size: 12px; font-weight: 700; letter-spacing: .12em;
+	text-transform: uppercase; color: var(--evolve-accent);
+}
+
+/* ---------- Why-Shop feature cards ---------- */
+.evolve-features { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+.evolve-feature {
+	padding: 22px;
+	border-radius: var(--evolve-radius);
+	border: 1px solid var(--evolve-border);
+	background: var(--evolve-card);
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-feature__icon {
+	width: 44px; height: 44px;
+	display: inline-flex; align-items: center; justify-content: center;
+	border-radius: 12px;
+	background: rgba(183,255,0,0.08);
+	color: var(--evolve-accent);
+	margin-bottom: 14px;
+	box-shadow: var(--evolve-glow-soft);
+}
+.evolve-feature__title { font-family: var(--evolve-font-head); font-weight: 700; font-size: 1rem; margin: 0 0 6px; }
+.evolve-feature__text  { color: var(--evolve-text-dim); font-size: 13px; line-height: 1.55; }
+.evolve-feature:hover  { transform: translateY(-3px); border-color: var(--evolve-accent); box-shadow: var(--evolve-glow-soft); }
+@media (max-width: 1024px){ .evolve-features { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .evolve-features { grid-template-columns: 1fr; } }
+
+/* ---------- Store location ---------- */
+.evolve-store {
+	display: grid; grid-template-columns: 1.1fr 1.4fr; gap: 18px;
+}
+.evolve-store__info, .evolve-store__map {
+	border-radius: var(--evolve-radius);
+	border: 1px solid var(--evolve-border);
+	background: var(--evolve-card);
+	overflow: hidden;
+}
+.evolve-store__info { padding: 28px; }
+.evolve-store__map  iframe, .evolve-store__map img { display:block; width: 100%; height: 100%; min-height: 320px; border: 0; }
+@media (max-width: 900px) { .evolve-store { grid-template-columns: 1fr; } }
+
+/* ---------- Testimonials ---------- */
+.evolve-testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.evolve-testimonial {
+	padding: 24px;
+	border-radius: var(--evolve-radius);
+	border: 1px solid var(--evolve-border);
+	background: var(--evolve-card);
+}
+.evolve-testimonial__stars { color: var(--evolve-accent); letter-spacing: 2px; margin-bottom: 10px; }
+.evolve-testimonial__quote { color: var(--evolve-text); font-size: 14.5px; line-height: 1.6; }
+.evolve-testimonial__name  { color: var(--evolve-text-dim); font-size: 12px; margin-top: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+@media (max-width: 900px) { .evolve-testimonials { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+.evolve-footer {
+	background: #000;
+	border-top: 1px solid var(--evolve-border);
+	padding: 70px 0 24px;
+	color: var(--evolve-text-dim);
+}
+.evolve-footer__inner {
+	max-width: var(--evolve-container); margin-inline: auto; padding: 0 24px;
+	display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px;
+}
+.evolve-footer h4 {
+	font-family: var(--evolve-font-head); font-weight: 700;
+	font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+	color: var(--evolve-text); margin: 0 0 14px;
+}
+.evolve-footer a { color: var(--evolve-text-dim); display: block; padding: 4px 0; font-size: 14px; }
+.evolve-footer a:hover { color: var(--evolve-accent); }
+.evolve-footer__brand img { max-height: 32px; margin-bottom: 16px; }
+.evolve-footer__brand p   { font-size: 13.5px; line-height: 1.7; max-width: 320px; }
+.evolve-footer__social { margin-top: 16px; display: flex; gap: 10px; }
+.evolve-footer__social a {
+	width: 36px; height: 36px; border-radius: 10px;
+	display: inline-flex; align-items: center; justify-content: center;
+	border: 1px solid var(--evolve-border);
+}
+.evolve-footer__social a:hover { background: var(--evolve-accent); color: #000; border-color: var(--evolve-accent); }
+.evolve-footer__bottom {
+	max-width: var(--evolve-container); margin: 36px auto 0; padding: 18px 24px 0;
+	border-top: 1px solid var(--evolve-border);
+	display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+	font-size: 12px; color: var(--evolve-text-mute);
+}
+.evolve-21pill {
+	display: inline-flex; align-items: center; gap: 6px;
+	padding: 4px 10px; border-radius: 999px;
+	background: var(--evolve-accent); color: #000;
+	font-weight: 800; font-size: 11px; letter-spacing: .1em;
+}
+@media (max-width: 900px) {
+	.evolve-footer__inner { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 500px) {
+	.evolve-footer__inner { grid-template-columns: 1fr; }
+}
+
+/* ---------- Pickup notice ---------- */
+.evolve-pickup-notice {
+	display: inline-flex; align-items: center; gap: 10px;
+	padding: 10px 14px;
+	margin: 14px 0;
+	border-radius: var(--evolve-radius-sm);
+	background: rgba(183,255,0,0.06);
+	border: 1px solid rgba(183,255,0,0.25);
+	color: var(--evolve-text-dim);
+	font-size: 13px;
+}
+.evolve-pickup-notice__dot {
+	width: 8px; height: 8px; border-radius: 50%;
+	background: var(--evolve-accent);
+	box-shadow: 0 0 0 4px rgba(183,255,0,0.18);
+	animation: evolve-pulse 1.8s ease-in-out infinite;
+}
+@keyframes evolve-pulse {
+	0%,100% { box-shadow: 0 0 0 4px rgba(183,255,0,0.18); }
+	50%     { box-shadow: 0 0 0 8px rgba(183,255,0,0.0); }
+}
+
+/* ---------- Forms (general + Woo) ---------- */
+input[type="text"], input[type="email"], input[type="password"], input[type="tel"],
+input[type="url"], input[type="search"], input[type="number"], textarea, select,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce-page form .form-row input.input-text {
+	background: var(--evolve-card-2);
+	border: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	border-radius: var(--evolve-radius-sm);
+	padding: 14px 16px;
+	font-family: var(--evolve-font-body);
+	font-size: 14px;
+	transition: border-color var(--evolve-dur) var(--evolve-ease), box-shadow var(--evolve-dur) var(--evolve-ease);
+	width: 100%;
+}
+input:focus, textarea:focus, select:focus,
+.woocommerce form .form-row input.input-text:focus {
+	outline: none;
+	border-color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+label, .woocommerce form .form-row label { color: var(--evolve-text-dim); font-size: 13px; font-weight: 600; }
+::placeholder { color: var(--evolve-text-mute); }
+
+/* ---------- Misc helpers ---------- */
+.evolve-divider {
+	height: 1px; background: linear-gradient(90deg, transparent, var(--evolve-border), transparent);
+	margin: 24px 0;
+}
+.evolve-neon-text { color: var(--evolve-accent); text-shadow: 0 0 20px rgba(183,255,0,0.45); }
+
+/* ============================================================================
+   v1.0.1 — Admin bar offset, header search/cart, ID-required pickup banner
+   ========================================================================= */
+
+/* Admin bar collides with the "21+ Orders ready" pill on the topbar.
+   When the WP admin bar is visible, push everything below it. */
+html[lang][class*="admin-bar"] .evolve-topbar,
+body.admin-bar .evolve-topbar { margin-top: 32px; }
+@media (max-width: 782px) {
+	body.admin-bar .evolve-topbar { margin-top: 46px; }
+}
+body.admin-bar .evolve-header.elementor-sticky--active,
+body.admin-bar .evolve-header[data-sticky="yes"] {
+	top: 32px !important;
+}
+@media (max-width: 782px) {
+	body.admin-bar .evolve-header.elementor-sticky--active,
+	body.admin-bar .evolve-header[data-sticky="yes"] {
+		top: 46px !important;
+	}
+}
+
+/* Make sure the cart "$0.00" link in the header looks like our other icon buttons */
+.evolve-header .elementor-menu-cart__toggle .elementor-button-wrapper .elementor-button {
+	background: transparent !important;
+	color: var(--evolve-text) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 999px !important;
+	padding: 8px 16px !important;
+	font-weight: 700 !important;
+}
+.evolve-header .elementor-menu-cart__toggle .elementor-button-icon { color: var(--evolve-accent) !important; }
+.evolve-header .elementor-menu-cart__toggle .elementor-button:hover {
+	border-color: var(--evolve-accent) !important;
+	box-shadow: var(--evolve-glow-soft);
+}
+.evolve-header .elementor-menu-cart__toggle .elementor-menu-cart__items-indicator {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+}
+
+/* "Looking for?" search box — match cart pill */
+.evolve-header form[role="search"] {
+	background: rgba(255,255,255,0.04);
+	border: 1px solid var(--evolve-border);
+	border-radius: 999px;
+	padding: 6px 10px 6px 16px;
+}
+.evolve-header form[role="search"] input[type="search"] {
+	background: transparent !important;
+	border: 0 !important;
+	color: var(--evolve-text) !important;
+	padding: 6px 0 !important;
+	min-width: 180px;
+}
+.evolve-header form[role="search"] button { background: transparent !important; color: var(--evolve-accent) !important; }
+
+/* Make h1 page titles + sticky pickup notice float clearly above gallery */
+.elementor-widget-woocommerce-product-title { margin-bottom: 8px; }
+
+/* ============================================================================
+   v1.0.6 — Blog / Single / Contact / Default Page templates
+   ========================================================================= */
+
+/* ---------- Newsletter card (blog archive footer) ---------- */
+.evolve-newsletter {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	gap: 24px;
+	align-items: center;
+	padding: 36px;
+	border-radius: var(--evolve-radius);
+	border: 1px solid rgba(183,255,0,0.25);
+	background:
+		linear-gradient(120deg, rgba(183,255,0,0.10), transparent 55%),
+		linear-gradient(180deg, var(--evolve-card-2), var(--evolve-card));
+}
+.evolve-newsletter__eyebrow {
+	color: var(--evolve-accent);
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 11px;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+}
+.evolve-newsletter__title {
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	font-size: clamp(1.3rem, 2.5vw, 2rem);
+	margin: 8px 0 6px;
+	line-height: 1.1;
+}
+.evolve-newsletter__lede { color: var(--evolve-text-dim); margin: 0; font-size: 14px; line-height: 1.6; }
+.evolve-newsletter__form { display: flex; gap: 8px; }
+.evolve-newsletter__form input {
+	flex: 1; min-width: 0;
+	background: rgba(255,255,255,0.05);
+	border: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	border-radius: 999px;
+	padding: 14px 18px;
+	font-size: 14px;
+}
+.evolve-newsletter__form button {
+	background: var(--evolve-accent); color: #000; border: 0;
+	border-radius: 999px; padding: 14px 22px;
+	font-family: var(--evolve-font-head); font-weight: 700; font-size: 12px;
+	letter-spacing: .12em; text-transform: uppercase; cursor: pointer;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-newsletter__form button:hover { background: var(--evolve-accent-2); box-shadow: var(--evolve-glow-soft); }
+@media (max-width: 900px) {
+	.evolve-newsletter { grid-template-columns: 1fr; padding: 26px; }
+}
+
+/* ---------- Blog grid (Elementor archive-posts classic skin) ---------- */
+#evolve-blog-grid article,
+.elementor-widget-archive-posts .elementor-post,
+.elementor-widget-posts .elementor-post {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	overflow: hidden;
+	display: flex !important;
+	flex-direction: column !important;
+	height: 100%;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+#evolve-blog-grid article:hover,
+.elementor-widget-archive-posts .elementor-post:hover,
+.elementor-widget-posts .elementor-post:hover {
+	transform: translateY(-4px);
+	border-color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+
+/* Thumbnail flush to the top edge, no rounded corners on its own */
+.elementor-widget-archive-posts .elementor-post__thumbnail,
+.elementor-widget-posts .elementor-post__thumbnail,
+.elementor-widget-archive-posts .elementor-post__thumbnail__link,
+.elementor-widget-posts .elementor-post__thumbnail__link {
+	margin: 0 !important;
+	border-radius: 0 !important;
+}
+.elementor-widget-archive-posts .elementor-post__thumbnail img,
+.elementor-widget-posts .elementor-post__thumbnail img {
+	border-radius: 0 !important;
+	width: 100% !important;
+	height: auto !important;
+	display: block;
+}
+
+/* Text block — give it the padding the card was missing.
+   This is the actual bug fix: titles + excerpt + "Read more →" had no
+   horizontal padding, so they bled into the card border and got clipped
+   by overflow:hidden. */
+.elementor-widget-archive-posts .elementor-post__text,
+.elementor-widget-posts .elementor-post__text {
+	padding: 22px 24px 24px !important;
+	margin: 0 !important;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+	gap: 10px;
+}
+
+.elementor-widget-archive-posts .elementor-post__title,
+.elementor-widget-posts .elementor-post__title {
+	margin: 0 !important;
+	padding: 0 !important;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.elementor-widget-archive-posts .elementor-post__title a,
+.elementor-widget-posts .elementor-post__title a {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 1.3;
+	letter-spacing: -0.005em;
+}
+.elementor-widget-archive-posts .elementor-post__title a:hover,
+.elementor-widget-posts .elementor-post__title a:hover {
+	color: var(--evolve-accent) !important;
+}
+
+.elementor-widget-archive-posts .elementor-post__excerpt,
+.elementor-widget-posts .elementor-post__excerpt {
+	margin: 0 !important;
+}
+.elementor-widget-archive-posts .elementor-post__excerpt p,
+.elementor-widget-posts .elementor-post__excerpt p {
+	color: var(--evolve-text-dim) !important;
+	font-size: 14px;
+	line-height: 1.55;
+	margin: 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 4;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
+.elementor-widget-archive-posts .elementor-post__meta-data,
+.elementor-widget-posts .elementor-post__meta-data {
+	color: var(--evolve-text-mute);
+	font-size: 12px;
+	letter-spacing: .04em;
+	margin: 0 !important;
+}
+
+/* "Read more →" — anchor to the bottom of the flex column so card heights
+   align and the link never gets clipped by overflow:hidden again. */
+.elementor-widget-archive-posts .elementor-post__read-more,
+.elementor-widget-posts .elementor-post__read-more {
+	color: var(--evolve-accent) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	margin: auto 0 0 !important;
+	padding: 2px 0 0 !important;
+	display: inline-block;
+	align-self: flex-start;
+}
+
+/* Make sure the grid container stretches its cells so flex: 1 has room */
+.elementor-widget-archive-posts .elementor-posts-container,
+.elementor-widget-posts .elementor-posts-container,
+.elementor-widget-archive-posts .elementor-posts,
+.elementor-widget-posts .elementor-posts {
+	align-items: stretch !important;
+}
+.elementor-widget-archive-posts .elementor-pagination .page-numbers,
+.elementor-widget-posts .elementor-pagination .page-numbers {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	border-radius: 10px;
+	margin: 0 3px;
+	padding: 6px 12px;
+}
+.elementor-widget-archive-posts .elementor-pagination .page-numbers.current {
+	background: var(--evolve-accent); color: #000; border-color: var(--evolve-accent);
+}
+
+/* ---------- Single blog post body ---------- */
+.evolve-post-body .elementor-widget-container,
+#evolve-post-content {
+	max-width: 760px;
+	margin: 0 auto;
+	color: var(--evolve-text-dim);
+	font-size: 17px;
+	line-height: 1.8;
+}
+#evolve-post-content p { margin: 0 0 22px; color: var(--evolve-text-dim); }
+#evolve-post-content h2 {
+	color: var(--evolve-text); font-family: var(--evolve-font-head);
+	font-weight: 800; font-size: 28px; margin: 36px 0 14px;
+	letter-spacing: -0.01em;
+}
+#evolve-post-content h3 {
+	color: var(--evolve-text); font-family: var(--evolve-font-head);
+	font-weight: 700; font-size: 22px; margin: 28px 0 12px;
+}
+#evolve-post-content h4 { color: var(--evolve-text); font-family: var(--evolve-font-head); font-weight: 700; font-size: 18px; margin: 22px 0 10px; }
+#evolve-post-content a {
+	color: var(--evolve-accent);
+	text-decoration: underline; text-decoration-color: rgba(183,255,0,0.4); text-underline-offset: 3px;
+}
+#evolve-post-content a:hover { text-decoration-color: var(--evolve-accent); }
+#evolve-post-content blockquote {
+	border-left: 3px solid var(--evolve-accent);
+	padding: 6px 0 6px 20px;
+	margin: 28px 0;
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 1.4;
+}
+#evolve-post-content code {
+	background: var(--evolve-card-2);
+	border: 1px solid var(--evolve-border);
+	border-radius: 6px;
+	padding: 2px 6px;
+	font-size: .9em;
+	color: var(--evolve-accent);
+}
+#evolve-post-content pre {
+	background: var(--evolve-card-2);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius-sm);
+	padding: 18px;
+	overflow-x: auto;
+	margin: 22px 0;
+}
+#evolve-post-content img, #evolve-post-content figure {
+	max-width: 100%; height: auto;
+	border-radius: var(--evolve-radius-xs);
+	margin: 22px 0;
+}
+#evolve-post-content ul, #evolve-post-content ol {
+	padding-left: 26px; margin: 0 0 22px; color: var(--evolve-text-dim);
+}
+#evolve-post-content li { margin: 6px 0; }
+#evolve-post-content hr { border: 0; border-top: 1px solid var(--evolve-border); margin: 36px 0; }
+
+.evolve-author-card .elementor-author-box {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 24px;
+	color: var(--evolve-text-dim);
+}
+.evolve-author-card .elementor-author-box__name { color: var(--evolve-text); font-family: var(--evolve-font-head); font-weight: 700; }
+
+/* ---------- Contact card (right column of contact page) ---------- */
+.evolve-contact-card {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 28px;
+	color: var(--evolve-text-dim);
+}
+.evolve-contact-card__row {
+	display: flex;
+	align-items: flex-start;
+	gap: 14px;
+	padding: 14px 0;
+	border-bottom: 1px solid var(--evolve-border);
+}
+.evolve-contact-card__row:last-of-type { border-bottom: 0; }
+.evolve-contact-card__icon {
+	flex: 0 0 38px; height: 38px;
+	display: inline-flex; align-items: center; justify-content: center;
+	border-radius: 10px;
+	background: rgba(183,255,0,0.08);
+	color: var(--evolve-accent);
+}
+.evolve-contact-card__label {
+	display: block;
+	color: var(--evolve-text-mute);
+	font-family: var(--evolve-font-head);
+	font-size: 10px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	margin-bottom: 2px;
+}
+.evolve-contact-card__value {
+	color: var(--evolve-text);
+	font-size: 14.5px;
+	line-height: 1.55;
+	text-decoration: none;
+}
+.evolve-contact-card__value:hover { color: var(--evolve-accent); }
+.evolve-contact-card__value strong { color: var(--evolve-text); font-weight: 700; }
+.evolve-contact-card__pickup {
+	display: inline-flex; align-items: center; gap: 8px;
+	margin-top: 14px;
+	padding: 8px 12px;
+	border-radius: 999px;
+	background: rgba(183,255,0,0.08);
+	color: var(--evolve-accent);
+	font-size: 12px; font-weight: 700;
+	letter-spacing: .08em; text-transform: uppercase;
+}
+.evolve-contact-card__dot {
+	width: 8px; height: 8px; border-radius: 50%;
+	background: var(--evolve-accent);
+	box-shadow: 0 0 0 4px rgba(183,255,0,0.18);
+}
+
+/* ---------- Accordion (Contact FAQ + anywhere else) ---------- */
+.evolve-accordion .elementor-accordion-item {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius-sm) !important;
+	margin-bottom: 8px;
+	overflow: hidden;
+}
+.evolve-accordion .elementor-tab-title {
+	background: transparent !important;
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 15px;
+	padding: 18px 22px !important;
+	border-bottom: 0 !important;
+}
+.evolve-accordion .elementor-tab-title.elementor-active { color: var(--evolve-accent) !important; }
+.evolve-accordion .elementor-tab-content {
+	background: var(--evolve-card-2);
+	color: var(--evolve-text-dim);
+	border-top: 1px solid var(--evolve-border) !important;
+	padding: 18px 22px !important;
+	line-height: 1.65;
+}
+.evolve-accordion .elementor-accordion-icon { color: var(--evolve-accent); }
+
+/* ---------- Side block (Default Page sidebar) ---------- */
+.evolve-sideblock {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 22px;
+	color: var(--evolve-text-dim);
+}
+.evolve-sideblock__title {
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 13px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	margin: 0 0 12px;
+}
+.evolve-sideblock__line { margin: 10px 0; font-size: 13.5px; line-height: 1.55; }
+.evolve-sideblock__line strong { color: var(--evolve-text); font-weight: 700; }
+.evolve-sideblock__line a { color: var(--evolve-text-dim); }
+.evolve-sideblock__line a:hover { color: var(--evolve-accent); }
+.evolve-sideblock__pill {
+	display: inline-block;
+	margin-top: 8px;
+	padding: 4px 10px;
+	border-radius: 999px;
+	background: var(--evolve-accent);
+	color: #000;
+	font-family: var(--evolve-font-head);
+	font-weight: 800; font-size: 10px;
+	letter-spacing: .12em;
+}
+.evolve-sideblock--cta {
+	background:
+		linear-gradient(135deg, rgba(183,255,0,0.10), transparent 60%),
+		var(--evolve-card);
+	border-color: rgba(183,255,0,0.2);
+}
+.evolve-sideblock__btn {
+	display: inline-flex; align-items: center; gap: 8px;
+	background: var(--evolve-accent); color: #000;
+	border-radius: 12px;
+	padding: 10px 16px;
+	font-family: var(--evolve-font-head);
+	font-weight: 700; font-size: 12px;
+	letter-spacing: .12em; text-transform: uppercase;
+	text-decoration: none;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-sideblock__btn:hover { background: var(--evolve-accent-2); box-shadow: var(--evolve-glow-soft); color: #000; }
+
+/* ---------- Default Page body card ---------- */
+.evolve-page-body #evolve-page-content,
+.evolve-page-body .elementor-widget-theme-post-content .elementor-widget-container {
+	color: var(--evolve-text-dim);
+	font-size: 16px;
+	line-height: 1.75;
+}
+.evolve-page-body h2, .evolve-page-body h3, .evolve-page-body h4 {
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	margin: 28px 0 12px;
+}
+.evolve-page-body h2 { font-weight: 800; font-size: 26px; }
+.evolve-page-body h3 { font-weight: 700; font-size: 20px; }
+.evolve-page-body a {
+	color: var(--evolve-accent);
+	text-decoration: underline; text-decoration-color: rgba(183,255,0,0.4);
+}
+.evolve-page-body ul, .evolve-page-body ol { padding-left: 24px; margin: 0 0 18px; color: var(--evolve-text-dim); }
+.evolve-page-body li { margin: 6px 0; }
+.evolve-page-body blockquote {
+	border-left: 3px solid var(--evolve-accent);
+	padding-left: 18px;
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 600; font-size: 18px;
+	margin: 22px 0;
+}
+
+/* ---------- Bottom CTA strip ---------- */
+.evolve-bottom-cta {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 24px;
+	padding: 32px;
+	border-radius: var(--evolve-radius);
+	border: 1px solid rgba(183,255,0,0.25);
+	background:
+		linear-gradient(120deg, rgba(183,255,0,0.10), transparent 55%),
+		linear-gradient(180deg, var(--evolve-card-2), var(--evolve-card));
+	flex-wrap: wrap;
+}
+.evolve-bottom-cta__eyebrow {
+	color: var(--evolve-accent);
+	font-family: var(--evolve-font-head); font-weight: 700;
+	font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+}
+.evolve-bottom-cta__title {
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head); font-weight: 800;
+	font-size: clamp(1.1rem, 2vw, 1.6rem);
+	margin: 6px 0 0; max-width: 640px; line-height: 1.2;
+}
+.evolve-bottom-cta__btn {
+	background: var(--evolve-accent); color: #000;
+	padding: 14px 24px; border-radius: 14px;
+	font-family: var(--evolve-font-head); font-weight: 700; font-size: 13px;
+	letter-spacing: .12em; text-transform: uppercase;
+	text-decoration: none;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-bottom-cta__btn:hover { background: var(--evolve-accent-2); box-shadow: var(--evolve-glow-soft); color: #000; }
+
+/* ---------- Default-Page responsive sidebar collapse ---------- */
+@media (max-width: 900px) {
+	.evolve-page-body { padding: 24px !important; }
+}
+
+/* ============================================================================
+   v1.0.7 — Cart / Thank-you helpers
+   ========================================================================= */
+
+/* Trust badges row under the cart */
+.evolve-trust-row {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 14px;
+	margin-top: 16px;
+}
+@media (max-width: 900px) { .evolve-trust-row { grid-template-columns: 1fr; } }
+.evolve-trust {
+	display: flex; align-items: center; gap: 14px;
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 18px 20px;
+}
+.evolve-trust__icon {
+	flex: 0 0 44px; height: 44px;
+	display: inline-flex; align-items: center; justify-content: center;
+	background: rgba(183,255,0,0.08);
+	border-radius: 12px;
+	font-size: 22px;
+	box-shadow: var(--evolve-glow-soft);
+}
+.evolve-trust__title { display: block; color: var(--evolve-text); font-family: var(--evolve-font-head); font-weight: 700; font-size: 14px; }
+.evolve-trust__sub   { display: block; color: var(--evolve-text-dim); font-size: 12.5px; line-height: 1.45; margin-top: 2px; }
+
+/* Order received "OK" glyph */
+.evolve-ok-glyph {
+	display: inline-flex;
+	width: 92px; height: 92px;
+	border-radius: 999px;
+	align-items: center; justify-content: center;
+	background: rgba(183,255,0,0.10);
+	box-shadow: 0 0 0 6px rgba(183,255,0,0.06), 0 0 32px rgba(183,255,0,0.25);
+	margin-bottom: 8px;
+	animation: evolve-ok-pop .55s cubic-bezier(.2,.7,.2,1) both;
+}
+@keyframes evolve-ok-pop {
+	0%   { transform: scale(.6); opacity: 0; }
+	60%  { transform: scale(1.08); opacity: 1; }
+	100% { transform: scale(1); }
+}
+
+/* ============================================================================
+   v1.0.19 — Evolve Pulse animations
+   ----------------------------------------------------------------------------
+   Reusable neon-green pulse effects. Apply via:
+   1. CSS class: <div class="evolve-pulse">…</div>
+   2. Elementor: Advanced → CSS Classes → add `evolve-pulse`
+   3. Shortcode: [evolve_pulse style="glow"]content[/evolve_pulse]
+
+   Style variants:
+   - evolve-pulse                    glow (default — box-shadow pulse)
+   - evolve-pulse--text              neon text-shadow pulse for headlines
+   - evolve-pulse--ring              expanding outward ring (CTA emphasis)
+   - evolve-pulse--dot               solid neon dot indicator
+   - evolve-pulse--scale             subtle 1.0 → 1.03 breathing
+   - evolve-pulse--combo             glow + scale together
+   - evolve-pulse--strong            bigger glow radius / opacity
+
+   Speed modifiers (combine with any):
+   - evolve-pulse--slow, evolve-pulse--fast
+
+   Behavior:
+   - evolve-pulse--hover             only animates while hovered
+   - evolve-pulse--once              runs animation once, then stops
+
+   Custom color override (e.g. on buttons): set `--evolve-pulse-color: #...`
+   on the element via inline style or a wrapper.
+   ========================================================================= */
+
+:root, .evolve-pulse {
+	--evolve-pulse-color: var(--evolve-accent, #B7FF00);
+	--evolve-pulse-color-2: var(--evolve-accent-2, #7CFF4F);
+	--evolve-pulse-radius: 14px;
+}
+
+/* --- Keyframes --- */
+@keyframes evolve-pulse-glow {
+	0%, 100% {
+		box-shadow:
+			0 0 0 0 color-mix(in srgb, var(--evolve-pulse-color) 0%, transparent),
+			0 0 12px color-mix(in srgb, var(--evolve-pulse-color) 25%, transparent);
+	}
+	50% {
+		box-shadow:
+			0 0 0 8px color-mix(in srgb, var(--evolve-pulse-color) 0%, transparent),
+			0 0 24px color-mix(in srgb, var(--evolve-pulse-color) 60%, transparent);
+	}
+}
+@keyframes evolve-pulse-glow-strong {
+	0%, 100% {
+		box-shadow:
+			0 0 0 0  color-mix(in srgb, var(--evolve-pulse-color) 0%, transparent),
+			0 0 18px color-mix(in srgb, var(--evolve-pulse-color) 45%, transparent);
+	}
+	50% {
+		box-shadow:
+			0 0 0 14px color-mix(in srgb, var(--evolve-pulse-color) 0%, transparent),
+			0 0 40px  color-mix(in srgb, var(--evolve-pulse-color) 85%, transparent);
+	}
+}
+@keyframes evolve-pulse-text {
+	0%, 100% {
+		text-shadow:
+			0 0 8px  color-mix(in srgb, var(--evolve-pulse-color) 40%, transparent),
+			0 0 18px color-mix(in srgb, var(--evolve-pulse-color) 15%, transparent);
+	}
+	50% {
+		text-shadow:
+			0 0 14px color-mix(in srgb, var(--evolve-pulse-color) 80%, transparent),
+			0 0 28px color-mix(in srgb, var(--evolve-pulse-color) 45%, transparent);
+	}
+}
+@keyframes evolve-pulse-ring {
+	0%   { box-shadow: 0 0 0 0  color-mix(in srgb, var(--evolve-pulse-color) 60%, transparent); }
+	100% { box-shadow: 0 0 0 22px color-mix(in srgb, var(--evolve-pulse-color)  0%, transparent); }
+}
+@keyframes evolve-pulse-dot {
+	0%, 100% { box-shadow: 0 0 0 4px  color-mix(in srgb, var(--evolve-pulse-color) 18%, transparent); }
+	50%      { box-shadow: 0 0 0 10px color-mix(in srgb, var(--evolve-pulse-color)  0%, transparent); }
+}
+@keyframes evolve-pulse-scale {
+	0%, 100% { transform: scale(1); }
+	50%      { transform: scale(1.03); }
+}
+
+/* --- Fallback for browsers that don't support color-mix() (older Safari etc) ---
+   The animations still work without color-mix(); the browser ignores invalid
+   keyframe values and just doesn't animate. Provide a plain neon glow fallback. */
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+	@keyframes evolve-pulse-glow {
+		0%, 100% { box-shadow: 0 0 12px rgba(183,255,0,0.25); }
+		50%      { box-shadow: 0 0 24px rgba(183,255,0,0.6),  0 0 0 8px rgba(183,255,0,0); }
+	}
+	@keyframes evolve-pulse-text {
+		0%, 100% { text-shadow: 0 0 8px rgba(183,255,0,0.4); }
+		50%      { text-shadow: 0 0 14px rgba(183,255,0,0.8); }
+	}
+	@keyframes evolve-pulse-ring {
+		0%   { box-shadow: 0 0 0 0  rgba(183,255,0,0.6); }
+		100% { box-shadow: 0 0 0 22px rgba(183,255,0,0); }
+	}
+	@keyframes evolve-pulse-dot {
+		0%, 100% { box-shadow: 0 0 0 4px rgba(183,255,0,0.18); }
+		50%      { box-shadow: 0 0 0 10px rgba(183,255,0,0); }
+	}
+}
+
+/* --- Base classes ---
+   Every pulse wrapper rounds itself via --evolve-pulse-radius so the
+   box-shadow halo follows the rounded shape of whatever it wraps.
+   Override per-element with inline style: `--evolve-pulse-radius: 20px`
+   or via the shortcode's `radius="…"` attribute. */
+.evolve-pulse {
+	animation: evolve-pulse-glow 1.8s ease-in-out infinite;
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+.evolve-pulse--text {
+	color: var(--evolve-pulse-color);
+	animation: evolve-pulse-text 1.8s ease-in-out infinite;
+}
+.evolve-pulse--ring {
+	position: relative;
+	animation: evolve-pulse-ring 1.8s cubic-bezier(.66,0,0,1) infinite;
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+.evolve-pulse--dot {
+	display: inline-block;
+	width: 10px; height: 10px;
+	border-radius: 50%;
+	background: var(--evolve-pulse-color);
+	vertical-align: middle;
+	animation: evolve-pulse-dot 1.6s ease-in-out infinite;
+}
+.evolve-pulse--scale {
+	display: inline-block;
+	animation: evolve-pulse-scale 2s ease-in-out infinite;
+	transform-origin: center;
+}
+.evolve-pulse--combo {
+	animation:
+		evolve-pulse-glow  1.8s ease-in-out infinite,
+		evolve-pulse-scale 2.0s ease-in-out infinite;
+	transform-origin: center;
+}
+.evolve-pulse--strong {
+	animation-name: evolve-pulse-glow-strong;
+}
+
+/* --- Speed modifiers (apply with !important so they win when chained) --- */
+.evolve-pulse--slow { animation-duration: 2.8s !important; }
+.evolve-pulse--fast { animation-duration: 1.0s !important; }
+
+/* --- Behavior modifiers --- */
+.evolve-pulse--hover { animation: none; }
+.evolve-pulse--hover:hover,
+.evolve-pulse--hover:focus-within {
+	animation: evolve-pulse-glow 1.5s ease-in-out infinite;
+}
+.evolve-pulse--once { animation-iteration-count: 1; }
+
+/* --- Common combinations: pulsing button/CTA --- */
+.evolve-pulse-button,
+.evolve-pulse-cta {
+	position: relative;
+	animation:
+		evolve-pulse-glow 1.8s ease-in-out infinite,
+		evolve-pulse-scale 2.4s ease-in-out infinite;
+	transform-origin: center;
+}
+
+/* --- v1.0.23 — Highly visible variants --- */
+@keyframes evolve-pulse-width {
+	0%, 100% {
+		transform: scaleX(1);
+		box-shadow:
+			0 0 12px color-mix(in srgb, var(--evolve-pulse-color) 30%, transparent),
+			0 0 0 0 color-mix(in srgb, var(--evolve-pulse-color) 50%, transparent);
+	}
+	50% {
+		transform: scaleX(1.08);
+		box-shadow:
+			0 0 28px color-mix(in srgb, var(--evolve-pulse-color) 65%, transparent),
+			0 0 0 8px color-mix(in srgb, var(--evolve-pulse-color)  0%, transparent);
+	}
+}
+@keyframes evolve-pulse-attention {
+	0%, 100% {
+		transform: scale(1);
+		box-shadow:
+			0 0 0  0 color-mix(in srgb, var(--evolve-pulse-color) 60%, transparent),
+			0 0 16px color-mix(in srgb, var(--evolve-pulse-color) 35%, transparent);
+	}
+	50% {
+		transform: scale(1.06);
+		box-shadow:
+			0 0 0 14px color-mix(in srgb, var(--evolve-pulse-color)  0%, transparent),
+			0 0 32px  color-mix(in srgb, var(--evolve-pulse-color) 75%, transparent);
+	}
+}
+@supports not (background: color-mix(in srgb, red 50%, blue)) {
+	@keyframes evolve-pulse-width {
+		0%, 100% { transform: scaleX(1);    box-shadow: 0 0 12px rgba(183,255,0,0.30); }
+		50%      { transform: scaleX(1.08); box-shadow: 0 0 28px rgba(183,255,0,0.65); }
+	}
+	@keyframes evolve-pulse-attention {
+		0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0  rgba(183,255,0,0.6), 0 0 16px rgba(183,255,0,0.35); }
+		50%      { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(183,255,0,0),  0 0 32px rgba(183,255,0,0.75); }
+	}
+}
+.evolve-pulse--width {
+	display: inline-block;
+	animation: evolve-pulse-width 1.4s ease-in-out infinite;
+	transform-origin: center;
+	will-change: transform;
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+.evolve-pulse--attention {
+	display: inline-block;
+	animation: evolve-pulse-attention 1.4s ease-in-out infinite;
+	transform-origin: center;
+	will-change: transform;
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+.evolve-pulse-button,
+.evolve-pulse-cta {
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+
+/* --- v1.0.23 — Auto-pulse the cart badge when items > 0 --- */
+@keyframes evolve-pulse-cart {
+	0%, 100% {
+		transform: scale(1);
+		box-shadow: 0 0 0 0 rgba(183,255,0,0.65),
+		            0 0 8px rgba(183,255,0,0.35);
+	}
+	50% {
+		transform: scale(1.18);
+		box-shadow: 0 0 0 10px rgba(183,255,0,0),
+		            0 0 18px rgba(183,255,0,0.8);
+	}
+}
+/* The badge has data-counter="N"; pulse only when N is set and not empty/zero. */
+.elementor-menu-cart__toggle .elementor-button-icon-qty[data-counter]:not([data-counter="0"]):not([data-counter=""]),
+.elementor-menu-cart__toggle [data-counter]:not([data-counter="0"]):not([data-counter=""]) {
+	animation: evolve-pulse-cart 1.4s ease-in-out infinite;
+	transform-origin: center;
+}
+/* Fallback selector for the legacy Evolve mini-cart badge in functions.php */
+.evolve-cart-link .evolve-badge.evolve-cart-count:not(:empty):not([data-count="0"]) {
+	animation: evolve-pulse-cart 1.4s ease-in-out infinite;
+	transform-origin: center;
+}
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+	.evolve-pulse,
+	.evolve-pulse--text,
+	.evolve-pulse--ring,
+	.evolve-pulse--dot,
+	.evolve-pulse--scale,
+	.evolve-pulse--combo,
+	.evolve-pulse--strong,
+	.evolve-pulse--width,
+	.evolve-pulse--attention,
+	.evolve-pulse--hover:hover,
+	.evolve-pulse-button,
+	.evolve-pulse-cta,
+	.elementor-menu-cart__toggle .elementor-button-icon-qty[data-counter] { animation: none !important; }
+}
+
+/* ============================================================================
+   v1.0.32 — Elementor wrapper redirect
+   ----------------------------------------------------------------------------
+   When pulse classes are added via Elementor's Advanced → CSS Classes field,
+   Elementor writes them on the OUTER .elementor-widget div, not the inner
+   .elementor-button. That makes the whole widget container pulse (the full
+   row width). Detect this case and redirect the animation to the inner
+   button element so only the button breathes.
+   ========================================================================= */
+.elementor-widget-button.evolve-pulse,
+.elementor-widget-button.evolve-pulse-button,
+.elementor-widget-button.evolve-pulse-cta,
+.elementor-widget-button.evolve-pulse--width,
+.elementor-widget-button.evolve-pulse--attention,
+.elementor-widget-button.evolve-pulse--scale,
+.elementor-widget-button.evolve-pulse--combo,
+.elementor-widget-button.evolve-pulse--ring,
+.elementor-widget-button.evolve-pulse--strong {
+	animation: none !important;
+	box-shadow: none !important;
+	transform: none !important;
+}
+.elementor-widget-button.evolve-pulse           .elementor-button-link,
+.elementor-widget-button.evolve-pulse-button    .elementor-button-link,
+.elementor-widget-button.evolve-pulse-cta       .elementor-button-link,
+.elementor-widget-button.evolve-pulse           .elementor-button,
+.elementor-widget-button.evolve-pulse-button    .elementor-button,
+.elementor-widget-button.evolve-pulse-cta       .elementor-button {
+	animation:
+		evolve-pulse-glow 1.8s ease-in-out infinite,
+		evolve-pulse-scale 2.4s ease-in-out infinite;
+	transform-origin: center;
+	border-radius: var(--evolve-pulse-radius, 14px);
+	will-change: transform;
+}
+.elementor-widget-button.evolve-pulse--width .elementor-button {
+	animation: evolve-pulse-width 1.4s ease-in-out infinite;
+	transform-origin: center;
+	border-radius: var(--evolve-pulse-radius, 14px);
+	will-change: transform;
+}
+.elementor-widget-button.evolve-pulse--attention .elementor-button {
+	animation: evolve-pulse-attention 1.4s ease-in-out infinite;
+	transform-origin: center;
+	border-radius: var(--evolve-pulse-radius, 14px);
+	will-change: transform;
+}
+.elementor-widget-button.evolve-pulse--scale .elementor-button {
+	animation: evolve-pulse-scale 2s ease-in-out infinite;
+	transform-origin: center;
+}
+.elementor-widget-button.evolve-pulse--combo .elementor-button {
+	animation:
+		evolve-pulse-glow  1.8s ease-in-out infinite,
+		evolve-pulse-scale 2.0s ease-in-out infinite;
+	transform-origin: center;
+}
+.elementor-widget-button.evolve-pulse--ring .elementor-button {
+	animation: evolve-pulse-ring 1.8s cubic-bezier(.66,0,0,1) infinite;
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+.elementor-widget-button.evolve-pulse--strong .elementor-button {
+	animation: evolve-pulse-glow-strong 1.8s ease-in-out infinite;
+	border-radius: var(--evolve-pulse-radius, 14px);
+}
+/* Modifier combos still apply on the inner button */
+.elementor-widget-button.evolve-pulse--slow .elementor-button { animation-duration: 2.8s !important; }
+.elementor-widget-button.evolve-pulse--fast .elementor-button { animation-duration: 1.0s !important; }
+
+/* Reduced motion — also stop the wrapper-redirected animations */
+@media (prefers-reduced-motion: reduce) {
+	.elementor-widget-button .elementor-button { animation: none !important; }
+}
+
+/* ============================================================================
+   v1.0.25 — Mobile header + Mobile menu popup polish
+   ========================================================================= */
+
+/* Mobile header topbar — single tight line */
+.evolve-mh-topbar { font-size: 11px; }
+.evolve-mh-topbar .elementor-widget-text-editor { font-size: 11px; line-height: 1.3; }
+.evolve-mh-topbar a { color: inherit !important; }
+
+/* Mobile main bar — compact, single row, glass on scroll
+   v1.0.26: force flex-row + size each direct child so widgets don't stack. */
+.evolve-mh-bar {
+	min-height: 56px;
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	align-items: center !important;
+	justify-content: space-between !important;
+}
+.evolve-mh-bar > .elementor-element,
+.evolve-mh-bar > .e-con,
+.evolve-mh-bar > div {
+	flex: 0 0 auto !important;
+	width: auto !important;
+	min-width: 0;
+}
+.evolve-mh-bar > .elementor-widget-theme-site-logo,
+.evolve-mh-bar > .evolve-mh-logo {
+	flex: 1 1 auto !important;
+	display: flex;
+	justify-content: center;
+}
+.evolve-mh-bar .elementor-widget-theme-site-logo img {
+	max-height: 30px; width: auto; display: block; margin: 0 auto;
+}
+
+/* Hamburger + cart icon buttons — same square pill */
+.evolve-mh-bar .elementor-widget-icon a,
+.evolve-mh-bar .evolve-mh-icon a {
+	display: inline-flex !important;
+	align-items: center;
+	justify-content: center;
+	width: 40px; height: 40px;
+	padding: 0 !important;
+	border: 1px solid var(--evolve-border);
+	border-radius: 10px;
+	background: transparent;
+	color: var(--evolve-text);
+}
+.evolve-mh-bar .evolve-mh-icon a:hover,
+.evolve-mh-bar .evolve-mh-icon a:focus {
+	border-color: var(--evolve-accent);
+	color: var(--evolve-accent);
+}
+
+/* Cart in the mobile bar — same 40×40 pill as the hamburger */
+.evolve-mh-bar .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__toggle .elementor-button {
+	width: 40px !important; height: 40px !important;
+	padding: 0 !important;
+	background: transparent !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 10px !important;
+	display: inline-flex !important;
+	align-items: center; justify-content: center;
+}
+.evolve-mh-bar .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__toggle .elementor-button-icon {
+	color: var(--evolve-text) !important;
+	font-size: 18px !important;
+}
+.evolve-mh-bar .elementor-widget-woocommerce-menu-cart .elementor-menu-cart__toggle .elementor-button-text {
+	display: none !important;
+}
+/* The cart count badge — pin neon top-right, never overlap the icon */
+.evolve-mh-bar .elementor-menu-cart__toggle .elementor-button-icon-qty[data-counter] {
+	right: -4px !important;
+	top: -4px !important;
+	min-width: 18px !important;
+	height: 18px !important;
+	padding: 0 5px !important;
+	font-size: 10px !important;
+	font-weight: 800 !important;
+}
+
+/* v1.0.30 — Make the mobile main bar sticky regardless of Elementor's
+   per-template sticky setting. The topbar (phone / location / 21+) is
+   intentionally NOT sticky and scrolls away. */
+@media (max-width: 1024px) {
+	.evolve-mh-bar {
+		position: -webkit-sticky !important;
+		position: sticky !important;
+		top: 0 !important;
+		z-index: 99 !important;
+		background: rgba(5,5,5,0.92) !important;
+		backdrop-filter: blur(14px) saturate(140%);
+		-webkit-backdrop-filter: blur(14px) saturate(140%);
+	}
+	/* Ancestor containers must allow sticky to work — no overflow:hidden */
+	.evolve-mh-bar,
+	.evolve-mh-topbar,
+	.elementor-location-header,
+	.elementor-location-header > .elementor-section,
+	.elementor-location-header > .elementor,
+	.elementor-location-header > .elementor > .elementor-section-wrap {
+		overflow: visible !important;
+	}
+}
+
+/* When the WP admin bar is shown, push sticky mobile header below it */
+body.admin-bar .evolve-mh-bar {
+	top: 46px !important;
+}
+body.admin-bar .evolve-mh-bar.elementor-sticky--active {
+	top: 46px !important;
+}
+@media (min-width: 783px) {
+	body.admin-bar .evolve-mh-bar { top: 32px !important; }
+}
+
+/* ============================================================================
+   Mobile Menu Popup — clean section dividers, info card, quick-links list
+   ========================================================================= */
+.evolve-mm-nav ul.elementor-nav-menu li.menu-item > a {
+	border-bottom: 1px solid #1E1E1E !important;
+	padding-bottom: 14px !important;
+}
+.evolve-mm-nav ul.elementor-nav-menu li.menu-item:last-child > a {
+	border-bottom: 0 !important;
+}
+
+/* Quick-links list */
+.evolve-mm-quick {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 6px 10px;
+	padding: 4px 0;
+}
+.evolve-mm-quick a {
+	display: block;
+	padding: 10px 14px;
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: 12px;
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: .02em;
+	text-decoration: none;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.evolve-mm-quick a:hover {
+	border-color: var(--evolve-accent);
+	color: var(--evolve-accent);
+}
+
+/* Info card (phone + address) */
+.evolve-mm-info {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.evolve-mm-info__row {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+	padding: 14px 16px;
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: 14px;
+	color: var(--evolve-text);
+	text-decoration: none;
+}
+.evolve-mm-info__row:hover {
+	border-color: var(--evolve-accent);
+}
+.evolve-mm-info__icon {
+	flex: 0 0 38px;
+	height: 38px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 10px;
+	background: rgba(183,255,0,0.08);
+	color: var(--evolve-accent);
+}
+.evolve-mm-info__row strong {
+	display: block;
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 14px;
+}
+.evolve-mm-info__row em {
+	display: block;
+	color: var(--evolve-text-dim);
+	font-style: normal;
+	font-size: 12px;
+	margin-top: 2px;
+}
+
+/* Smaller hero padding on mobile so the new header doesn't crowd the hero */
+@media (max-width: 767px) {
+	.evolve-hero, .evolve-hero-section {
+		padding-top: 40px !important;
+	}
+}
+
+/* ---------- 404 ---------- */
+.evolve-404 {
+	min-height: 70vh; display: grid; place-items: center; text-align: center; padding: 80px 24px;
+}
+.evolve-404 .code {
+	font-family: var(--evolve-font-head); font-weight: 900;
+	font-size: clamp(6rem, 16vw, 12rem);
+	line-height: 1;
+	background: linear-gradient(180deg, var(--evolve-accent), #4a8c00 80%);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: var(--evolve-glow);
+}

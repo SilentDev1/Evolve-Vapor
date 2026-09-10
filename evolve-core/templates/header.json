@@ -1,0 +1,128 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Header",
+	"type": "header",
+	"page_settings": [],
+	"content": [
+		{
+			"id": "evh-topbar",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"flex_direction": "row",
+				"flex_justify_content": "space-between",
+				"flex_align_items": "center",
+				"padding":   { "unit":"px", "top":"8",  "right":"24", "bottom":"8",  "left":"24", "isLinked": false },
+				"background_background": "classic",
+				"background_color": "#000000",
+				"border_border": "solid",
+				"border_width": { "unit":"px", "top":"0", "right":"0", "bottom":"1", "left":"0", "isLinked": false },
+				"border_color": "#1E1E1E",
+				"hide_mobile": "hidden-mobile",
+				"css_classes": "evolve-topbar"
+			},
+			"elements": [
+				{
+					"id": "evh-tbleft",
+					"elType": "widget",
+					"widgetType": "text-editor",
+					"settings": {
+						"editor": "<span style='color:#B7FF00;font-weight:700;'>(603) 880-1014</span>  ·  Pheasant Lane Mall · Nashua, NH  ·  In-store pickup",
+						"text_color": "#B3B3B3",
+						"typography_typography": "custom",
+						"typography_font_family": "Inter",
+						"typography_font_size": { "unit":"px", "size": 12.5 },
+						"typography_letter_spacing": { "unit":"px", "size": 0.4 }
+					}
+				},
+				{
+					"id": "evh-tbright",
+					"elType": "widget",
+					"widgetType": "text-editor",
+					"settings": {
+						"editor": "<span style='background:#B7FF00;color:#000;padding:2px 10px;border-radius:999px;font-weight:800;font-size:11px;letter-spacing:.08em;'>21+</span>  Orders ready in 30 min · Mon–Sat 10–9",
+						"text_color": "#B3B3B3",
+						"typography_typography": "custom",
+						"typography_font_family": "Inter",
+						"typography_font_size": { "unit":"px", "size": 12.5 },
+						"align": "right"
+					}
+				}
+			]
+		},
+		{
+			"id": "evh-main",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"flex_direction": "row",
+				"flex_justify_content": "space-between",
+				"flex_align_items": "center",
+				"padding":   { "unit":"px", "top":"16", "right":"24", "bottom":"16", "left":"24", "isLinked": false },
+				"background_background": "classic",
+				"background_color": "rgba(5,5,5,0.55)",
+				"sticky": "top",
+				"sticky_on": ["desktop","tablet"],
+				"sticky_offset": 0,
+				"sticky_effects_offset": 0,
+				"hide_mobile": "hidden-mobile",
+				"_css_classes": "evolve-header",
+				"css_classes": "evolve-header"
+			},
+			"elements": [
+				{
+					"id": "evh-logo",
+					"elType": "widget",
+					"widgetType": "theme-site-logo",
+					"settings": {
+						"align": "left",
+						"width": { "unit":"px", "size": 140 },
+						"caption_source": "none"
+					}
+				},
+				{
+					"id": "evh-nav",
+					"elType": "widget",
+					"widgetType": "nav-menu",
+					"settings": {
+						"menu": "primary",
+						"layout": "horizontal",
+						"submenu_icon": { "value":"fas fa-chevron-down", "library":"fa-solid" },
+						"pointer": "underline",
+						"animation_line": "fade",
+						"pointer_color_hover": "#B7FF00",
+						"color_menu_item": "#FFFFFF",
+						"color_menu_item_hover": "#B7FF00",
+						"color_menu_item_active": "#B7FF00",
+						"typography_menu_item_typography": "custom",
+						"typography_menu_item_font_family": "Poppins",
+						"typography_menu_item_font_weight": "600",
+						"typography_menu_item_font_size":   { "unit":"px", "size": 13 },
+						"typography_menu_item_text_transform": "uppercase",
+						"typography_menu_item_letter_spacing": { "unit":"px", "size": 1.2 },
+						"menu_space_between": { "unit":"px", "size": 28 },
+						"css_classes": "evolve-nav"
+					}
+				},
+				{
+					"id": "evh-actions",
+					"elType": "container",
+					"settings": {
+						"flex_direction": "row",
+						"flex_align_items": "center",
+						"flex_gap": { "unit":"px", "size": 12, "column": "12", "row": "12" },
+						"content_width": "full",
+						"flex_grow": 0,
+						"width": { "unit":"%", "size": 28 }
+					},
+					"elements": [
+						{ "id": "evh-search",  "elType": "widget", "widgetType": "icon",     "settings": { "selected_icon": { "value":"fas fa-search",        "library":"fa-solid" }, "size": { "unit":"px","size": 16 }, "primary_color": "#FFFFFF", "hover_primary_color":"#B7FF00", "view":"default", "link": { "url":"/?s=" } } },
+						{ "id": "evh-account", "elType": "widget", "widgetType": "icon",     "settings": { "selected_icon": { "value":"fas fa-user",          "library":"fa-solid" }, "size": { "unit":"px","size": 16 }, "primary_color": "#FFFFFF", "hover_primary_color":"#B7FF00", "view":"default", "link": { "url":"/my-account/" } } },
+						{ "id": "evh-cart",    "elType": "widget", "widgetType": "woocommerce-menu-cart", "settings": { "icon": "cart-medium", "icon_color":"#FFFFFF", "subtotal":"hide", "items_indicator_bg_color":"#B7FF00", "items_indicator_color":"#000000" } },
+						{ "id": "evh-cta",     "elType": "widget", "widgetType": "button",   "settings": { "text": "VISIT STORE", "link": { "url":"#location" }, "background_color":"#B7FF00", "button_text_color":"#000000", "hover_background_color":"#7CFF4F", "border_radius": { "unit":"px","top":"14","right":"14","bottom":"14","left":"14" }, "size":"sm" } }
+					]
+				}
+			]
+		}
+	]
+}

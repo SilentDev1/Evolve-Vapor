@@ -1,0 +1,303 @@
+/* ============================================================================
+   Evolve — Subscribe form (shortcode + Elementor widget)
+   ========================================================================= */
+.evolve-subscribe {
+	--evolve-sub-accent: #B7FF00;
+	--evolve-sub-accent-2: #7CFF4F;
+	--evolve-sub-bg: #111111;
+	--evolve-sub-bg-2: #161616;
+	--evolve-sub-border: #1E1E1E;
+	--evolve-sub-text: #FFFFFF;
+	--evolve-sub-text-dim: #B3B3B3;
+	font-family: 'Inter', system-ui, sans-serif;
+	color: var(--evolve-sub-text);
+	box-sizing: border-box;
+}
+.evolve-subscribe *,
+.evolve-subscribe *::before,
+.evolve-subscribe *::after { box-sizing: border-box; }
+.evolve-subscribe input,
+.evolve-subscribe button {
+	font: inherit;
+	color: var(--evolve-sub-text);
+}
+
+/* Honeypot — hide entirely */
+.evolve-subscribe__hp {
+	position: absolute !important;
+	width: 1px !important; height: 1px !important;
+	overflow: hidden !important;
+	clip: rect(0,0,0,0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+	pointer-events: none !important;
+}
+
+/* ---------- Card style — pixel-matched to .evolve-newsletter in evolve.css.
+   Keeps the existing blog-archive card design across the shortcode + widget. */
+.evolve-subscribe--card {
+	display: grid;
+	grid-template-columns: 1.2fr 1fr;
+	gap: 24px;
+	align-items: center;
+	padding: 36px;
+	border-radius: 20px;
+	border: 1px solid rgba(183,255,0,0.25);
+	background:
+		linear-gradient(120deg, rgba(183,255,0,0.10), transparent 55%),
+		linear-gradient(180deg, #161616, #111111);
+}
+@media (max-width: 900px) {
+	.evolve-subscribe--card { grid-template-columns: 1fr; padding: 26px; }
+}
+
+/* In card mode: copy lives in col 1, fields in col 2 (the email pill + green button),
+   consent + result message span the full row below. Labels are hidden — the
+   placeholder is the visual cue. */
+.evolve-subscribe--card .evolve-subscribe__copy   { grid-column: 1; }
+.evolve-subscribe--card .evolve-subscribe__fields { grid-column: 2; }
+.evolve-subscribe--card .evolve-subscribe__consent,
+.evolve-subscribe--card .evolve-subscribe__msg    { grid-column: 1 / -1; margin-top: 4px; }
+.evolve-subscribe--card .evolve-subscribe__label  { display: none; }
+
+@media (max-width: 900px) {
+	.evolve-subscribe--card .evolve-subscribe__copy,
+	.evolve-subscribe--card .evolve-subscribe__fields { grid-column: 1; }
+}
+
+/* ---------- Inline style (compact pill) ---------- */
+.evolve-subscribe--inline { display: flex; flex-direction: column; gap: 8px; }
+.evolve-subscribe--inline .evolve-subscribe__copy { display: none; }
+.evolve-subscribe--inline .evolve-subscribe__fields {
+	display: flex;
+	background: rgba(255,255,255,0.04);
+	border: 1px solid var(--evolve-sub-border);
+	border-radius: 999px;
+	padding: 6px 6px 6px 18px;
+	min-width: 0;
+}
+.evolve-subscribe--inline .evolve-subscribe__field {
+	flex: 1; min-width: 0;
+	margin: 0;
+}
+.evolve-subscribe--inline .evolve-subscribe__field input {
+	background: transparent;
+	border: 0;
+	padding: 8px 0;
+	width: 100%;
+	color: var(--evolve-sub-text);
+	outline: none;
+}
+.evolve-subscribe--inline .evolve-subscribe__label { display: none; }
+.evolve-subscribe--inline .evolve-subscribe__btn {
+	flex: 0 0 auto;
+	border-radius: 999px;
+	padding: 10px 20px;
+}
+
+/* ---------- Stacked style (full-width fields, contact-card style) ---------- */
+.evolve-subscribe--stacked {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	background: var(--evolve-sub-bg);
+	border: 1px solid var(--evolve-sub-border);
+	border-radius: 20px;
+	padding: 28px;
+}
+
+/* ---------- Copy block ---------- */
+.evolve-subscribe__copy { color: var(--evolve-sub-text-dim); }
+.evolve-subscribe__eyebrow {
+	display: inline-block;
+	color: var(--evolve-sub-accent);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 11px;
+	letter-spacing: .18em;
+	text-transform: uppercase;
+	margin-bottom: 8px;
+}
+.evolve-subscribe__title {
+	color: var(--evolve-sub-text);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 800;
+	font-size: clamp(1.3rem, 2.5vw, 2rem);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+	margin: 0 0 8px;
+}
+.evolve-subscribe__lede {
+	color: var(--evolve-sub-text-dim);
+	font-size: 14px;
+	line-height: 1.6;
+	margin: 0;
+	max-width: 480px;
+}
+.evolve-subscribe__badge {
+	display: inline-block;
+	margin-top: 10px;
+	background: rgba(183,255,0,0.10);
+	border: 1px solid rgba(183,255,0,0.30);
+	color: var(--evolve-sub-accent);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 10px;
+	letter-spacing: .12em;
+	padding: 4px 9px;
+	border-radius: 999px;
+	text-transform: uppercase;
+}
+
+/* ---------- Fields ---------- */
+.evolve-subscribe__fields {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.evolve-subscribe--stacked .evolve-subscribe__fields { gap: 12px; }
+.evolve-subscribe--card .evolve-subscribe__fields { gap: 8px; }
+
+.evolve-subscribe__field { display: block; }
+.evolve-subscribe__label {
+	display: block;
+	color: var(--evolve-sub-text-dim);
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 10px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	margin-bottom: 4px;
+}
+.evolve-subscribe .evolve-subscribe__field input,
+.evolve-subscribe input[type="email"],
+.evolve-subscribe input[type="text"],
+.evolve-subscribe input[type="tel"] {
+	width: 100% !important;
+	background: rgba(255,255,255,0.05) !important;
+	border: 1px solid var(--evolve-sub-border) !important;
+	color: var(--evolve-sub-text) !important;
+	border-radius: 999px !important;
+	padding: 14px 18px !important;
+	font-size: 14px !important;
+	outline: none !important;
+	box-shadow: none !important;
+	transition: border-color .22s ease, box-shadow .22s ease;
+}
+.evolve-subscribe__field input:focus {
+	border-color: var(--evolve-sub-accent);
+	box-shadow: 0 0 0 4px rgba(183,255,0,0.10), 0 0 18px rgba(183,255,0,0.18);
+}
+.evolve-subscribe__field input::placeholder { color: #6E6E6E; }
+
+/* Card-style: email pill + green button sit side-by-side, just like the
+   reference design in the blog archive card. */
+.evolve-subscribe--card .evolve-subscribe__fields {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+}
+.evolve-subscribe--card .evolve-subscribe__field {
+	flex: 1 1 200px;
+	min-width: 0;
+}
+.evolve-subscribe--card .evolve-subscribe__field--email { flex: 2 1 220px; }
+.evolve-subscribe--card .evolve-subscribe__field input {
+	background: rgba(255,255,255,0.05);
+	border: 1px solid #1E1E1E;
+	border-radius: 999px;
+	padding: 14px 18px;
+	font-size: 14px;
+	width: 100%;
+}
+.evolve-subscribe--card .evolve-subscribe__btn {
+	padding: 14px 22px;
+}
+
+/* Submit button — high-specificity selectors so Hello Elementor / WC button
+   defaults can't repaint it red/coral. */
+.evolve-subscribe button.evolve-subscribe__btn,
+form.evolve-subscribe button.evolve-subscribe__btn,
+.elementor .evolve-subscribe button.evolve-subscribe__btn,
+.elementor-widget-container .evolve-subscribe button.evolve-subscribe__btn {
+	display: inline-flex !important;
+	align-items: center !important;
+	gap: 8px !important;
+	background: var(--evolve-sub-accent) !important;
+	color: #000 !important;
+	border: 0 !important;
+	border-radius: 999px !important;
+	padding: 14px 24px !important;
+	font-family: 'Poppins', sans-serif !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	letter-spacing: .14em !important;
+	text-transform: uppercase !important;
+	cursor: pointer !important;
+	transition: all .22s cubic-bezier(.2,.7,.2,1);
+	white-space: nowrap !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+}
+.evolve-subscribe button.evolve-subscribe__btn:hover {
+	background: var(--evolve-sub-accent-2) !important;
+	color: #000 !important;
+	box-shadow: 0 0 24px rgba(183,255,0,0.35) !important;
+	transform: translateY(-1px);
+}
+.evolve-subscribe.is-loading button.evolve-subscribe__btn { opacity: .8; cursor: progress; transform: none; }
+.evolve-subscribe.is-done    button.evolve-subscribe__btn {
+	background: rgba(0,255,153,0.12) !important;
+	color: #00FF99 !important;
+}
+
+.evolve-subscribe__spinner {
+	display: none;
+	width: 14px; height: 14px;
+	border: 2px solid rgba(0,0,0,0.25);
+	border-top-color: #000;
+	border-radius: 50%;
+	animation: evolve-sub-spin .8s linear infinite;
+}
+.evolve-subscribe.is-loading .evolve-subscribe__spinner { display: inline-block; }
+@keyframes evolve-sub-spin { to { transform: rotate(360deg); } }
+
+/* Consent row */
+.evolve-subscribe__consent {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	color: var(--evolve-sub-text-dim);
+	font-size: 12.5px;
+	line-height: 1.5;
+	margin-top: 10px;
+	cursor: pointer;
+}
+.evolve-subscribe__consent input[type="checkbox"] {
+	flex: 0 0 16px;
+	width: 16px; height: 16px;
+	accent-color: var(--evolve-sub-accent);
+	margin-top: 2px;
+}
+.evolve-subscribe__consent a { color: var(--evolve-sub-accent); }
+
+/* Status message */
+.evolve-subscribe__msg {
+	margin-top: 12px;
+	padding: 10px 14px;
+	border-radius: 12px;
+	font-size: 13px;
+	line-height: 1.4;
+}
+.evolve-subscribe__msg[data-type="success"] {
+	background: rgba(0,255,153,0.08);
+	border: 1px solid rgba(0,255,153,0.35);
+	color: #00FF99;
+}
+.evolve-subscribe__msg[data-type="error"] {
+	background: rgba(255,77,77,0.08);
+	border: 1px solid rgba(255,77,77,0.35);
+	color: #FF8B8B;
+}

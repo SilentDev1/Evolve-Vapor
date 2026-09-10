@@ -1,0 +1,43 @@
+/* Evolve — Vape Match Button widget */
+.evolve-vmb {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	border: 0;
+	cursor: pointer;
+	font-family: 'Poppins', system-ui, sans-serif;
+	font-weight: 700;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: var(--evolve-accent, #B7FF00);
+	color: #000;
+	transition: all .22s cubic-bezier(.2,.7,.2,1);
+	box-shadow: none;
+	line-height: 1.1;
+	white-space: nowrap;
+}
+.evolve-vmb:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 0 22px rgba(183,255,0,0.4);
+}
+
+.evolve-vmb--sm { padding: 10px 18px; font-size: 11px; border-radius: 12px; }
+.evolve-vmb--md { padding: 14px 24px; font-size: 13px; border-radius: 14px; }
+.evolve-vmb--lg { padding: 18px 30px; font-size: 15px; border-radius: 16px; }
+.evolve-vmb--full { width: 100%; justify-content: center; }
+
+.evolve-vmb__eye {
+	display: inline-block;
+	margin-right: 6px;
+	padding: 2px 8px;
+	background: rgba(0,0,0,0.15);
+	color: inherit;
+	border-radius: 999px;
+	font-size: 0.7em;
+	letter-spacing: .15em;
+	font-weight: 800;
+}
+.evolve-vmb__icon { display: inline-flex; align-items: center; }
+.evolve-vmb__icon svg, .evolve-vmb__icon i { font-size: 1em; }
+.evolve-vmb__text { line-height: 1; }

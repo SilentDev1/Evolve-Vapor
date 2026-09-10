@@ -1,0 +1,40 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Vape Match Quiz",
+	"type": "popup",
+	"page_settings": {
+		"width":  { "unit": "px", "size": 960 },
+		"height": { "unit": "vh", "size": 100 },
+		"position_horizontal": "center",
+		"position_vertical":   "center",
+		"entrance_animation":  "fadeIn",
+		"exit_animation":      "fadeOut",
+		"close_button_display": "yes",
+		"close_button_color":   "#FFFFFF",
+		"close_button_size":    { "unit": "px", "size": 22 },
+		"close_button_position_horizontal_offset": { "unit": "px", "size": 18 },
+		"close_button_position_vertical_offset":   { "unit": "px", "size": 18 },
+		"background_background": "classic",
+		"background_color":      "#050505",
+		"overlay_background_background": "classic",
+		"overlay_background_color":      "rgba(0,0,0,0.78)",
+		"prevent_close_on_background_click": "no",
+		"_element_id": "evolve-vape-match"
+	},
+	"content": [
+		{
+			"id": "evvm0001",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"flex_direction": "column",
+				"flex_align_items": "stretch",
+				"padding": { "unit": "px", "top": "12", "right": "0", "bottom": "12", "left": "0", "isLinked": false }
+			},
+			"elements": [
+				{ "id": "evvm0002", "elType": "widget", "widgetType": "shortcode",
+				  "settings": { "shortcode": "[evolve_ai_vape_match show_intro=\"yes\" title=\"Find your perfect vape\" subtitle=\"Answer a few quick questions and we'll match you with real, in-stock products from our shelves.\"]" } }
+			]
+		}
+	]
+}

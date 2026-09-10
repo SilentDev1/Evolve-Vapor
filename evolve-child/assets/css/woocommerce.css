@@ -1,0 +1,1995 @@
+/* ============================================================================
+   Evolve — WooCommerce overrides
+   Restyles archive / single / cart / checkout / account to the dark-luxury UI.
+   Layers on top of evolve.css and Hello Elementor's Woo stylesheet.
+   ========================================================================= */
+
+/* ---------- Notices (cart updated / errors / success) ---------- */
+.woocommerce-message,
+.woocommerce-info,
+.woocommerce-error {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-left: 3px solid var(--evolve-accent);
+	color: var(--evolve-text);
+	border-radius: var(--evolve-radius-sm);
+	padding: 14px 18px;
+}
+.woocommerce-error { border-left-color: var(--evolve-error); }
+.woocommerce-message::before,
+.woocommerce-info::before    { color: var(--evolve-accent); }
+.woocommerce-error::before   { color: var(--evolve-error); }
+
+/* ---------- Archive header ---------- */
+.woocommerce .woocommerce-products-header__title,
+.woocommerce-page .woocommerce-products-header__title {
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	letter-spacing: -0.01em;
+}
+.woocommerce .woocommerce-result-count,
+.woocommerce .woocommerce-ordering select {
+	color: var(--evolve-text-dim);
+	background: var(--evolve-card-2);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius-sm);
+	padding: 10px 14px;
+}
+
+/* ---------- Product card (loop) ---------- */
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product,
+.elementor-products-grid ul.products li.product {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 16px;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+	overflow: hidden;
+	position: relative;
+}
+.woocommerce ul.products li.product:hover {
+	transform: translateY(-4px);
+	border-color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+.woocommerce ul.products li.product a img,
+.woocommerce-page ul.products li.product a img {
+	border-radius: var(--evolve-radius-xs);
+	background: #0a0a0a;
+	transition: transform .6s var(--evolve-ease);
+}
+.woocommerce ul.products li.product:hover a img { transform: scale(1.05); }
+
+.woocommerce ul.products li.product .woocommerce-loop-product__title,
+.woocommerce-page ul.products li.product .woocommerce-loop-product__title {
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	color: var(--evolve-text) !important;
+	font-size: 15px !important;
+	padding: 12px 0 4px !important;
+	line-height: 1.35 !important;
+}
+.woocommerce ul.products li.product .price,
+.woocommerce-page ul.products li.product .price,
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
+	color: var(--evolve-accent) !important;
+	font-weight: 700 !important;
+	font-size: 15px !important;
+}
+.woocommerce ul.products li.product .price del { color: var(--evolve-text-mute) !important; opacity: .7; }
+
+.woocommerce ul.products li.product .star-rating,
+.woocommerce div.product .star-rating { color: var(--evolve-accent); margin-bottom: 6px; }
+.woocommerce .star-rating::before { color: rgba(255,255,255,0.15); }
+
+.woocommerce ul.products li.product .button {
+	width: 100%;
+	margin-top: 10px;
+	background: transparent;
+	color: var(--evolve-text);
+	border: 1px solid var(--evolve-border);
+}
+.woocommerce ul.products li.product .button:hover {
+	background: var(--evolve-accent);
+	color: #000;
+	border-color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+
+.woocommerce ul.products li.product .onsale,
+.woocommerce span.onsale {
+	background: var(--evolve-accent);
+	color: #000;
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	font-size: 11px;
+	letter-spacing: .08em;
+	border-radius: 999px;
+	min-height: 0;
+	min-width: 0;
+	padding: 4px 10px;
+	line-height: 1;
+	box-shadow: var(--evolve-glow-soft);
+}
+
+/* ---------- Loop grid columns helpers (used by Elementor "Products" widget) ---------- */
+.woocommerce ul.products.columns-5 li.product { width: calc(20% - 16px); }
+@media (max-width: 1024px) {
+	.woocommerce ul.products.columns-5 li.product,
+	.woocommerce ul.products.columns-4 li.product { width: calc(33.333% - 14px); }
+}
+@media (max-width: 600px) {
+	.woocommerce ul.products li.product { width: calc(50% - 8px) !important; }
+}
+
+/* ---------- Single product ---------- */
+.woocommerce div.product .product_title {
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	font-size: clamp(1.6rem, 3vw, 2.4rem);
+	margin-bottom: 14px;
+}
+.woocommerce div.product .woocommerce-product-details__short-description {
+	color: var(--evolve-text-dim);
+	margin: 18px 0;
+}
+.woocommerce div.product .images,
+.woocommerce div.product div.images {
+	border-radius: var(--evolve-radius);
+	overflow: hidden;
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+}
+.woocommerce div.product form.cart .variations select,
+.woocommerce div.product form.cart .quantity input.qty {
+	background: var(--evolve-card-2);
+	border: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	border-radius: var(--evolve-radius-sm);
+	padding: 12px 14px;
+}
+.woocommerce div.product form.cart .button.single_add_to_cart_button {
+	padding: 16px 32px;
+	font-size: 14px;
+}
+.woocommerce-product-gallery__trigger { background: var(--evolve-card); color: var(--evolve-text); }
+
+/* Tabs */
+.woocommerce div.product .woocommerce-tabs ul.tabs {
+	border-bottom: 1px solid var(--evolve-border);
+	padding: 0; margin-bottom: 24px;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs::before { display: none; }
+.woocommerce div.product .woocommerce-tabs ul.tabs li {
+	background: transparent;
+	border: 0;
+	border-radius: 0;
+	padding: 0;
+	margin-right: 4px;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li a {
+	padding: 14px 18px;
+	color: var(--evolve-text-dim);
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	border-bottom: 2px solid transparent;
+}
+.woocommerce div.product .woocommerce-tabs ul.tabs li.active a {
+	color: var(--evolve-accent);
+	border-bottom-color: var(--evolve-accent);
+}
+
+/* Related */
+.woocommerce .related > h2, .woocommerce .upsells > h2, .woocommerce .cross-sells > h2 {
+	font-family: var(--evolve-font-head); font-weight: 800;
+	font-size: clamp(1.2rem, 2vw, 1.6rem); margin-bottom: 18px;
+}
+
+/* ---------- Cart ---------- */
+.woocommerce-cart table.shop_table,
+.woocommerce-checkout table.shop_table {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	overflow: hidden;
+	border-collapse: separate;
+}
+.woocommerce-cart table.shop_table th,
+.woocommerce-checkout table.shop_table th {
+	background: var(--evolve-bg-2);
+	color: var(--evolve-text);
+	border-bottom: 1px solid var(--evolve-border);
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+	padding: 14px 18px;
+}
+.woocommerce-cart table.shop_table td,
+.woocommerce-checkout table.shop_table td {
+	border-top: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	padding: 18px;
+}
+.woocommerce-cart table.shop_table .product-name a { color: var(--evolve-text); }
+.woocommerce-cart .cart_totals h2,
+.woocommerce-checkout #order_review_heading {
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+}
+.woocommerce-cart .cart-collaterals .cart_totals,
+.woocommerce-checkout #order_review {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 24px;
+}
+.woocommerce a.remove {
+	color: var(--evolve-error) !important;
+	background: rgba(255,77,77,0.08);
+	border-radius: 999px;
+}
+.woocommerce a.remove:hover { background: var(--evolve-error) !important; color: #000 !important; }
+
+/* Quantity input */
+.woocommerce .quantity .qty {
+	background: var(--evolve-card-2);
+	border: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	border-radius: var(--evolve-radius-sm);
+}
+
+/* Coupon */
+.woocommerce-cart .actions .coupon input[name="coupon_code"] { max-width: 220px; margin-right: 8px; }
+
+/* ---------- Checkout ---------- */
+.woocommerce-checkout #payment {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	overflow: hidden;
+}
+.woocommerce-checkout #payment ul.payment_methods {
+	background: var(--evolve-bg-2);
+	border-bottom: 1px solid var(--evolve-border);
+	padding: 18px;
+}
+.woocommerce-checkout #payment ul.payment_methods li { color: var(--evolve-text-dim); }
+.woocommerce-checkout #payment ul.payment_methods li input[type="radio"] { accent-color: var(--evolve-accent); }
+.woocommerce-checkout #payment div.payment_box { background: var(--evolve-card-2); color: var(--evolve-text-dim); }
+.woocommerce-checkout #payment div.payment_box::before { border-bottom-color: var(--evolve-card-2); }
+
+/* Elementor Pro's checkout widget already provides a 56%/auto grid via
+   `.e-checkout__container`. Don't add a competing one on `form.checkout`. */
+
+/* ---------- My Account ---------- */
+.woocommerce-account .woocommerce-MyAccount-navigation {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 14px;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul { list-style: none; margin: 0; padding: 0; }
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a {
+	display: block; padding: 12px 14px;
+	color: var(--evolve-text-dim);
+	border-radius: var(--evolve-radius-sm);
+	font-family: var(--evolve-font-head); font-weight: 600;
+	font-size: 13px; letter-spacing: .04em; text-transform: uppercase;
+}
+.woocommerce-account .woocommerce-MyAccount-navigation ul li a:hover { color: var(--evolve-accent); background: var(--evolve-card-2); }
+.woocommerce-account .woocommerce-MyAccount-navigation ul li.is-active a {
+	background: var(--evolve-accent); color: #000;
+}
+.woocommerce-account .woocommerce-MyAccount-content { color: var(--evolve-text-dim); }
+
+/* Login form */
+.woocommerce-form-login,
+.woocommerce-form-register {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 28px;
+}
+
+/* ============================================================================
+   v1.0.1 — Patch: black-on-black text, variations, add-to-cart disabled state,
+   gallery, star ratings, admin bar offset.
+   ========================================================================= */
+
+/* ---------- Native <select> — readable everywhere ---------- */
+select,
+.woocommerce select,
+.woocommerce-page select,
+.woocommerce form .form-row select,
+.woocommerce div.product form.cart .variations select {
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: var(--evolve-card-2) !important;
+	color: var(--evolve-text) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius-sm) !important;
+	padding: 12px 44px 12px 14px !important;
+	font-family: var(--evolve-font-body) !important;
+	font-size: 14px !important;
+	width: 100%;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%23B7FF00' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>") !important;
+	background-repeat: no-repeat !important;
+	background-position: right 16px center !important;
+}
+select:focus, .woocommerce select:focus {
+	outline: none;
+	border-color: var(--evolve-accent) !important;
+	box-shadow: var(--evolve-glow-soft);
+}
+/* Native dropdown options — only some browsers honor this, but it helps Firefox/Edge */
+select option,
+.woocommerce select option {
+	background: #0a0a0a !important;
+	color: #FFFFFF !important;
+}
+
+/* ---------- Variations table — break out of <table> into a clean grid ---------- */
+.woocommerce div.product form.cart .variations,
+.woocommerce-page div.product form.cart .variations {
+	display: block;
+	width: 100%;
+	margin: 0 0 18px;
+	border: 0;
+	background: transparent;
+}
+.woocommerce div.product form.cart .variations tbody,
+.woocommerce div.product form.cart .variations tr {
+	display: block;
+	width: 100%;
+}
+.woocommerce div.product form.cart .variations tr {
+	display: grid;
+	grid-template-columns: 110px 1fr;
+	align-items: center;
+	gap: 14px;
+	padding: 6px 0;
+	border: 0;
+}
+.woocommerce div.product form.cart .variations th,
+.woocommerce div.product form.cart .variations td {
+	display: block;
+	padding: 0 !important;
+	border: 0 !important;
+	background: transparent !important;
+}
+.woocommerce div.product form.cart .variations th.label,
+.woocommerce div.product form.cart .variations label {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 13px;
+	letter-spacing: .06em;
+	text-transform: uppercase;
+}
+.woocommerce div.product form.cart .reset_variations {
+	display: inline-block;
+	margin-top: 8px;
+	color: var(--evolve-text-dim);
+	font-size: 12px;
+	text-decoration: underline;
+}
+.woocommerce div.product form.cart .reset_variations:hover { color: var(--evolve-accent); }
+
+/* ---------- Add-to-cart — fix the "red disabled" state ---------- */
+.woocommerce div.product form.cart {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	align-items: center;
+	margin: 18px 0;
+}
+.woocommerce div.product form.cart .quantity {
+	margin: 0;
+}
+.woocommerce div.product form.cart .quantity input.qty {
+	width: 80px;
+	height: 54px;
+	text-align: center;
+	font-weight: 700;
+	font-size: 16px;
+}
+.woocommerce div.product form.cart .single_add_to_cart_button,
+.woocommerce button.button.alt.single_add_to_cart_button,
+.woocommerce div.product form.cart .button.alt.single_add_to_cart_button {
+	height: 54px;
+	padding: 0 36px !important;
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border: 1px solid var(--evolve-accent) !important;
+	border-radius: var(--evolve-radius-sm) !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 14px !important;
+	letter-spacing: .08em !important;
+	text-transform: uppercase !important;
+	box-shadow: var(--evolve-glow-soft);
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.woocommerce div.product form.cart .single_add_to_cart_button:hover {
+	background: var(--evolve-accent-2) !important;
+	box-shadow: var(--evolve-glow);
+	transform: translateY(-1px);
+}
+/* Disabled (no variation chosen yet) — neutral grey, not Woo's brick red */
+.woocommerce div.product form.cart .single_add_to_cart_button.disabled,
+.woocommerce div.product form.cart .single_add_to_cart_button.wc-variation-selection-needed,
+.woocommerce button.button.disabled {
+	background: var(--evolve-card-2) !important;
+	color: var(--evolve-text-mute) !important;
+	border-color: var(--evolve-border) !important;
+	box-shadow: none !important;
+	cursor: not-allowed;
+	opacity: 1;
+}
+.woocommerce div.product form.cart .single_add_to_cart_button.disabled::after {
+	content: " — choose option";
+	font-size: 11px;
+	opacity: .8;
+	letter-spacing: .04em;
+}
+
+/* ---------- Star ratings — make empty stars visible ---------- */
+.woocommerce .star-rating,
+.woocommerce p.stars a {
+	color: var(--evolve-accent) !important;
+}
+.woocommerce .star-rating::before {
+	color: rgba(255,255,255,0.28) !important;   /* was 0.15 — invisible */
+}
+.woocommerce .star-rating span::before {
+	color: var(--evolve-accent) !important;
+	text-shadow: 0 0 8px rgba(183,255,0,0.4);
+}
+
+/* ---------- Product gallery — kill duplicate-image stacking ---------- */
+.woocommerce div.product div.images .woocommerce-product-gallery__wrapper,
+.woocommerce div.product div.images .flex-viewport {
+	background: #fff;
+	border-radius: var(--evolve-radius-xs);
+}
+.woocommerce div.product div.images .flex-control-thumbs {
+	display: flex !important;
+	flex-wrap: wrap;
+	gap: 8px;
+	margin-top: 12px;
+	padding: 0;
+	list-style: none;
+}
+.woocommerce div.product div.images .flex-control-thumbs li {
+	width: calc(20% - 7px) !important;
+	margin: 0 !important;
+	float: none !important;
+}
+.woocommerce div.product div.images .flex-control-thumbs li img {
+	background: #fff;
+	border: 1px solid var(--evolve-border);
+	border-radius: 8px;
+	cursor: pointer;
+	opacity: .55;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.woocommerce div.product div.images .flex-control-thumbs li img:hover,
+.woocommerce div.product div.images .flex-control-thumbs li img.flex-active {
+	opacity: 1;
+	border-color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+/* Hide the stray second main image some galleries leak below the viewport */
+.woocommerce div.product div.images .woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image:nth-child(n+2):not(.flex-active-slide) {
+	display: none;
+}
+
+/* ---------- Single product — wider headline + short description spacing ---------- */
+.woocommerce div.product .product_title,
+.elementor-widget-woocommerce-product-title h1 {
+	color: var(--evolve-text) !important;
+}
+.woocommerce div.product .woocommerce-product-details__short-description p,
+.elementor-widget-woocommerce-product-short-description p {
+	color: var(--evolve-text-dim) !important;
+}
+
+/* ---------- "Looking for?" search bar in header ---------- */
+.evolve-header__inner input[type="search"],
+.elementor-search-form input[type="search"] {
+	background: rgba(255,255,255,0.04) !important;
+	border: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+	border-radius: 999px !important;
+	padding: 10px 16px !important;
+	font-size: 13px !important;
+	min-width: 220px;
+}
+.evolve-header__inner input[type="search"]::placeholder { color: var(--evolve-text-mute); }
+.elementor-search-form__submit {
+	background: transparent !important;
+	color: var(--evolve-accent) !important;
+}
+
+/* ---------- Quantity stepper coloration ---------- */
+.woocommerce .quantity input.qty {
+	color: var(--evolve-text) !important;
+}
+
+/* ============================================================================
+   v1.0.2 — Shop archive layout fixes
+   - Cap product-image aspect ratio (no more huge white squares)
+   - Force a multi-column grid even if the Woo widget is set to columns=1
+   - Center pagination + style page numbers in the neon theme
+   ========================================================================= */
+
+/* Product image — keep the white tile to a sane square, then contain inside */
+.woocommerce ul.products li.product a.woocommerce-LoopProduct-link img,
+.woocommerce ul.products li.product .woocommerce-loop-product__image img,
+.woocommerce ul.products li.product img {
+	aspect-ratio: 1 / 1;
+	width: 100% !important;
+	height: auto !important;
+	max-height: 260px;
+	object-fit: contain !important;
+	background: #fff;
+	border-radius: var(--evolve-radius-xs);
+}
+
+/* If the Woo widget renders columns=1 (the symptom you saw — products
+   stacking full-width with massive white image), CSS-bridge it back to
+   a 3-up grid so the page doesn't waste 70% of the viewport. */
+.woocommerce ul.products,
+.elementor-widget-woocommerce-archive-products ul.products {
+	display: grid !important;
+	grid-template-columns: repeat(4, 1fr) !important;
+	gap: 18px !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	list-style: none !important;
+}
+/* WooCommerce adds ::before/::after for float clearfix — in a CSS Grid
+   context these become grid items that each consume a cell, pushing
+   products out of alignment (first product shifted, empty cell at end). */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after,
+.elementor-widget-woocommerce-archive-products ul.products::before,
+.elementor-widget-woocommerce-archive-products ul.products::after {
+	display: none !important;
+}
+.woocommerce ul.products li.product {
+	width: auto !important;
+	margin: 0 !important;
+	float: none !important;
+}
+@media (max-width: 1100px) { .woocommerce ul.products, .elementor-widget-woocommerce-archive-products ul.products { grid-template-columns: repeat(3, 1fr) !important; } }
+@media (max-width: 768px)  { .woocommerce ul.products, .elementor-widget-woocommerce-archive-products ul.products { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (max-width: 480px)  { .woocommerce ul.products, .elementor-widget-woocommerce-archive-products ul.products { grid-template-columns: 1fr !important; } }
+
+/* Pagination — center it, neon hover, deduplicate */
+.woocommerce nav.woocommerce-pagination,
+.woocommerce-pagination {
+	text-align: center !important;
+	margin: 36px 0 !important;
+	clear: both;
+}
+.woocommerce nav.woocommerce-pagination ul,
+.woocommerce-pagination ul {
+	display: inline-flex !important;
+	gap: 6px !important;
+	border: 0 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.woocommerce nav.woocommerce-pagination ul li {
+	border: 0 !important;
+	margin: 0 !important;
+	overflow: visible !important;
+}
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+	min-width: 36px;
+	height: 36px;
+	padding: 0 10px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	color: var(--evolve-text);
+	border-radius: 10px;
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 13px;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.woocommerce nav.woocommerce-pagination ul li a:hover {
+	border-color: var(--evolve-accent);
+	color: var(--evolve-accent);
+	box-shadow: var(--evolve-glow-soft);
+}
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce-pagination ul li span.current {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border-color: var(--evolve-accent) !important;
+}
+/* Kill an extra second pagination if the WC archive widget + Elementor's
+   loop pagination both render. Keeps the first one only. */
+.elementor-widget-woocommerce-archive-products .woocommerce-pagination ~ .woocommerce-pagination,
+.woocommerce-pagination + .woocommerce-pagination {
+	display: none !important;
+}
+
+/* "In-store pickup" loop chip — keep it small, never huge */
+.evolve-loop-chip {
+	display: inline-block;
+	margin: 6px 0 2px;
+	padding: 3px 9px;
+	border-radius: 999px;
+	background: rgba(183,255,0,0.10);
+	color: var(--evolve-accent);
+	font-size: 10px;
+	font-weight: 700;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+
+/* --- v1.0.4 — Hide truly empty/broken product cards that the WC loop can
+   sometimes emit (e.g. product in draft/trash that still has a slot). --- */
+.woocommerce ul.products li.product:empty,
+.woocommerce ul.products li.product:not(:has(.woocommerce-loop-product__title, .price, a)) {
+	display: none !important;
+}
+.woocommerce ul.products > li:not(.product) {
+	display: none !important;
+}
+
+/* --- v1.0.3 — Loop card polish --- */
+.woocommerce ul.products li.product {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 14px !important;
+}
+.woocommerce ul.products li.product .woocommerce-loop-product__title {
+	font-size: 14px !important;
+	font-weight: 700 !important;
+	margin: 8px 0 0 !important;
+	padding: 0 !important;
+	min-height: 36px;
+	line-height: 1.3 !important;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.woocommerce ul.products li.product .price {
+	margin: 4px 0 8px !important;
+	font-size: 16px !important;
+}
+.woocommerce ul.products li.product .star-rating {
+	margin: 0 0 4px !important;
+	width: 76px !important;
+	font-size: 12px !important;
+}
+.woocommerce ul.products li.product .button {
+	margin-top: auto !important;
+	padding: 10px 14px !important;
+	font-size: 11px !important;
+	letter-spacing: .1em !important;
+	border-radius: 12px !important;
+}
+.woocommerce ul.products li.product .added_to_cart {
+	display: block;
+	margin-top: 6px;
+	font-size: 11px;
+	color: var(--evolve-accent);
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+/* Result count / sort row when sitting above the grid */
+.woocommerce .woocommerce-result-count,
+.woocommerce-page .woocommerce-result-count {
+	margin: 0 0 18px;
+}
+
+/* ============================================================================
+   v1.0.5 — Single product: force every key Woo Elementor widget to be visible
+   and style the long-description block to match the dark-luxury card system.
+   ========================================================================= */
+
+/* Visibility — undo any accidental "display:none" coming from a theme/widget */
+.elementor-widget-woocommerce-product-title,
+.elementor-widget-woocommerce-product-price,
+.elementor-widget-woocommerce-product-rating,
+.elementor-widget-woocommerce-product-short-description,
+.elementor-widget-woocommerce-product-content,
+.elementor-widget-woocommerce-product-add-to-cart,
+.elementor-widget-woocommerce-product-meta,
+.elementor-widget-woocommerce-product-data-tabs,
+.elementor-widget-woocommerce-product-related,
+.elementor-widget-woocommerce-product-images {
+	display: block !important;
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Long description — styled card */
+.elementor-widget-woocommerce-product-content .elementor-widget-container,
+.woocommerce-Tabs-panel--description {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 28px 32px;
+	color: var(--evolve-text-dim);
+	line-height: 1.7;
+}
+.elementor-widget-woocommerce-product-content p,
+.woocommerce-Tabs-panel--description p {
+	color: var(--evolve-text-dim);
+	font-size: 15px;
+	margin: 0 0 14px;
+}
+.elementor-widget-woocommerce-product-content h1,
+.elementor-widget-woocommerce-product-content h2,
+.elementor-widget-woocommerce-product-content h3,
+.elementor-widget-woocommerce-product-content h4 {
+	color: var(--evolve-text);
+	font-family: var(--evolve-font-head);
+	font-weight: 700;
+	margin: 16px 0 10px;
+}
+.elementor-widget-woocommerce-product-content ul,
+.elementor-widget-woocommerce-product-content ol {
+	color: var(--evolve-text-dim);
+	padding-left: 22px;
+	margin: 0 0 14px;
+}
+.elementor-widget-woocommerce-product-content strong { color: var(--evolve-text); }
+.elementor-widget-woocommerce-product-content a {
+	color: var(--evolve-accent);
+	text-decoration: underline;
+	text-decoration-color: rgba(183,255,0,0.4);
+}
+.elementor-widget-woocommerce-product-content img {
+	max-width: 100%; height: auto;
+	border-radius: var(--evolve-radius-xs);
+	margin: 8px 0;
+}
+
+/* If only the short description exists, make it readable and breathing */
+.elementor-widget-woocommerce-product-short-description .elementor-widget-container {
+	color: var(--evolve-text-dim);
+	font-size: 15px;
+	line-height: 1.7;
+}
+.elementor-widget-woocommerce-product-short-description p { margin: 0 0 10px; color: var(--evolve-text-dim); }
+
+/* Product meta */
+.elementor-widget-woocommerce-product-meta .product_meta {
+	border-top: 1px solid var(--evolve-border);
+	padding-top: 14px;
+	margin-top: 8px;
+	color: var(--evolve-text-mute);
+	font-size: 13px;
+}
+.elementor-widget-woocommerce-product-meta .product_meta > span { display: block; margin: 4px 0; }
+.elementor-widget-woocommerce-product-meta .product_meta a { color: var(--evolve-text-dim); }
+.elementor-widget-woocommerce-product-meta .product_meta a:hover { color: var(--evolve-accent); }
+
+/* ============================================================================
+   v1.0.7 — Header mini-cart popup + Checkout order-review readability
+   ========================================================================= */
+
+/* ---- v1.0.11 — Force the menu-cart popup ABOVE everything (z-index) and
+       break out of any parent `overflow:hidden` that was clipping it. ---- */
+.elementor-menu-cart__wrapper,
+.elementor-menu-cart__toggle-wrapper {
+	position: relative !important;
+	overflow: visible !important;
+}
+.elementor-menu-cart__container { z-index: 99999 !important; }
+.elementor-menu-cart__main      { z-index: 100000 !important; }
+
+/* SIDE-CART mode — Elementor's panel position is driven by these CSS
+   variables. The widget's "Side Cart Position" control writes them.
+   Force them to right-aligned regardless of the widget setting. */
+.elementor-widget-woocommerce-menu-cart.elementor-menu-cart--cart-type-side-cart {
+	--side-cart-alignment-left: auto !important;
+	--side-cart-alignment-right: 0 !important;
+	--side-cart-alignment-transform: translateX(100%) !important;
+	--direction-multiplier: 1 !important;
+}
+.elementor-widget-woocommerce-menu-cart.elementor-menu-cart--cart-type-side-cart .elementor-menu-cart__main {
+	left: auto !important;
+	right: 0 !important;
+	width: 420px !important;
+	max-width: 92vw !important;
+}
+/* Hidden state — slide back out to the right */
+.elementor-widget-woocommerce-menu-cart.elementor-menu-cart--cart-type-side-cart:not(.elementor-menu-cart--shown) .elementor-menu-cart__main {
+	transform: translateX(100%) !important;
+}
+/* Shown state — slide in and rest at the right edge */
+.elementor-widget-woocommerce-menu-cart.elementor-menu-cart--cart-type-side-cart.elementor-menu-cart--shown .elementor-menu-cart__main {
+	transform: translateX(0) !important;
+}
+
+/* MINI-CART mode (inline dropdown) — flip to right side of the toggle */
+.elementor-widget-woocommerce-menu-cart.elementor-menu-cart--cart-type-mini-cart .elementor-menu-cart__container {
+	position: absolute !important;
+	top: 100% !important;
+	left: auto !important;
+	right: 0 !important;
+	inset-inline-start: auto !important;
+	inset-inline-end: 0 !important;
+	margin-top: 12px !important;
+	min-width: 380px !important;
+	max-width: 92vw !important;
+	transform: none !important;
+}
+
+/* Wrapper must be a positioning context and not clipped */
+.elementor-widget-woocommerce-menu-cart,
+.elementor-menu-cart__toggle_wrapper,
+.elementor-menu-cart__wrapper {
+	position: relative !important;
+	overflow: visible !important;
+}
+/* Header / containers cannot clip the dropdown */
+.evolve-header,
+.evolve-header *,
+.elementor-section,
+.elementor-container,
+.elementor-widget-container,
+.elementor-widget-woocommerce-menu-cart {
+	overflow: visible !important;
+}
+/* Body lock when side-cart is open */
+body.elementor-menu-cart-open { overflow: hidden; }
+
+/* ---- Elementor menu-cart — covers BOTH the "Mini" inline dropdown and the
+        "Side Cart" off-canvas modes. Older v1.0.7 CSS only caught side-cart. ---- */
+.elementor-menu-cart__container,
+.elementor-menu-cart__main,
+.elementor-menu-cart__wrapper,
+.elementor-menu-cart__products,
+.elementor-menu-cart__product,
+.elementor-menu-cart__product-name,
+.elementor-menu-cart__product-price,
+.elementor-menu-cart__product-quantity,
+.elementor-menu-cart__footer-subtotal,
+.elementor-menu-cart__footer-buttons,
+.widget_shopping_cart_content {
+	background: #0a0a0a !important;
+	color: var(--evolve-text) !important;
+	border-color: var(--evolve-border) !important;
+}
+/* Elementor's "Mini" mode renders the product list outside .woocommerce-mini-cart */
+.elementor-menu-cart__products {
+	display: block !important;
+	padding: 0 !important;
+	margin: 0 0 18px !important;
+	max-height: 60vh;
+	overflow-y: auto;
+}
+.elementor-menu-cart__product {
+	display: grid !important;
+	grid-template-columns: 60px 1fr auto !important;
+	gap: 14px !important;
+	align-items: center !important;
+	padding: 14px 0 !important;
+	border-bottom: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+}
+.elementor-menu-cart__product:last-child { border-bottom: 0 !important; }
+.elementor-menu-cart__product img,
+.elementor-menu-cart__product-image img {
+	width: 60px !important;
+	height: 60px !important;
+	background: #fff !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 10px !important;
+	object-fit: contain !important;
+}
+.elementor-menu-cart__product a,
+.elementor-menu-cart__product-name,
+.elementor-menu-cart__product-name a {
+	color: var(--evolve-text) !important;
+	text-decoration: none !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 600 !important;
+	font-size: 13.5px !important;
+	line-height: 1.35 !important;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.elementor-menu-cart__product a:hover,
+.elementor-menu-cart__product-name a:hover { color: var(--evolve-accent) !important; }
+.elementor-menu-cart__product-price,
+.elementor-menu-cart__product-quantity,
+.elementor-menu-cart__product .quantity,
+.elementor-menu-cart__product .woocommerce-Price-amount {
+	color: var(--evolve-accent) !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 13px !important;
+}
+.elementor-menu-cart__product .remove,
+.elementor-menu-cart__product-remove,
+.elementor-menu-cart__product a.remove {
+	background: rgba(255,77,77,0.10) !important;
+	color: var(--evolve-error) !important;
+	border-radius: 999px !important;
+	width: 28px !important;
+	height: 28px !important;
+	font-size: 16px !important;
+	line-height: 1 !important;
+	font-weight: 700 !important;
+}
+.elementor-menu-cart__product .remove:hover {
+	background: var(--evolve-error) !important;
+	color: #000 !important;
+}
+.elementor-menu-cart__footer-subtotal,
+.elementor-menu-cart__subtotal {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	padding: 16px 0 !important;
+	margin: 0 0 14px !important;
+	border-top: 1px solid var(--evolve-border) !important;
+	border-bottom: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 14px !important;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+}
+.elementor-menu-cart__footer-subtotal .woocommerce-Price-amount,
+.elementor-menu-cart__subtotal .woocommerce-Price-amount {
+	color: var(--evolve-accent) !important;
+	font-size: 18px !important;
+	font-weight: 800 !important;
+}
+.elementor-menu-cart__footer-buttons {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr !important;
+	gap: 8px !important;
+}
+.elementor-menu-cart__footer-buttons a,
+.elementor-menu-cart__footer-buttons .button {
+	background: transparent !important;
+	color: var(--evolve-text) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 12px !important;
+	padding: 12px 14px !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	letter-spacing: .12em !important;
+	text-transform: uppercase !important;
+	text-align: center !important;
+}
+.elementor-menu-cart__footer-buttons a:hover { border-color: var(--evolve-accent) !important; color: var(--evolve-accent) !important; }
+.elementor-menu-cart__footer-buttons a.checkout,
+.elementor-menu-cart__footer-buttons .checkout {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border-color: var(--evolve-accent) !important;
+}
+.elementor-menu-cart__footer-buttons a.checkout:hover {
+	background: var(--evolve-accent-2) !important;
+	color: #000 !important;
+	box-shadow: var(--evolve-glow-soft);
+}
+.elementor-menu-cart__container {
+	background: rgba(5,5,5,0.95) !important;
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+}
+.elementor-menu-cart__main {
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius) !important;
+	padding: 24px !important;
+	min-width: 380px !important;
+	max-width: 420px !important;
+	min-height: 360px !important;
+	width: 380px !important;
+	box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(183,255,0,0.05) !important;
+	display: flex !important;
+	flex-direction: column !important;
+}
+.elementor-menu-cart__main .widget_shopping_cart_content {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+@media (max-width: 480px) {
+	.elementor-menu-cart__main {
+		width: 100vw !important;
+		min-width: 0 !important;
+		max-width: 100vw !important;
+		border-radius: 0 !important;
+		height: 100vh !important;
+	}
+}
+
+/* Close button */
+.elementor-menu-cart__close-button {
+	color: #FFFFFF !important;
+	opacity: 1 !important;
+	background: transparent !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 999px !important;
+	width: 32px !important;
+	height: 32px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.elementor-menu-cart__close-button:hover {
+	color: var(--evolve-accent) !important;
+	border-color: var(--evolve-accent) !important;
+}
+
+/* WC mini-cart list */
+.woocommerce-mini-cart,
+ul.cart_list, ul.product_list_widget {
+	list-style: none !important;
+	margin: 0 0 18px !important;
+	padding: 0 !important;
+	max-height: 60vh;
+	overflow-y: auto;
+}
+.woocommerce-mini-cart-item,
+ul.cart_list li, ul.product_list_widget li {
+	display: grid !important;
+	grid-template-columns: 60px 1fr auto !important;
+	gap: 14px !important;
+	align-items: center !important;
+	padding: 14px 0 !important;
+	margin: 0 !important;
+	border-bottom: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+	position: relative;
+}
+.woocommerce-mini-cart-item:last-child { border-bottom: 0 !important; }
+
+/* Product thumbnail */
+.woocommerce-mini-cart-item img,
+ul.cart_list li img, ul.product_list_widget li img {
+	width: 60px !important;
+	height: 60px !important;
+	margin: 0 !important;
+	float: none !important;
+	background: #fff !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 10px !important;
+	object-fit: contain !important;
+}
+
+/* Product title link — kill the default red/blue */
+.woocommerce-mini-cart-item a:not(.remove),
+ul.cart_list li a:not(.remove),
+ul.product_list_widget li a:not(.remove) {
+	color: var(--evolve-text) !important;
+	text-decoration: none !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 600 !important;
+	font-size: 13.5px !important;
+	line-height: 1.35 !important;
+	grid-column: 2;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.woocommerce-mini-cart-item a:not(.remove):hover { color: var(--evolve-accent) !important; }
+
+/* Quantity × price line */
+.woocommerce-mini-cart-item .quantity,
+ul.cart_list li .quantity, ul.product_list_widget li .quantity {
+	grid-column: 2;
+	color: var(--evolve-text-dim) !important;
+	font-size: 12px !important;
+	font-weight: 500 !important;
+}
+.woocommerce-mini-cart-item .quantity .woocommerce-Price-amount,
+ul.cart_list .quantity .woocommerce-Price-amount,
+ul.product_list_widget .quantity .woocommerce-Price-amount {
+	color: var(--evolve-accent) !important;
+	font-weight: 700 !important;
+	font-family: var(--evolve-font-head);
+}
+
+/* "Remove" X — right column */
+.woocommerce-mini-cart-item a.remove,
+ul.cart_list .remove, ul.product_list_widget .remove {
+	position: static !important;
+	grid-column: 3 !important;
+	grid-row: 1 / span 2 !important;
+	margin-left: auto !important;
+	width: 28px !important;
+	height: 28px !important;
+	display: inline-flex !important;
+	align-items: center !important;
+	justify-content: center !important;
+	background: rgba(255,77,77,0.10) !important;
+	color: var(--evolve-error) !important;
+	border-radius: 999px !important;
+	font-size: 16px !important;
+	line-height: 1 !important;
+	font-weight: 700 !important;
+}
+.woocommerce-mini-cart-item a.remove:hover {
+	background: var(--evolve-error) !important;
+	color: #000 !important;
+}
+
+/* Empty state — legacy WC paragraph (rendered when our PHP filter doesn't fire) */
+.woocommerce-mini-cart__empty-message {
+	text-align: center !important;
+	color: #FFFFFF !important;
+	padding: 36px 0 !important;
+	margin: 0 0 18px !important;
+	font-size: 15px !important;
+	font-weight: 600;
+}
+
+/* Empty state — our styled card (injected by Evolve_Core\Woo_Customizations) */
+.evolve-cart-empty {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 30px 20px;
+	gap: 8px;
+}
+.evolve-cart-empty__icon {
+	width: 80px; height: 80px;
+	display: inline-flex; align-items: center; justify-content: center;
+	border-radius: 999px;
+	background: rgba(183,255,0,0.10);
+	color: var(--evolve-accent);
+	box-shadow: 0 0 0 6px rgba(183,255,0,0.05), 0 0 28px rgba(183,255,0,0.2);
+	margin-bottom: 6px;
+}
+.evolve-cart-empty__title {
+	color: #FFFFFF !important;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 800;
+	font-size: 20px;
+	letter-spacing: -0.01em;
+	margin: 0;
+}
+.evolve-cart-empty__lede {
+	color: var(--evolve-text-dim) !important;
+	font-size: 13.5px;
+	line-height: 1.55;
+	max-width: 280px;
+	margin: 0 0 12px;
+}
+.evolve-cart-empty__btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	padding: 12px 22px;
+	border-radius: 14px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: all .25s cubic-bezier(.2,.7,.2,1);
+	box-shadow: 0 0 16px rgba(183,255,0,0.28);
+}
+.evolve-cart-empty__btn:hover {
+	background: var(--evolve-accent-2) !important;
+	color: #000 !important;
+	box-shadow: 0 0 24px rgba(183,255,0,0.4);
+	transform: translateY(-1px);
+}
+
+/* Subtotal row */
+.woocommerce-mini-cart__total,
+p.total {
+	display: flex !important;
+	justify-content: space-between !important;
+	align-items: center !important;
+	padding: 16px 0 !important;
+	margin: 0 0 14px !important;
+	border-top: 1px solid var(--evolve-border) !important;
+	border-bottom: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 700 !important;
+	font-size: 14px !important;
+	letter-spacing: .04em;
+	text-transform: uppercase;
+}
+.woocommerce-mini-cart__total .woocommerce-Price-amount,
+p.total .woocommerce-Price-amount {
+	color: var(--evolve-accent) !important;
+	font-size: 18px !important;
+	font-weight: 800 !important;
+}
+
+/* View cart + Checkout buttons */
+.woocommerce-mini-cart__buttons,
+p.buttons {
+	display: grid !important;
+	grid-template-columns: 1fr 1fr !important;
+	gap: 8px !important;
+	margin: 0 !important;
+}
+.woocommerce-mini-cart__buttons .button,
+p.buttons .button {
+	width: 100% !important;
+	text-align: center !important;
+	background: transparent !important;
+	color: var(--evolve-text) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 12px !important;
+	padding: 12px 14px !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	letter-spacing: .12em !important;
+	text-transform: uppercase !important;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.woocommerce-mini-cart__buttons .button:hover,
+p.buttons .button:hover {
+	border-color: var(--evolve-accent) !important;
+	color: var(--evolve-accent) !important;
+}
+.woocommerce-mini-cart__buttons .checkout,
+p.buttons .checkout {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border-color: var(--evolve-accent) !important;
+}
+.woocommerce-mini-cart__buttons .checkout:hover,
+p.buttons .checkout:hover {
+	background: var(--evolve-accent-2) !important;
+	color: #000 !important;
+	box-shadow: var(--evolve-glow-soft);
+}
+
+/* ---- Checkout: "Your Order" review readability ---- */
+.woocommerce-checkout #order_review,
+.woocommerce-checkout #order_review_heading,
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table,
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table thead,
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table tbody,
+.woocommerce-checkout .shop_table.woocommerce-checkout-review-order-table tfoot {
+	color: var(--evolve-text) !important;
+}
+.woocommerce-checkout table.shop_table th,
+.woocommerce-checkout table.shop_table td,
+.woocommerce-checkout table.shop_table .product-name,
+.woocommerce-checkout table.shop_table .product-total,
+.woocommerce-checkout table.shop_table .cart-subtotal th,
+.woocommerce-checkout table.shop_table .cart-subtotal td,
+.woocommerce-checkout table.shop_table .order-total th,
+.woocommerce-checkout table.shop_table .order-total td,
+.woocommerce-checkout table.shop_table .product-name a,
+.woocommerce-checkout table.shop_table strong,
+.woocommerce-checkout table.shop_table .woocommerce-Price-amount {
+	color: var(--evolve-text) !important;
+}
+.woocommerce-checkout table.shop_table .product-name a:hover { color: var(--evolve-accent) !important; }
+.woocommerce-checkout table.shop_table .order-total .woocommerce-Price-amount,
+.woocommerce-checkout table.shop_table .product-total .woocommerce-Price-amount {
+	color: var(--evolve-accent) !important;
+	font-weight: 800 !important;
+}
+.woocommerce-checkout table.shop_table .product-quantity {
+	color: var(--evolve-text-dim) !important;
+	font-size: 13px;
+}
+
+/* Cart page totals box — make sure every number is visible */
+.woocommerce-cart .cart_totals h2,
+.woocommerce-cart .cart_totals,
+.woocommerce-cart .cart_totals table th,
+.woocommerce-cart .cart_totals table td,
+.woocommerce-cart .cart_totals .order-total,
+.woocommerce-cart .cart_totals .order-total .woocommerce-Price-amount,
+.woocommerce-cart .cart_totals strong {
+	color: var(--evolve-text) !important;
+}
+.woocommerce-cart .cart_totals .order-total .woocommerce-Price-amount { color: var(--evolve-accent) !important; font-size: 22px; font-weight: 800; }
+
+/* Coupon / "Have a coupon?" link bar */
+.woocommerce-checkout .checkout_coupon,
+.woocommerce-cart .coupon {
+	background: var(--evolve-card-2) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius-sm) !important;
+	padding: 18px !important;
+	margin-bottom: 18px;
+}
+.woocommerce-form-coupon-toggle .woocommerce-info {
+	background: var(--evolve-card) !important;
+	color: var(--evolve-text-dim) !important;
+}
+.woocommerce-form-coupon-toggle .woocommerce-info a { color: var(--evolve-accent); }
+
+/* My-Account dashboard intro */
+.woocommerce-account .woocommerce-MyAccount-content p,
+.woocommerce-account .woocommerce-MyAccount-content,
+.woocommerce-account .woocommerce-MyAccount-content strong,
+.woocommerce-account .woocommerce-MyAccount-content a {
+	color: var(--evolve-text-dim) !important;
+}
+.woocommerce-account .woocommerce-MyAccount-content a { color: var(--evolve-accent) !important; }
+.woocommerce-account .woocommerce-MyAccount-content h2,
+.woocommerce-account .woocommerce-MyAccount-content h3 {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	margin-bottom: 14px;
+}
+
+/* Order received / Thank-you page */
+.woocommerce-order .woocommerce-thankyou-order-received {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	font-size: clamp(1.4rem, 2.5vw, 2rem);
+	margin-bottom: 18px;
+}
+.woocommerce-order .woocommerce-order-overview {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 18px 22px !important;
+	margin: 0 0 22px !important;
+	list-style: none !important;
+	display: grid !important;
+	grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+	gap: 16px;
+}
+.woocommerce-order .woocommerce-order-overview li {
+	color: var(--evolve-text-dim) !important;
+	border: 0 !important;
+	padding: 0 !important;
+	font-size: 12px !important;
+	text-transform: uppercase;
+	letter-spacing: .08em;
+}
+.woocommerce-order .woocommerce-order-overview li strong { color: var(--evolve-text) !important; display: block; font-size: 15px; margin-top: 4px; letter-spacing: 0; text-transform: none; }
+.woocommerce-order .woocommerce-order-details h2,
+.woocommerce-order .woocommerce-customer-details h2 {
+	color: var(--evolve-text); font-family: var(--evolve-font-head); font-weight: 800; margin: 28px 0 14px;
+}
+.woocommerce-order address {
+	background: var(--evolve-card);
+	border: 1px solid var(--evolve-border);
+	border-radius: var(--evolve-radius);
+	padding: 18px;
+	color: var(--evolve-text-dim);
+	font-style: normal;
+}
+
+/* ============================================================================
+   v1.0.15 — Cart / checkout / my-account: kill white widget-container
+   backgrounds and force every action button into neon green.
+   ========================================================================= */
+
+/* The Elementor WC page widgets (cart / checkout / my-account) wrap their
+   output in `.elementor-widget-container` which inherits a light background
+   from Hello Elementor / theme.json defaults. Wipe it. */
+.elementor-widget-woocommerce-cart > .elementor-widget-container,
+.elementor-widget-woocommerce-checkout-page > .elementor-widget-container,
+.elementor-widget-woocommerce-my-account > .elementor-widget-container,
+.elementor-widget-woocommerce-cart .woocommerce,
+.elementor-widget-woocommerce-checkout-page .woocommerce,
+.elementor-widget-woocommerce-my-account .woocommerce,
+.woocommerce-cart .woocommerce,
+.woocommerce-checkout .woocommerce,
+.woocommerce-account .woocommerce,
+.woocommerce-cart .woocommerce-cart-form,
+.woocommerce-cart .cart-collaterals,
+.woocommerce-cart .cart-collaterals .cart_totals,
+.woocommerce-checkout #order_review_heading,
+.woocommerce-checkout #order_review {
+	background: transparent !important;
+	box-shadow: none !important;
+	border-color: transparent !important;
+	padding: 0 !important;
+}
+/* Re-style the totals box as a dark glass card (the original v1.0.0 look) */
+.woocommerce-cart .cart-collaterals .cart_totals {
+	background: var(--evolve-card) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius) !important;
+	padding: 24px !important;
+}
+.woocommerce-cart .cart-collaterals .cart_totals h2 {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 800;
+	font-size: 18px;
+	margin: 0 0 14px;
+}
+.woocommerce-cart .cart-collaterals .cart_totals .order-total .woocommerce-Price-amount {
+	color: var(--evolve-accent) !important;
+	font-size: 22px;
+	font-weight: 800;
+}
+
+/* WC sometimes renders a second .cart_totals (mini-cart heading) — kill any
+   duplicate "Cart Totals" stack inside the totals card. */
+.woocommerce-cart .cart_totals > h2 + h2,
+.woocommerce-cart .cart_totals > h2 ~ h2 { display: none !important; }
+
+/* ---------- Buttons — force every WC cart / checkout / coupon CTA to the
+   neon green palette. The theme defaults to a cyan/teal that was leaking
+   through on Apply Coupon + Proceed to Checkout. ---------- */
+.woocommerce a.button,
+.woocommerce-page a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce input[type="submit"].button,
+.woocommerce a.button.alt,
+.woocommerce button.button.alt,
+.woocommerce input.button.alt,
+.woocommerce-cart .checkout-button,
+.woocommerce-cart .wc-proceed-to-checkout .button,
+.woocommerce-cart .wc-proceed-to-checkout a.button,
+.woocommerce button[name="apply_coupon"],
+.woocommerce input[name="apply_coupon"],
+.woocommerce button[name="update_cart"],
+.woocommerce input[name="update_cart"],
+.woocommerce button[type="submit"]#place_order,
+.woocommerce-page button[type="submit"]#place_order {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border: 0 !important;
+	border-radius: var(--evolve-radius-sm) !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 13px !important;
+	letter-spacing: .1em !important;
+	text-transform: uppercase !important;
+	padding: 14px 22px !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	transition: all var(--evolve-dur) var(--evolve-ease);
+}
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce-cart .checkout-button:hover,
+.woocommerce-cart .wc-proceed-to-checkout .button:hover,
+.woocommerce button[name="apply_coupon"]:hover {
+	background: var(--evolve-accent-2) !important;
+	color: #000 !important;
+	box-shadow: var(--evolve-glow-soft) !important;
+}
+/* Update Cart button — keep it as an outline button so it's visually
+   distinct from the primary Proceed to Checkout CTA */
+.woocommerce input[name="update_cart"],
+.woocommerce button[name="update_cart"] {
+	background: transparent !important;
+	color: var(--evolve-text-dim) !important;
+	border: 1px solid var(--evolve-border) !important;
+}
+.woocommerce input[name="update_cart"]:hover {
+	color: var(--evolve-accent) !important;
+	border-color: var(--evolve-accent) !important;
+	background: transparent !important;
+}
+
+/* Final belt-and-braces: any leftover Hello Elementor / theme h1.entry-title
+   that the WP loop renders on cart/checkout/my-account is hidden. The
+   Elementor template's H1 is the only one we want. */
+.woocommerce-cart .entry-title,
+.woocommerce-checkout .entry-title,
+.woocommerce-account .entry-title,
+.page-id .woocommerce-page-title,
+.woocommerce-cart .woocommerce-products-header,
+.woocommerce-checkout .woocommerce-products-header { display: none !important; }
+
+/* ============================================================================
+   v1.0.16 — Elementor Pro WC Cart widget overrides its own CSS variables.
+   The white frame seen on the cart/checkout pages is `.e-cart-section` whose
+   default `--sections-background-color` is #fff and `--sections-border-color`
+   is #d5d8dc. We can't outvote it with widget-container overrides — we have
+   to set the variables themselves on `.elementor-widget-woocommerce-cart`.
+   ========================================================================= */
+
+.elementor-widget-woocommerce-cart,
+.elementor-widget-woocommerce-checkout-page,
+.elementor-widget-woocommerce-my-account {
+	/* My Account tab list ----------------------------------------- */
+	--tabs-normal-color:        var(--evolve-text);
+	--tabs-hover-color:         var(--evolve-accent);
+	--tabs-active-color:        #000000;
+	--tabs-active-border-color: var(--evolve-accent);
+	--tabs-border-color:        var(--evolve-border);
+	--tabs-border-type:         solid;
+	--tabs-border-radius:       12px;
+	--tabs-padding:             14px 18px;
+	--tabs-divider-color:       transparent;
+	--tabs-divider-weight:      0;
+	--tabs-spacing:             8px;
+	--tab-content-spacing:      4%;
+
+	/* My Account tables (Orders / Downloads / Addresses summaries) --
+	   Elementor Pro reads the singular `--tables-title-color`; the plural
+	   form is a typo-safe fallback. */
+	--tables-title-color:            var(--evolve-text);
+	--tables-titles-color:           var(--evolve-text);
+	--tables-items-color:            var(--evolve-text-dim);
+	--tables-titles-spacing:         12px;
+	--tables-links-normal-color:     var(--evolve-accent);
+	--tables-links-hover-color:      var(--evolve-accent-2);
+	--tables-buttons-border-color:   var(--evolve-accent);
+	--tables-buttons-border-type:    solid;
+	--tables-button-normal-text-color: #000000;
+	--tables-button-hover-text-color:  #000000;
+	--tables-button-border-radius:   12px;
+	--tables-button-padding:         8px 14px;
+	--tables-divider-border-color:   var(--evolve-border);
+	--tables-divider-border-type:    solid;
+	--tables-divider-border-width:   1px;
+
+	/* My Account forms (Edit Account / Addresses) -- */
+	--forms-fields-normal-color:               var(--evolve-text);
+	--forms-fields-focus-color:                var(--evolve-text);
+	--forms-fields-normal-background-color:    var(--evolve-card-2);
+	--forms-fields-focus-background-color:     var(--evolve-card-2);
+	--forms-fields-border-radius:              12px;
+	--forms-fields-padding:                    14px 16px;
+
+	/* Section titles (e.g. "Password change") -- */
+	--sections-title-color:    var(--evolve-text);
+	--sections-title-spacing:  10px;
+
+	--sections-background-color: var(--evolve-card);
+	--sections-border-color: var(--evolve-border);
+	--sections-border-type: solid;
+	--sections-border-radius: 20px;
+	--sections-padding: 24px 28px;
+	--sections-title-color: var(--evolve-text);
+	--sections-descriptions-color: var(--evolve-text-dim);
+	--sections-radio-buttons-color: var(--evolve-text-dim);
+
+	--order-summary-color: var(--evolve-text);
+	--order-summary-title-color: var(--evolve-text);
+	--order-summary-items-divider-color: var(--evolve-border);
+	--order-summary-quantity-border-color: var(--evolve-border);
+	--order-summary-remove-icon-normal-color: var(--evolve-text-mute);
+	--order-summary-remove-icon-hover-color: var(--evolve-error);
+
+	--totals-color: var(--evolve-text);
+	--totals-divider-color: var(--evolve-border);
+	--totals-divider-weight: 1px;
+
+	--product-link-normal-color: var(--evolve-text);
+	--product-link-hover-color: var(--evolve-accent);
+
+	--links-normal-color: var(--evolve-accent);
+	--links-hover-color: var(--evolve-accent-2);
+
+	--checkout-button-bg: var(--evolve-accent);
+	--checkout-button-normal-text-color: #000000;
+	--checkout-button-hover-text-color: #000000;
+	--checkout-button-hover-border-color: var(--evolve-accent-2);
+	--checkout-button-border-radius: 14px;
+
+	--forms-buttons-border-color: var(--evolve-accent);
+	--forms-buttons-hover-border-color: var(--evolve-accent-2);
+	--forms-buttons-normal-text-color: #000000;
+	--forms-buttons-hover-text-color: #000000;
+	--forms-buttons-border-radius: 14px;
+
+	--forms-fields-normal-color: var(--evolve-text);
+	--forms-fields-focus-color: var(--evolve-text);
+	--forms-fields-border-radius: 12px;
+	--forms-fields-focus-border-color: var(--evolve-accent);
+}
+
+/* The actual section + totals containers — belt-and-braces */
+.elementor-widget-woocommerce-cart .e-cart-section,
+.elementor-widget-woocommerce-cart .e-cart-totals,
+.elementor-widget-woocommerce-checkout-page .e-cart-section,
+.elementor-widget-woocommerce-checkout-page .e-checkout-section,
+.elementor-widget-woocommerce-my-account .e-cart-section {
+	background-color: var(--evolve-card) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius) !important;
+	color: var(--evolve-text) !important;
+}
+
+/* Force the checkout-button (hard-coded #5bc0de in Pro's CSS) to neon */
+.elementor-widget-woocommerce-cart .woocommerce .wc-proceed-to-checkout .checkout-button,
+.elementor-widget-woocommerce-cart .woocommerce .checkout-button,
+.elementor-widget-woocommerce-cart .woocommerce button.button,
+.elementor-widget-woocommerce-cart .woocommerce a.button,
+.elementor-widget-woocommerce-cart .woocommerce input.button {
+	background-color: var(--evolve-accent) !important;
+	color: #000 !important;
+	border: 0 !important;
+	border-radius: 14px !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	letter-spacing: .1em !important;
+	text-transform: uppercase !important;
+}
+.elementor-widget-woocommerce-cart .woocommerce .wc-proceed-to-checkout .checkout-button:hover,
+.elementor-widget-woocommerce-cart .woocommerce button.button:hover,
+.elementor-widget-woocommerce-cart .woocommerce a.button:hover {
+	background-color: var(--evolve-accent-2) !important;
+	color: #000 !important;
+	box-shadow: var(--evolve-glow-soft) !important;
+}
+
+/* Input fields inside the cart widget — kill the #f9fafa default */
+.elementor-widget-woocommerce-cart .woocommerce .input-text,
+.elementor-widget-woocommerce-cart .woocommerce select {
+	background-color: var(--evolve-card-2) !important;
+	border: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+}
+.elementor-widget-woocommerce-cart .woocommerce .input-text::placeholder { color: var(--evolve-text-mute) !important; }
+
+/* ---------- My Account navigation tabs (Elementor Pro hard-codes the BG) --- */
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce .woocommerce-MyAccount-navigation {
+	width: 24% !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation ul {
+	list-style: none !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 6px !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation ul li {
+	width: 100% !important;
+	margin: 0 !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation ul li::after {
+	display: none !important;
+}
+/* Normal tab — kill the hard-coded #f9fafa background */
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce .woocommerce-MyAccount-navigation ul li a {
+	background: var(--evolve-card) !important;
+	color: var(--evolve-text-dim) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 12px !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 600 !important;
+	font-size: 13px !important;
+	letter-spacing: .08em !important;
+	text-transform: uppercase !important;
+	padding: 14px 18px !important;
+	transition: all var(--evolve-dur) var(--evolve-ease) !important;
+}
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce .woocommerce-MyAccount-navigation ul li a:hover {
+	color: var(--evolve-accent) !important;
+	border-color: var(--evolve-accent) !important;
+	background: var(--evolve-card-2) !important;
+}
+/* Active tab — kill the hard-coded #f1f2f3 background, paint neon */
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce .woocommerce-MyAccount-navigation ul li.is-active a {
+	background: var(--evolve-accent) !important;
+	color: #000000 !important;
+	border-color: var(--evolve-accent) !important;
+	box-shadow: var(--evolve-glow-soft);
+}
+/* Logout — keep it a destructive-style outline */
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a {
+	color: var(--evolve-text-mute) !important;
+	border-style: dashed !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation ul li.woocommerce-MyAccount-navigation-link--customer-logout a:hover {
+	color: var(--evolve-error) !important;
+	border-color: var(--evolve-error) !important;
+}
+
+/* ---------- My Account ORDERS table (text visibility) ---------- */
+.elementor-widget-woocommerce-my-account .e-my-account-tab__orders table.shop_table,
+.elementor-widget-woocommerce-my-account .e-my-account-tab__downloads table.shop_table,
+.elementor-widget-woocommerce-my-account table.woocommerce-orders-table,
+.elementor-widget-woocommerce-my-account table.shop_table {
+	background: transparent !important;
+	color: var(--evolve-text-dim) !important;
+}
+.elementor-widget-woocommerce-my-account table.shop_table thead th,
+.elementor-widget-woocommerce-my-account table.woocommerce-orders-table thead th {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	letter-spacing: .12em !important;
+	text-transform: uppercase !important;
+	border-bottom: 1px solid var(--evolve-border) !important;
+	padding-bottom: 14px !important;
+}
+.elementor-widget-woocommerce-my-account table.shop_table tbody td,
+.elementor-widget-woocommerce-my-account table.woocommerce-orders-table tbody td {
+	color: var(--evolve-text) !important;
+	border-top: 1px solid var(--evolve-border) !important;
+	padding: 18px 12px 18px 0 !important;
+	background: transparent !important;
+}
+.elementor-widget-woocommerce-my-account table.shop_table tbody td a,
+.elementor-widget-woocommerce-my-account table.woocommerce-orders-table tbody td a {
+	color: var(--evolve-accent) !important;
+	font-weight: 700;
+}
+.elementor-widget-woocommerce-my-account table.shop_table tbody td a:hover {
+	color: var(--evolve-accent-2) !important;
+}
+
+/* "View" / "Cancel" / order-actions buttons in the orders table */
+.elementor-widget-woocommerce-my-account .woocommerce-orders-table__cell-order-actions .button,
+.elementor-widget-woocommerce-my-account .woocommerce-orders-table .button,
+.elementor-widget-woocommerce-my-account table.shop_table .button {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border: 0 !important;
+	border-radius: 12px !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 800 !important;
+	font-size: 11px !important;
+	letter-spacing: .12em !important;
+	text-transform: uppercase !important;
+	padding: 8px 18px !important;
+	min-width: 88px;
+	text-align: center;
+	display: inline-block !important;
+	box-shadow: none !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-orders-table .button:hover,
+.elementor-widget-woocommerce-my-account table.shop_table .button:hover {
+	background: var(--evolve-accent-2) !important;
+	color: #000 !important;
+}
+
+/* ---------- My Account FORMS (Edit Account / Addresses) ---------- */
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row .input-text,
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row select,
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row textarea,
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce .form-row .input-text,
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce .form-row select {
+	background: var(--evolve-card-2) !important;
+	border: 1px solid var(--evolve-border) !important;
+	color: var(--evolve-text) !important;
+	border-radius: 12px !important;
+	padding: 14px 16px !important;
+	font-size: 14px !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row .input-text:focus,
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row select:focus,
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row textarea:focus {
+	border-color: var(--evolve-accent) !important;
+	box-shadow: var(--evolve-glow-soft);
+	color: var(--evolve-text) !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row label,
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce form label {
+	color: var(--evolve-text-dim) !important;
+	font-family: var(--evolve-font-head);
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: .1em;
+	text-transform: uppercase;
+}
+
+/* Section titles like "Password change", "Order details", "Address" */
+.elementor-widget-woocommerce-my-account .woocommerce h2,
+.elementor-widget-woocommerce-my-account .woocommerce h3,
+.elementor-widget-woocommerce-my-account .woocommerce fieldset legend,
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content h2,
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content h3,
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content fieldset legend {
+	color: var(--evolve-text) !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 800 !important;
+	margin-top: 18px;
+}
+
+/* Helpful "this will be displayed…" hints below fields */
+.elementor-widget-woocommerce-my-account .woocommerce form .form-row span.description,
+.elementor-widget-woocommerce-my-account .woocommerce form em {
+	color: var(--evolve-text-mute) !important;
+	font-size: 12.5px;
+	font-style: italic;
+}
+
+/* Save / Update buttons inside Edit Account / Edit Address */
+.elementor-widget-woocommerce-my-account form button[type="submit"],
+.elementor-widget-woocommerce-my-account form input[type="submit"] {
+	background: var(--evolve-accent) !important;
+	color: #000 !important;
+	border: 0 !important;
+	border-radius: 14px !important;
+	font-family: var(--evolve-font-head) !important;
+	font-weight: 700 !important;
+	letter-spacing: .1em !important;
+	text-transform: uppercase !important;
+	padding: 14px 24px !important;
+}
+
+/* My Account content panel — the white card on the right of the tabs */
+.elementor-widget-woocommerce-my-account .e-my-account-tab .woocommerce-MyAccount-content-wrapper,
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content-wrapper {
+	background: var(--evolve-card) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: var(--evolve-radius) !important;
+	color: var(--evolve-text-dim) !important;
+	padding: 28px 32px !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content,
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content p,
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content strong {
+	color: var(--evolve-text-dim) !important;
+}
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content strong { color: var(--evolve-text) !important; }
+.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content a {
+	color: var(--evolve-accent) !important;
+	text-decoration: underline;
+	text-decoration-color: rgba(183,255,0,0.4);
+}
+
+/* Product link in the cart row was forced black via --product-link-normal-color
+   defaulting to #000; the variable override above fixes it, this is the
+   visual safety net. */
+.elementor-widget-woocommerce-cart .woocommerce .product-name a,
+.elementor-widget-woocommerce-cart .woocommerce table.cart .product-name a,
+.elementor-widget-woocommerce-cart .woocommerce table.cart td span {
+	color: var(--evolve-text) !important;
+}
+
+/* ============================================================================
+   v1.0.18 — Checkout layout, payment box, browser autofill, duplicate rows
+   ========================================================================= */
+
+/* Make the Elementor checkout widget's grid breathe on wide screens. The
+   wrapping container is now `content_width:full`, so let the inner grid
+   cap itself at a reasonable max so it doesn't span 100% of a 4K monitor. */
+.evolve-checkout-wide .elementor-widget-woocommerce-checkout-page .elementor-widget-container {
+	max-width: 1480px;
+	margin-inline: auto;
+}
+.elementor-widget-woocommerce-checkout-page .e-checkout__container {
+	grid-template-columns: 1.4fr 1fr !important;
+	grid-column-gap: 32px !important;
+	grid-row-gap: 32px !important;
+}
+@media (max-width: 1024px) {
+	.elementor-widget-woocommerce-checkout-page .e-checkout__container {
+		grid-template-columns: 1fr !important;
+	}
+}
+
+/* Payment methods + payment-gateway "Pay at store" box was white-on-red */
+.woocommerce-checkout #payment,
+.woocommerce-checkout #payment ul.payment_methods,
+.elementor-widget-woocommerce-checkout-page #payment,
+.elementor-widget-woocommerce-checkout-page #payment ul.payment_methods {
+	background: var(--evolve-card-2) !important;
+	color: var(--evolve-text) !important;
+	border-color: var(--evolve-border) !important;
+}
+.woocommerce-checkout #payment ul.payment_methods li,
+.elementor-widget-woocommerce-checkout-page #payment ul.payment_methods li {
+	color: var(--evolve-text) !important;
+}
+.woocommerce-checkout #payment ul.payment_methods li label,
+.elementor-widget-woocommerce-checkout-page #payment ul.payment_methods li label {
+	color: var(--evolve-text) !important;
+	font-weight: 700;
+}
+.woocommerce-checkout #payment div.payment_box,
+.elementor-widget-woocommerce-checkout-page #payment div.payment_box {
+	background: rgba(255,255,255,0.04) !important;
+	color: var(--evolve-text-dim) !important;
+	border: 1px solid var(--evolve-border) !important;
+	border-radius: 12px !important;
+}
+.woocommerce-checkout #payment div.payment_box::before,
+.elementor-widget-woocommerce-checkout-page #payment div.payment_box::before {
+	border-bottom-color: rgba(255,255,255,0.04) !important;
+}
+.woocommerce-checkout #payment div.payment_box *,
+.elementor-widget-woocommerce-checkout-page #payment div.payment_box * {
+	color: var(--evolve-text-dim) !important;
+}
+.woocommerce-checkout #payment div.payment_box strong,
+.elementor-widget-woocommerce-checkout-page #payment div.payment_box strong {
+	color: var(--evolve-text) !important;
+}
+
+/* Browser autofill — Chrome/Safari paint inputs yellow/white when filled
+   from saved data. Force the inset background + text colour back to dark. */
+.woocommerce input:-webkit-autofill,
+.woocommerce textarea:-webkit-autofill,
+.elementor-widget-woocommerce-checkout-page input:-webkit-autofill,
+.elementor-widget-woocommerce-checkout-page textarea:-webkit-autofill,
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 1000px var(--evolve-card-2) inset !important;
+	box-shadow: 0 0 0 1000px var(--evolve-card-2) inset !important;
+	-webkit-text-fill-color: var(--evolve-text) !important;
+	caret-color: var(--evolve-text) !important;
+	border-color: var(--evolve-border) !important;
+	transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Order review — Elementor renders a responsive duplicate row that
+   inherits the same .product-name + .product-quantity but is hidden
+   on desktop via display:none. Some themes break that hide; re-assert. */
+@media (min-width: 768px) {
+	.woocommerce-checkout-review-order-table tr.cart_item + tr.cart_item.responsive,
+	.woocommerce-checkout-review-order-table tr[data-hidden="responsive"] { display: none !important; }
+}
+/* Some templates emit a second `cart_totals` H2 — keep only the first */
+.elementor-widget-woocommerce-checkout-page #order_review_heading + #order_review_heading,
+.woocommerce-checkout #order_review h2 + h2 { display: none !important; }
+/* Empty/duplicate subtotal row guard */
+.woocommerce-checkout-review-order-table tr.cart-subtotal + tr.cart-subtotal { display: none !important; }
+
+/* ---------- Sticky-add-to-cart bar on mobile (optional progressive enhancement) ---------- */
+@media (max-width: 720px) {
+	.woocommerce div.product form.cart {
+		position: sticky;
+		bottom: 0;
+		z-index: 30;
+		background: rgba(5,5,5,0.92);
+		backdrop-filter: blur(12px);
+		padding: 12px;
+		margin-inline: -12px;
+		width: calc(100% + 24px);
+		max-width: calc(100% + 24px);
+		box-sizing: border-box;
+		border-top: 1px solid var(--evolve-border);
+	}
+
+	/* Keep the add-to-cart button from overflowing on mobile */
+	.woocommerce div.product form.cart .single_add_to_cart_button,
+	.woocommerce button.button.alt.single_add_to_cart_button,
+	.woocommerce div.product form.cart .button.alt.single_add_to_cart_button {
+		flex: 1 1 0;
+		min-width: 0;
+		max-width: 100%;
+		padding: 0 16px !important;
+		font-size: 12px !important;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	/* Shrink the "— choose option" hint so it doesn't blow the button out */
+	.woocommerce div.product form.cart .single_add_to_cart_button.disabled::after {
+		font-size: 9px;
+	}
+}
+

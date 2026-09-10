@@ -1,0 +1,207 @@
+/* ── Fix WC "added to cart" notice clipping ─────────────────── */
+
+.woocommerce-message {
+	padding-left: 50px !important;
+	overflow: visible !important;
+}
+
+/* ── Buy 4 Get 5th Free — WC notices ────────────────────────── */
+
+.woocommerce-info:has(.evolve-bogo-notice),
+.woocommerce-message:has(.evolve-bogo-notice),
+.evolve-bogo-notice-box {
+	background: #1a1a1a !important;
+	border: 2px solid #B7FF00 !important;
+	border-left: 4px solid #B7FF00 !important;
+	border-radius: 8px !important;
+	padding: 16px 24px !important;
+	margin: 12px auto 16px !important;
+	text-align: center !important;
+	max-width: 800px;
+	animation: evolve-bogo-pulse 2s ease-in-out infinite;
+}
+
+.woocommerce-info:has(.evolve-bogo-notice)::before,
+.woocommerce-message:has(.evolve-bogo-notice)::before {
+	display: none !important;
+}
+
+@keyframes evolve-bogo-pulse {
+	0%, 100% {
+		box-shadow: 0 0 8px rgba(183, 255, 0, 0.15);
+		border-color: #B7FF00;
+	}
+	50% {
+		box-shadow: 0 0 24px rgba(183, 255, 0, 0.4), 0 0 48px rgba(183, 255, 0, 0.15);
+		border-color: #d4ff66;
+	}
+}
+
+.evolve-bogo-notice {
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 1.5;
+	letter-spacing: 0.02em;
+}
+
+.evolve-bogo-notice strong {
+	color: #B7FF00;
+	font-weight: 700;
+}
+
+.evolve-bogo-notice small {
+	display: block;
+	margin-top: 4px;
+	font-size: 12px;
+	color: #888;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+}
+
+.evolve-bogo-notice--success {
+	font-size: 17px;
+}
+
+.evolve-bogo-notice--success strong {
+	color: #B7FF00;
+}
+
+/* ── Cart / checkout promo banner ───────────────────────────── */
+
+.evolve-bogo-banner {
+	background: #1a1a1a;
+	border: 1px solid #333;
+	border-radius: 8px;
+	padding: 20px 24px;
+	margin-bottom: 24px;
+}
+
+.evolve-bogo-banner__title {
+	color: #B7FF00;
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	margin: 0 0 16px;
+}
+
+.evolve-bogo-banner__row {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex-wrap: wrap;
+	padding: 8px 0;
+}
+
+.evolve-bogo-banner__row + .evolve-bogo-banner__row {
+	border-top: 1px solid #2a2a2a;
+}
+
+.evolve-bogo-banner__cat {
+	color: #fff;
+	font-weight: 600;
+	font-size: 14px;
+	min-width: 110px;
+	flex-shrink: 0;
+}
+
+.evolve-bogo-banner__bar-wrap {
+	flex: 1;
+	min-width: 100px;
+	height: 8px;
+	background: #333;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.evolve-bogo-banner__bar {
+	height: 100%;
+	background: #B7FF00;
+	border-radius: 4px;
+	transition: width 0.3s ease;
+}
+
+.evolve-bogo-banner__status {
+	color: #999;
+	font-size: 13px;
+	white-space: nowrap;
+}
+
+.evolve-bogo-banner__status--active {
+	color: #B7FF00;
+	font-weight: 600;
+}
+
+/* ── Mini-cart sidebar banner ───────────────────────────────── */
+
+.evolve-bogo-mini {
+	background: #111;
+	border: 1px solid #B7FF00;
+	border-radius: 8px;
+	padding: 14px 16px;
+	margin: 16px 0 4px;
+	animation: evolve-bogo-pulse 2s ease-in-out infinite;
+}
+
+.evolve-bogo-mini__title {
+	color: #B7FF00;
+	font-size: 12px;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	text-align: center;
+	margin: 0 0 10px;
+}
+
+.evolve-bogo-mini__row {
+	padding: 6px 0;
+}
+
+.evolve-bogo-mini__row + .evolve-bogo-mini__row {
+	border-top: 1px solid #222;
+	margin-top: 2px;
+	padding-top: 8px;
+}
+
+.evolve-bogo-mini__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 6px;
+}
+
+.evolve-bogo-mini__cat {
+	color: #fff;
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.evolve-bogo-mini__hint {
+	color: #888;
+	font-size: 11px;
+}
+
+.evolve-bogo-mini__badge {
+	background: #B7FF00;
+	color: #000;
+	font-size: 11px;
+	font-weight: 700;
+	padding: 1px 6px;
+	border-radius: 4px;
+}
+
+.evolve-bogo-mini__bar-wrap {
+	height: 5px;
+	background: #333;
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.evolve-bogo-mini__bar {
+	height: 100%;
+	background: #B7FF00;
+	border-radius: 3px;
+	transition: width 0.3s ease;
+}

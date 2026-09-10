@@ -1,0 +1,52 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Age Verification (21+)",
+	"type": "popup",
+	"page_settings":{
+		"prevent_close_on_background_click":"yes",
+		"prevent_close_on_esc_key":"yes",
+		"close_button_display":"no",
+		"width":{ "unit":"px","size":480 },
+		"height":{ "unit":"vh","size":100 },
+		"position_horizontal":"center",
+		"position_vertical":"center",
+		"overlay_background_background":"classic",
+		"overlay_background_color":"rgba(5,5,5,0.92)",
+		"background_background":"classic",
+		"background_color":"#0a0a0a",
+		"border_radius":{ "unit":"px","top":"20","right":"20","bottom":"20","left":"20" },
+		"box_shadow_box_shadow_type":"yes",
+		"box_shadow_box_shadow":{ "horizontal":0,"vertical":30,"blur":80,"spread":0,"color":"rgba(0,0,0,0.6)" },
+		"triggers":{ "page_load_delay":{ "unit":"sec","size":0 } },
+		"timing":{}
+	},
+	"content":[
+		{
+			"id":"agp-wrap",
+			"elType":"container",
+			"settings":{
+				"content_width":"full",
+				"flex_direction":"column",
+				"flex_align_items":"center",
+				"flex_justify_content":"center",
+				"padding":{ "unit":"px","top":"44","right":"32","bottom":"44","left":"32","isLinked":false },
+				"flex_gap":{ "unit":"px","size":14,"column":"14","row":"14" }
+			},
+			"elements":[
+				{ "id":"agp-logo","elType":"widget","widgetType":"theme-site-logo","settings":{ "align":"center","width":{"unit":"px","size":180} } },
+				{ "id":"agp-h","elType":"widget","widgetType":"heading","settings":{ "title":"You must be 21+ to enter.", "header_size":"h2","align":"center","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"900","typography_font_size":{"unit":"px","size":28} } },
+				{ "id":"agp-p","elType":"widget","widgetType":"text-editor","settings":{ "editor":"<p style='text-align:center;color:#B3B3B3;'>By entering this site you certify that you are at least 21 years of age and accept our Terms of Use and Privacy Policy.</p>" } },
+				{
+					"id":"agp-cta",
+					"elType":"container",
+					"settings":{ "content_width":"full","flex_direction":"row","flex_gap":{"unit":"px","size":10,"column":"10","row":"10"},"flex_justify_content":"center" },
+					"elements":[
+						{ "id":"agp-btn1","elType":"widget","widgetType":"button","settings":{ "text":"I'M 21 OR OLDER — ENTER","link":{"url":"#elementor-action%3Aaction%3Dpopup%3Aclose"},"background_color":"#B7FF00","button_text_color":"#000000","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"},"size":"md","button_box_shadow_box_shadow_type":"yes","button_box_shadow_box_shadow":{"horizontal":0,"vertical":0,"blur":24,"spread":0,"color":"rgba(183,255,0,0.35)"} } },
+						{ "id":"agp-btn2","elType":"widget","widgetType":"button","settings":{ "text":"EXIT","link":{"url":"https://www.google.com/"},"background_color":"transparent","button_text_color":"#FFFFFF","border_border":"solid","border_width":{"unit":"px","top":"1","right":"1","bottom":"1","left":"1","isLinked":true},"border_color":"#1E1E1E","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"},"size":"md" } }
+					]
+				},
+				{ "id":"agp-note","elType":"widget","widgetType":"text-editor","settings":{ "editor":"<p style='text-align:center;color:#6E6E6E;font-size:12px;'>Nashua, NH · Pheasant Lane Mall · ID required at pickup.</p>" } }
+			]
+		}
+	]
+}

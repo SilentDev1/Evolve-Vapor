@@ -1,0 +1,22 @@
+/* Evolve AI Vape Match — admin styling */
+.evolve-aivm-admin h1 { font-weight: 800; }
+.evolve-aivm-admin__lede { color: #50575e; max-width: 780px; }
+.evolve-aivm-admin__card {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 10px;
+	padding: 20px 22px;
+	margin: 18px 0 24px;
+	max-width: 980px;
+}
+.evolve-aivm-admin__card h2 { margin-top: 0; }
+.evolve-aivm-admin__card--help { background: #fafafa; }
+.evolve-aivm-admin__card code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+.evolve-aivm-admin .form-table th { padding: 14px 16px 14px 0; font-weight: 700; }
+.evolve-aivm-admin .form-table input[type="text"],
+.evolve-aivm-admin .form-table input[type="password"] { min-width: 360px; }
+
+/* Product meta box */
+.evolve-aivm-meta p { margin: 0 0 12px; }
+.evolve-aivm-meta label strong { display: inline-block; margin-bottom: 4px; }
+.evolve-aivm-meta .description { color: #757575; font-size: 12px; }

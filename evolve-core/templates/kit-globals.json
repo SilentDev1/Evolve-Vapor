@@ -1,0 +1,105 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Global Kit",
+	"type": "kit",
+	"content": [],
+	"page_settings": {
+		"system_colors": [
+			{ "_id": "primary",   "title": "Primary",   "color": "#B7FF00" },
+			{ "_id": "secondary", "title": "Secondary", "color": "#7CFF4F" },
+			{ "_id": "text",      "title": "Text",      "color": "#FFFFFF" },
+			{ "_id": "accent",    "title": "Accent",    "color": "#B7FF00" }
+		],
+		"custom_colors": [
+			{ "_id": "evolve_bg",        "title": "Evolve / Background",       "color": "#050505" },
+			{ "_id": "evolve_bg_2",      "title": "Evolve / Surface",          "color": "#0D0D0D" },
+			{ "_id": "evolve_card",      "title": "Evolve / Card",             "color": "#111111" },
+			{ "_id": "evolve_border",    "title": "Evolve / Border",           "color": "#1E1E1E" },
+			{ "_id": "evolve_accent",    "title": "Evolve / Neon",             "color": "#B7FF00" },
+			{ "_id": "evolve_accent_2",  "title": "Evolve / Neon Soft",        "color": "#7CFF4F" },
+			{ "_id": "evolve_text",      "title": "Evolve / Text",             "color": "#FFFFFF" },
+			{ "_id": "evolve_text_dim",  "title": "Evolve / Text Dim",         "color": "#B3B3B3" },
+			{ "_id": "evolve_error",     "title": "Evolve / Error",            "color": "#FF4D4D" },
+			{ "_id": "evolve_success",   "title": "Evolve / Success",          "color": "#00FF99" }
+		],
+		"system_typography": [
+			{
+				"_id": "primary", "title": "Primary",
+				"typography_typography": "custom",
+				"typography_font_family": "Poppins",
+				"typography_font_weight": "800"
+			},
+			{
+				"_id": "secondary", "title": "Secondary",
+				"typography_typography": "custom",
+				"typography_font_family": "Poppins",
+				"typography_font_weight": "600"
+			},
+			{
+				"_id": "text", "title": "Body",
+				"typography_typography": "custom",
+				"typography_font_family": "Inter",
+				"typography_font_weight": "400"
+			},
+			{
+				"_id": "accent", "title": "Accent",
+				"typography_typography": "custom",
+				"typography_font_family": "Poppins",
+				"typography_font_weight": "700"
+			}
+		],
+		"custom_typography": [
+			{
+				"_id": "evolve_display", "title": "Evolve / Display",
+				"typography_typography": "custom",
+				"typography_font_family": "Poppins",
+				"typography_font_weight": "900",
+				"typography_font_size":   { "unit": "px", "size": 72 },
+				"typography_line_height": { "unit": "em", "size": 1.02 },
+				"typography_letter_spacing": { "unit": "px", "size": -1.2 }
+			},
+			{
+				"_id": "evolve_button", "title": "Evolve / Button",
+				"typography_typography": "custom",
+				"typography_font_family": "Poppins",
+				"typography_font_weight": "600",
+				"typography_font_size":   { "unit": "px", "size": 14 },
+				"typography_letter_spacing": { "unit": "px", "size": 0.6 },
+				"typography_text_transform": "uppercase"
+			}
+		],
+		"container_width":   { "unit": "px", "size": 1200 },
+		"space_between_widgets": { "unit": "px", "size": 20 },
+		"body_color":        "#FFFFFF",
+		"body_background_background": "classic",
+		"body_background_color": "#050505",
+		"button_typography_typography": "custom",
+		"button_typography_font_family": "Poppins",
+		"button_typography_font_weight": "600",
+		"button_typography_text_transform": "uppercase",
+		"button_typography_letter_spacing": { "unit": "px", "size": 0.8 },
+		"button_text_color": "#000000",
+		"button_background_color": "#B7FF00",
+		"button_hover_text_color":  "#000000",
+		"button_hover_background_color": "#7CFF4F",
+		"button_border_radius": { "unit": "px", "top": "14", "right": "14", "bottom": "14", "left": "14" },
+		"button_padding":       { "unit": "px", "top": "14", "right": "26", "bottom": "14", "left": "26", "isLinked": false },
+		"h1_typography_typography": "custom",
+		"h1_typography_font_family": "Poppins",
+		"h1_typography_font_weight": "900",
+		"h1_typography_font_size":   { "unit": "px", "size": 56 },
+		"h1_typography_line_height": { "unit": "em", "size": 1.05 },
+		"h2_typography_typography": "custom",
+		"h2_typography_font_family": "Poppins",
+		"h2_typography_font_weight": "800",
+		"h2_typography_font_size":   { "unit": "px", "size": 40 },
+		"h3_typography_typography": "custom",
+		"h3_typography_font_family": "Poppins",
+		"h3_typography_font_weight": "700",
+		"h3_typography_font_size":   { "unit": "px", "size": 24 },
+		"paragraph_typography_typography": "custom",
+		"paragraph_typography_font_family": "Inter",
+		"paragraph_typography_font_size":   { "unit": "px", "size": 16 },
+		"paragraph_typography_line_height": { "unit": "em", "size": 1.6 }
+	}
+}

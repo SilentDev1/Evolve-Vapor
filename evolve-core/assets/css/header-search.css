@@ -1,0 +1,519 @@
+/* ============================================================================
+   Evolve — Header Search (live AJAX dropdown)
+   ========================================================================= */
+
+.evolve-search {
+	--evolve-search-accent: #B7FF00;
+	position: relative;
+	font-family: 'Inter', system-ui, sans-serif;
+	color: #FFFFFF;
+}
+
+/* ----- Pill input ----- */
+.evolve-search__form {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background: rgba(255,255,255,0.04);
+	border: 1px solid #1E1E1E;
+	border-radius: 999px;
+	padding: 8px 12px 8px 14px;
+	min-width: 260px;
+	transition: all .28s cubic-bezier(.2,.7,.2,1);
+}
+.evolve-search.is-open .evolve-search__form,
+.evolve-search__form:focus-within {
+	background: rgba(255,255,255,0.06);
+	border-color: var(--evolve-search-accent);
+	box-shadow: 0 0 0 4px rgba(183,255,0,0.10), 0 0 22px rgba(183,255,0,0.18);
+}
+.evolve-search__icon { color: #B3B3B3; flex: 0 0 auto; transition: color .25s ease; }
+.evolve-search.is-open .evolve-search__icon { color: var(--evolve-search-accent); }
+
+.evolve-search__input {
+	background: transparent !important;
+	border: 0 !important;
+	color: #FFFFFF !important;
+	font-size: 14px !important;
+	font-family: inherit !important;
+	flex: 1 1 auto;
+	padding: 6px 0 !important;
+	outline: none !important;
+	min-width: 0;
+}
+.evolve-search__input::placeholder { color: #6E6E6E; }
+.evolve-search__input::-webkit-search-cancel-button { display: none; }
+
+.evolve-search__clear {
+	background: transparent;
+	border: 0;
+	color: #6E6E6E;
+	cursor: pointer;
+	padding: 4px;
+	border-radius: 999px;
+	display: none;
+	transition: color .2s ease;
+}
+.evolve-search__clear:hover { color: var(--evolve-search-accent); }
+.evolve-search__input:not(:placeholder-shown) ~ .evolve-search__clear { display: inline-flex; }
+
+/* ----- Dropdown ----- */
+.evolve-search__dropdown {
+	position: absolute;
+	top: calc(100% + 14px);
+	right: 0;
+	width: 720px;
+	max-width: 92vw;
+	background: rgba(10,10,10,0.92);
+	backdrop-filter: blur(20px) saturate(140%);
+	-webkit-backdrop-filter: blur(20px) saturate(140%);
+	border: 1px solid #1E1E1E;
+	border-radius: 22px;
+	box-shadow: 0 30px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(183,255,0,0.04);
+	z-index: 1000;
+	padding: 18px;
+	max-height: min(72vh, 680px);
+	overflow-y: auto;
+	animation: evolve-search-pop .25s cubic-bezier(.2,.7,.2,1);
+}
+@keyframes evolve-search-pop {
+	from { opacity: 0; transform: translateY(-6px) scale(.98); }
+	to   { opacity: 1; transform: translateY(0)    scale(1);   }
+}
+
+/* Top category pills */
+.evolve-search__cats {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 6px;
+	margin-bottom: 14px;
+	padding-bottom: 14px;
+	border-bottom: 1px solid #1E1E1E;
+	align-items: center;
+}
+.evolve-search__cats-label {
+	color: #6E6E6E;
+	font-size: 11px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	margin-right: 6px;
+}
+.evolve-search__cat {
+	display: inline-flex;
+	align-items: center;
+	background: rgba(255,255,255,0.04);
+	border: 1px solid #1E1E1E;
+	color: #B3B3B3;
+	padding: 6px 12px;
+	border-radius: 999px;
+	font-size: 12px;
+	font-weight: 600;
+	text-decoration: none;
+	transition: all .22s ease;
+}
+.evolve-search__cat:hover {
+	color: #000;
+	background: var(--evolve-search-accent);
+	border-color: var(--evolve-search-accent);
+}
+
+/* Idle hint */
+.evolve-search__hint {
+	padding: 28px 12px;
+	text-align: center;
+	color: #6E6E6E;
+	font-size: 13px;
+}
+
+/* ----- Result grid ----- */
+.evolve-search__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(var(--cols, 4), 1fr);
+	gap: 12px;
+}
+@media (max-width: 720px) { .evolve-search__list { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .evolve-search__list { grid-template-columns: 1fr; } }
+
+.evolve-search__item { margin: 0; }
+.evolve-search__link {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 10px;
+	border-radius: 14px;
+	background: #111111;
+	border: 1px solid #1E1E1E;
+	text-decoration: none;
+	color: #FFFFFF;
+	transition: all .25s cubic-bezier(.2,.7,.2,1);
+	position: relative;
+	height: 100%;
+}
+.evolve-search__link:hover,
+.evolve-search__link.is-active {
+	border-color: var(--evolve-search-accent);
+	background: #161616;
+	transform: translateY(-2px);
+	box-shadow: 0 0 18px rgba(183,255,0,0.22);
+}
+.evolve-search__img {
+	display: block;
+	aspect-ratio: 1 / 1;
+	background: #fff;
+	border-radius: 10px;
+	overflow: hidden;
+	position: relative;
+}
+.evolve-search__img img {
+	width: 100% !important;
+	height: 100% !important;
+	object-fit: contain !important;
+	display: block;
+	transition: transform .35s ease;
+}
+.evolve-search__link:hover .evolve-search__img img { transform: scale(1.04); }
+
+.evolve-search__meta {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+	padding: 2px 4px 6px;
+}
+.evolve-search__title {
+	color: #FFFFFF;
+	font-size: 13px;
+	font-weight: 600;
+	line-height: 1.3;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.evolve-search__price,
+.evolve-search__price * {
+	color: var(--evolve-search-accent) !important;
+	font-size: 13px;
+	font-weight: 700;
+	font-family: 'Poppins', sans-serif;
+}
+.evolve-search__price del { color: #6E6E6E !important; opacity: .6; font-weight: 400; margin-right: 6px; }
+.evolve-search__deal {
+	position: absolute;
+	top: 14px; left: 14px;
+	background: var(--evolve-search-accent);
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: .1em;
+	padding: 3px 7px;
+	border-radius: 999px;
+	box-shadow: 0 0 12px rgba(183,255,0,0.4);
+}
+
+/* ----- Skeleton (loading) ----- */
+.evolve-search__skel {
+	height: 220px;
+	border-radius: 14px;
+	background:
+		linear-gradient(110deg, rgba(255,255,255,0.04) 30%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0.04) 70%)
+		#111;
+	background-size: 200% 100%;
+	border: 1px solid #1E1E1E;
+	animation: evolve-shimmer 1.2s linear infinite;
+}
+@keyframes evolve-shimmer {
+	0%   { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
+}
+
+.evolve-search__results.is-loading { opacity: .85; }
+
+/* ----- Empty state ----- */
+.evolve-search__empty {
+	padding: 36px 16px;
+	text-align: center;
+	color: #B3B3B3;
+}
+.evolve-search__empty svg { color: var(--evolve-search-accent); margin-bottom: 8px; }
+.evolve-search__empty p   { margin: 0 0 4px; color: #FFFFFF; font-weight: 600; font-size: 15px; }
+.evolve-search__empty span{ font-size: 12px; color: #6E6E6E; }
+
+/* ----- View-all CTA ----- */
+.evolve-search__view-all {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	margin-top: 14px;
+	padding: 14px 16px;
+	border-radius: 12px;
+	background: var(--evolve-search-accent);
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	text-decoration: none;
+	transition: all .22s ease;
+}
+.evolve-search__view-all:hover {
+	background: #7CFF4F;
+	color: #000;
+	box-shadow: 0 0 24px rgba(183,255,0,0.35);
+}
+
+/* ============================================================================
+   v1.2.0 — OmniSuggest AI ranking indicators
+   ========================================================================= */
+.evolve-search__ai {
+	position: absolute;
+	top: 14px; right: 14px;
+	background: linear-gradient(135deg, #B7FF00, #7CFF4F);
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+	font-size: 9px;
+	font-weight: 900;
+	letter-spacing: .14em;
+	padding: 3px 7px;
+	border-radius: 999px;
+	box-shadow: 0 0 12px rgba(183,255,0,0.5);
+}
+.evolve-search__deal + .evolve-search__ai { top: 14px; right: 14px; left: auto; }
+.evolve-search__deal { right: auto; left: 14px; }
+
+.evolve-search__reason {
+	margin-top: 2px;
+	font-size: 11px;
+	line-height: 1.35;
+	color: #8C8C8C;
+	font-style: italic;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.evolve-search__link:hover .evolve-search__reason { color: #B3B3B3; }
+
+.evolve-search__oos {
+	display: inline-block;
+	margin-top: 4px;
+	color: #FF4D4D;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: .08em;
+	text-transform: uppercase;
+}
+
+.evolve-search__ai-note {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-top: 14px;
+	padding: 10px 14px;
+	border-radius: 12px;
+	background: rgba(183,255,0,0.06);
+	border: 1px solid rgba(183,255,0,0.25);
+	color: #B3B3B3;
+	font-size: 12px;
+	font-style: italic;
+}
+.evolve-search__ai-note svg { color: #B7FF00; flex: 0 0 auto; }
+.evolve-search__ai-note--small {
+	background: transparent;
+	border: 0;
+	color: #6E6E6E;
+	font-size: 11px;
+	font-style: normal;
+	padding: 8px 4px 0;
+}
+.evolve-search__ai-pill {
+	display: inline-block;
+	margin-right: 6px;
+	background: linear-gradient(135deg, #B7FF00, #7CFF4F);
+	color: #000;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	font-size: 9px;
+	letter-spacing: .14em;
+	padding: 2px 6px;
+	border-radius: 999px;
+}
+
+/* ============================================================================
+   v1.0.28 — Mobile Popup Mode
+   Replaces the search pill on mobile with a clean 40×40 icon trigger.
+   Tapping opens a full-screen overlay sized to the viewport with input + results.
+   ========================================================================= */
+
+/* The trigger icon (visible only on mobile when popup mode is on)
+   v1.0.29: high-specificity overrides so Hello Elementor's coral default
+            button color can never paint over our dark outline pill. */
+.evolve-search button.evolve-search__mobile-trigger,
+button.evolve-search__mobile-trigger,
+.elementor button.evolve-search__mobile-trigger,
+.elementor-widget-container button.evolve-search__mobile-trigger {
+	display: none;
+	width: 40px !important;
+	height: 40px !important;
+	align-items: center;
+	justify-content: center;
+	background: transparent !important;
+	background-color: transparent !important;
+	border: 1px solid #1E1E1E !important;
+	border-radius: 10px !important;
+	color: #FFFFFF !important;
+	cursor: pointer;
+	padding: 0 !important;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	font: inherit;
+}
+.evolve-search button.evolve-search__mobile-trigger svg,
+button.evolve-search__mobile-trigger svg {
+	stroke: currentColor;
+	display: block;
+}
+.evolve-search button.evolve-search__mobile-trigger:hover,
+.evolve-search button.evolve-search__mobile-trigger:focus,
+button.evolve-search__mobile-trigger:hover,
+button.evolve-search__mobile-trigger:focus {
+	color: var(--evolve-search-accent) !important;
+	border-color: var(--evolve-search-accent) !important;
+	background: transparent !important;
+	background-color: transparent !important;
+}
+
+/* The close (X) inside the mobile overlay — same theme protection */
+.evolve-search button.evolve-search__mobile-close,
+button.evolve-search__mobile-close,
+.elementor button.evolve-search__mobile-close {
+	display: none;
+	width: 36px !important;
+	height: 36px !important;
+	align-items: center;
+	justify-content: center;
+	background: transparent !important;
+	background-color: transparent !important;
+	border: 0 !important;
+	color: #FFFFFF !important;
+	cursor: pointer;
+	padding: 0 !important;
+	margin-left: 4px;
+	border-radius: 999px !important;
+	box-shadow: none !important;
+}
+.evolve-search button.evolve-search__mobile-close:hover,
+button.evolve-search__mobile-close:hover {
+	color: var(--evolve-search-accent) !important;
+	background: rgba(255,255,255,0.05) !important;
+}
+
+/* When `evolve-search--mobile-popup` is on AND viewport ≤ breakpoint */
+@media (max-width: 767px) {
+	.evolve-search--mobile-popup button.evolve-search__mobile-trigger,
+	.evolve-search--mobile-popup .evolve-search__mobile-trigger {
+		display: inline-flex !important;
+	}
+	/* Hide the inline pill form by default — only shown when overlay opens */
+	.evolve-search--mobile-popup .evolve-search__form { display: none; }
+
+	.evolve-search--mobile-popup.is-mobile-open {
+		position: fixed;
+		inset: 0;
+		z-index: 99998;
+		background: rgba(5,5,5,0.55);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		display: flex;
+		flex-direction: column;
+		padding: 14px;
+	}
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__mobile-trigger { display: none; }
+
+	/* Full-screen form bar at the top of the overlay */
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__form {
+		display: flex !important;
+		width: 100%;
+		max-width: none;
+		min-width: 0;
+		border-radius: 999px;
+		background: #0a0a0a;
+		border: 1px solid var(--evolve-search-accent);
+		box-shadow: 0 0 0 4px rgba(183,255,0,0.10), 0 0 22px rgba(183,255,0,0.18);
+		padding: 10px 14px 10px 16px;
+		gap: 10px;
+	}
+	.evolve-search--mobile-popup.is-mobile-open button.evolve-search__mobile-close,
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__mobile-close { display: inline-flex !important; }
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__input { font-size: 16px !important; }
+
+	/* The dropdown becomes the body of the overlay — fills remaining viewport */
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__dropdown {
+		position: relative !important;
+		top: 0 !important; right: 0 !important; left: 0 !important;
+		width: 100% !important;
+		max-width: none !important;
+		min-width: 0 !important;
+		max-height: calc(100vh - 90px) !important;
+		margin-top: 10px !important;
+		border-radius: 16px !important;
+		flex: 1 1 auto;
+		overflow-y: auto;
+	}
+
+	/* Results — 1 or 2 columns depending on widget setting (var --cols) */
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__list {
+		grid-template-columns: repeat(var(--cols, 1), 1fr) !important;
+		gap: 10px !important;
+	}
+
+	/* Cards a touch taller for thumb taps */
+	.evolve-search--mobile-popup.is-mobile-open .evolve-search__link {
+		padding: 10px;
+		gap: 8px;
+	}
+
+	/* iOS Safari — fix viewport jumping under address bar */
+	body.evolve-search-open { position: fixed; width: 100%; }
+}
+
+/* Inline (non-popup) mode on mobile — make the pill span the full container
+   width so it can sit in its own row in the mobile header, matching the
+   desktop pill look but stretched edge-to-edge. */
+@media (max-width: 767px) {
+	.evolve-search:not(.evolve-search--mobile-popup),
+	.evolve-search:not(.evolve-search--mobile-popup) .evolve-search__form {
+		width: 100% !important;
+		min-width: 0 !important;
+		max-width: 100% !important;
+	}
+	.evolve-search:not(.evolve-search--mobile-popup) .evolve-search__form {
+		padding: 10px 14px 10px 16px;
+	}
+	.evolve-search:not(.evolve-search--mobile-popup) .evolve-search__input {
+		min-width: 0 !important;
+		flex: 1 1 auto;
+		font-size: 16px !important; /* prevents iOS zoom on focus */
+	}
+	.evolve-search:not(.evolve-search--mobile-popup).is-open .evolve-search__dropdown {
+		position: fixed;
+		left: 0 !important; right: 0 !important;
+		top: auto !important;
+		width: 100vw !important;
+		max-width: 100vw !important;
+		max-height: calc(100vh - 180px) !important;
+		border-radius: 22px 22px 0 0;
+		margin-top: 0;
+	}
+	body.evolve-search-open:not(.has-evolve-popup-search) { overflow: hidden; }
+}
+
+/* The dedicated mobile header search row — minor spacing tweaks */
+.evolve-mh-search { padding: 10px 12px !important; }
+.evolve-mh-search .evolve-search,
+.evolve-mh-search .elementor-widget-container { width: 100% !important; }

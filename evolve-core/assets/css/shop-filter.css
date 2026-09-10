@@ -1,0 +1,595 @@
+/* ============================================================================
+   Evolve — Shop Filter widget styles
+   ========================================================================= */
+
+.evolve-filter {
+	--evolve-filter-accent: #B7FF00;
+	background: #111111;
+	border: 1px solid #1E1E1E;
+	border-radius: 20px;
+	color: #FFFFFF;
+	font-family: 'Inter', system-ui, sans-serif;
+}
+/* Every element inside the filter must respect its container width — no
+   horizontal overflow inside the drawer. */
+.evolve-filter,
+.evolve-filter *,
+.evolve-filter *::before,
+.evolve-filter *::after { box-sizing: border-box; }
+
+.evolve-filter__panel {
+	padding: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.evolve-filter__topbar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #1E1E1E;
+}
+.evolve-filter__head {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 13px;
+	letter-spacing: .14em;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	margin: 0;
+}
+
+/* ----- Section (collapsible <details>) ----- */
+.evolve-filter__section {
+	border-bottom: 1px solid #1E1E1E;
+	padding: 12px 0 4px;
+}
+.evolve-filter__section:last-of-type { border-bottom: 0; }
+.evolve-filter__section > summary {
+	list-style: none;
+	cursor: pointer;
+	padding: 6px 0;
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.evolve-filter__section > summary::-webkit-details-marker { display: none; }
+.evolve-filter__section > summary::after {
+	content: "+";
+	color: var(--evolve-filter-accent);
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 1;
+}
+.evolve-filter__section[open] > summary::after { content: "–"; }
+.evolve-filter__section--inline { padding: 6px 0; }
+.evolve-filter__body { padding: 8px 0 14px; }
+
+/* ----- Inputs ----- */
+.evolve-filter input[type="search"],
+.evolve-filter input[type="number"] {
+	width: 100%;
+	background: #161616;
+	border: 1px solid #1E1E1E;
+	border-radius: 12px;
+	color: #FFFFFF;
+	padding: 10px 14px;
+	font-size: 14px;
+	font-family: inherit;
+}
+.evolve-filter input[type="search"]:focus,
+.evolve-filter input[type="number"]:focus {
+	outline: none;
+	border-color: var(--evolve-filter-accent);
+	box-shadow: 0 0 12px rgba(183,255,0,0.18);
+}
+.evolve-filter input::placeholder { color: #6E6E6E; }
+
+/* ----- Price row ----- */
+.evolve-filter__price {
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	gap: 10px;
+	align-items: center;
+}
+.evolve-filter__dash { color: #6E6E6E; text-align: center; }
+
+/* ----- Lists / checks ----- */
+.evolve-filter__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.evolve-filter__list .evolve-filter__list {
+	margin-left: 18px;
+	padding-left: 8px;
+	border-left: 1px dashed #1E1E1E;
+	margin-top: 4px;
+}
+
+.evolve-filter__check {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	padding: 6px 0;
+	color: #B3B3B3;
+	font-size: 14px;
+	cursor: pointer;
+	position: relative;
+}
+.evolve-filter__check input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+.evolve-filter__checkmark {
+	flex: 0 0 18px;
+	width: 18px; height: 18px;
+	border: 1px solid #2A2A2A;
+	border-radius: 6px;
+	background: #0a0a0a;
+	transition: all .25s ease;
+	position: relative;
+}
+.evolve-filter__check input:checked + .evolve-filter__checkmark {
+	background: var(--evolve-filter-accent);
+	border-color: var(--evolve-filter-accent);
+	box-shadow: 0 0 10px rgba(183,255,0,0.4);
+}
+.evolve-filter__check input:checked + .evolve-filter__checkmark::after {
+	content: "";
+	position: absolute;
+	left: 5px; top: 1px;
+	width: 5px; height: 10px;
+	border: solid #000;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+}
+.evolve-filter__check:hover .evolve-filter__checkmark { border-color: var(--evolve-filter-accent); }
+.evolve-filter__label { flex: 1; }
+.evolve-filter__count { color: #6E6E6E; font-size: 12px; font-variant-numeric: tabular-nums; }
+.evolve-filter__check:hover .evolve-filter__label { color: #FFFFFF; }
+
+/* ----- Ratings ----- */
+.evolve-filter__ratings {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+.evolve-filter__rating {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer;
+	padding: 4px 0;
+}
+.evolve-filter__rating input { display: none; }
+.evolve-filter__stars {
+	color: var(--evolve-filter-accent);
+	letter-spacing: 2px;
+	font-size: 14px;
+}
+.evolve-filter__rating-note { color: #6E6E6E; font-size: 12px; }
+.evolve-filter__rating input:checked ~ .evolve-filter__stars {
+	text-shadow: 0 0 10px rgba(183,255,0,0.45);
+}
+
+/* ----- Actions ----- */
+.evolve-filter__actions {
+	display: flex;
+	gap: 10px;
+	margin-top: 14px;
+	padding-top: 14px;
+	border-top: 1px solid #1E1E1E;
+	flex-wrap: wrap;
+}
+.evolve-filter__apply {
+	flex: 1 1 0;
+	background: var(--evolve-filter-accent);
+	color: #000;
+	border: 0;
+	border-radius: 12px;
+	padding: 12px 18px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 12px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all .25s ease;
+}
+.evolve-filter__apply:hover {
+	background: #7CFF4F;
+	box-shadow: 0 0 22px rgba(183,255,0,0.35);
+}
+.evolve-filter__clear {
+	flex: 0 0 auto;
+	color: #B3B3B3;
+	border: 1px solid #1E1E1E;
+	background: transparent;
+	border-radius: 12px;
+	padding: 12px 18px;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 600;
+	font-size: 12px;
+	letter-spacing: .12em;
+	text-transform: uppercase;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+	transition: all .25s ease;
+}
+.evolve-filter__clear:hover {
+	color: var(--evolve-filter-accent);
+	border-color: var(--evolve-filter-accent);
+}
+
+/* ----- Loading state on product grid ----- */
+.evolve-filter__loading {
+	position: relative;
+	min-height: 200px;
+	pointer-events: none;
+}
+.evolve-filter__loading::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: rgba(5,5,5,0.55);
+	backdrop-filter: blur(2px);
+	z-index: 2;
+}
+.evolve-filter__loading::after {
+	content: "";
+	position: absolute;
+	top: 50%; left: 50%;
+	width: 36px; height: 36px;
+	margin: -18px;
+	border: 3px solid rgba(183,255,0,0.15);
+	border-top-color: var(--evolve-filter-accent);
+	border-radius: 50%;
+	animation: evolve-spin .8s linear infinite;
+	z-index: 3;
+}
+@keyframes evolve-spin { to { transform: rotate(360deg); } }
+
+.evolve-filter__empty {
+	padding: 24px;
+	text-align: center;
+	color: #B3B3B3;
+	background: #111;
+	border: 1px dashed #1E1E1E;
+	border-radius: 14px;
+}
+.evolve-filter__empty a { color: var(--evolve-filter-accent); }
+
+/* ============================================================================
+   Mobile drawer
+   v1.7.3 — Force the trigger button into the dark/neon theme so Hello
+   Elementor's coral button default can't paint over it.
+   ========================================================================= */
+.evolve-filter button.evolve-filter__mobile-trigger,
+button.evolve-filter__mobile-trigger,
+.elementor button.evolve-filter__mobile-trigger,
+.elementor-widget-container button.evolve-filter__mobile-trigger {
+	display: none;
+	width: 100% !important;
+	background: #111111 !important;
+	background-color: #111111 !important;
+	color: #FFFFFF !important;
+	border: 1px solid #1E1E1E !important;
+	padding: 14px 18px !important;
+	border-radius: 14px !important;
+	font-family: 'Poppins', sans-serif !important;
+	font-weight: 700 !important;
+	font-size: 13px !important;
+	letter-spacing: .12em !important;
+	text-transform: uppercase !important;
+	align-items: center;
+	gap: 10px;
+	cursor: pointer !important;
+	justify-content: center;
+	box-shadow: none !important;
+	text-shadow: none !important;
+	transition: all .25s cubic-bezier(.2,.7,.2,1);
+}
+.evolve-filter button.evolve-filter__mobile-trigger:hover,
+button.evolve-filter__mobile-trigger:hover,
+.evolve-filter button.evolve-filter__mobile-trigger:focus,
+button.evolve-filter__mobile-trigger:focus {
+	background: #161616 !important;
+	color: var(--evolve-filter-accent) !important;
+	border-color: var(--evolve-filter-accent) !important;
+	box-shadow: 0 0 16px rgba(183,255,0,0.18) !important;
+}
+.evolve-filter button.evolve-filter__mobile-trigger svg {
+	stroke: currentColor;
+	flex: 0 0 auto;
+}
+
+/* Drawer close (X / DONE) — neon outline pill */
+.evolve-filter button.evolve-filter__close,
+button.evolve-filter__close {
+	display: none;
+	background: transparent !important;
+	background-color: transparent !important;
+	color: var(--evolve-filter-accent) !important;
+	border: 1px solid var(--evolve-filter-accent) !important;
+	border-radius: 999px !important;
+	padding: 6px 14px !important;
+	font-family: 'Poppins', sans-serif !important;
+	font-weight: 700 !important;
+	font-size: 11px !important;
+	letter-spacing: .14em !important;
+	text-transform: uppercase !important;
+	cursor: pointer !important;
+	box-shadow: none !important;
+}
+
+@media (max-width: 1024px) {
+	.evolve-filter--drawer button.evolve-filter__mobile-trigger,
+	.evolve-filter--drawer .evolve-filter__mobile-trigger {
+		display: inline-flex !important;
+	}
+
+	/* The drawer backdrop layer */
+	.evolve-filter--drawer.is-open {
+		position: fixed !important;
+		inset: 0 !important;
+		background: rgba(0,0,0,0.65) !important;
+		backdrop-filter: blur(6px);
+		-webkit-backdrop-filter: blur(6px);
+		z-index: 99998 !important;
+		overflow: hidden !important;
+	}
+
+	/* The sliding panel — flex column layout so a sticky Apply/Clear footer
+	   stays pinned to the bottom regardless of how long the filter list is. */
+	.evolve-filter--drawer .evolve-filter__panel {
+		position: fixed !important;
+		top: 0 !important;
+		right: 0 !important;
+		left: auto !important;
+		bottom: 0 !important;
+		width: min(420px, 92vw) !important;
+		max-width: 92vw !important;
+		height: 100vh !important;
+		height: 100dvh !important;
+		max-height: 100vh !important;
+		max-height: 100dvh !important;
+		background: #050505 !important;
+		border-left: 1px solid #1E1E1E;
+		transform: translateX(100%);
+		transition: transform .35s cubic-bezier(.2,.7,.2,1);
+		z-index: 99999 !important;
+		display: flex !important;
+		flex-direction: column !important;
+		overflow: hidden !important;
+		padding: 20px 22px !important;
+	}
+	.evolve-filter--drawer.is-open .evolve-filter__panel {
+		transform: translateX(0) !important;
+	}
+	.evolve-filter--drawer.is-open button.evolve-filter__close,
+	.evolve-filter--drawer.is-open .evolve-filter__close {
+		display: inline-flex !important;
+	}
+
+	/* Topbar: fixed at the top of the drawer */
+	.evolve-filter--drawer .evolve-filter__panel > .evolve-filter__topbar {
+		flex: 0 0 auto;
+		padding-bottom: 12px;
+		margin-bottom: 8px;
+		border-bottom: 1px solid #1E1E1E;
+	}
+
+	/* Panel + form forbid horizontal scroll outright */
+	.evolve-filter--drawer .evolve-filter__panel,
+	.evolve-filter--drawer .evolve-filter__panel > .evolve-filter__form {
+		overflow-x: hidden !important;
+		max-width: 100% !important;
+	}
+
+	/* Form: takes remaining height, internal scroll only on Y axis */
+	.evolve-filter--drawer .evolve-filter__panel > .evolve-filter__form {
+		flex: 1 1 auto;
+		min-height: 0;
+		min-width: 0;
+		width: 100% !important;
+		overflow-y: auto !important;
+		overscroll-behavior: contain;
+		-webkit-overflow-scrolling: touch;
+		display: flex !important;
+		flex-direction: column !important;
+		padding: 0 !important;
+	}
+
+	/* Apply / Clear footer — pinned to the bottom, never wider than parent */
+	.evolve-filter--drawer .evolve-filter__panel > .evolve-filter__form > .evolve-filter__actions {
+		position: sticky !important;
+		bottom: 0 !important;
+		left: 0 !important;
+		right: 0 !important;
+		margin: auto 0 0 0 !important;
+		padding: 16px 0 18px !important;
+		width: 100% !important;
+		max-width: 100% !important;
+		background: linear-gradient(180deg, rgba(5,5,5,0) 0%, rgba(5,5,5,0.95) 30%, #050505 100%) !important;
+		border-top: 1px solid #1E1E1E !important;
+		z-index: 2;
+		flex: 0 0 auto;
+	}
+	/* iPhone bottom-bar safe area */
+	@supports (padding: env(safe-area-inset-bottom)) {
+		.evolve-filter--drawer .evolve-filter__panel > .evolve-filter__form > .evolve-filter__actions {
+			padding-bottom: calc(18px + env(safe-area-inset-bottom)) !important;
+		}
+	}
+
+	/* Every direct child of the form must respect the container width.
+	   Inputs / lists / price row had `width: 100%` which without proper
+	   box-sizing pushed them over the edge by `padding * 2`. */
+	.evolve-filter--drawer .evolve-filter__panel > .evolve-filter__form > * {
+		max-width: 100% !important;
+		min-width: 0 !important;
+	}
+	.evolve-filter--drawer .evolve-filter__panel input[type="search"],
+	.evolve-filter--drawer .evolve-filter__panel input[type="number"],
+	.evolve-filter--drawer .evolve-filter__panel input[type="text"] {
+		width: 100% !important;
+		max-width: 100% !important;
+		min-width: 0 !important;
+	}
+	.evolve-filter--drawer .evolve-filter__panel .evolve-filter__price {
+		gap: 8px !important;
+	}
+
+	body.admin-bar .evolve-filter--drawer.is-open .evolve-filter__panel {
+		top: 46px !important;
+		height: calc(100vh - 46px) !important;
+		height: calc(100dvh - 46px) !important;
+	}
+}
+
+body.evolve-filter-locked { overflow: hidden !important; }
+
+/* ============================================================================
+   v1.1.1 — Stop Hello Elementor / WooCommerce default <button> styles from
+   beating us, and give the panel a sensible min-width so a narrow Elementor
+   column doesn't squash it.
+   ========================================================================= */
+.evolve-filter { min-width: 240px; }
+
+/* Apply button — beat any theme/Woo default button style */
+.evolve-filter button.evolve-filter__apply,
+.woocommerce .evolve-filter button.evolve-filter__apply,
+.elementor-widget-container .evolve-filter button.evolve-filter__apply,
+form .evolve-filter button.evolve-filter__apply {
+	background: var(--evolve-filter-accent) !important;
+	color: #000 !important;
+	border: 0 !important;
+	border-radius: 12px !important;
+	height: auto !important;
+	box-shadow: none;
+	text-shadow: none !important;
+	font-family: 'Poppins', sans-serif !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	letter-spacing: .12em !important;
+	text-transform: uppercase !important;
+	padding: 12px 18px !important;
+	cursor: pointer !important;
+	opacity: 1 !important;
+}
+.evolve-filter button.evolve-filter__apply:hover {
+	background: #7CFF4F !important;
+	color: #000 !important;
+	box-shadow: 0 0 22px rgba(183,255,0,0.35) !important;
+}
+
+/* Clear-all — make sure it stays a ghost outline, never a red link */
+.evolve-filter a.evolve-filter__clear,
+.woocommerce .evolve-filter a.evolve-filter__clear {
+	background: transparent !important;
+	color: #B3B3B3 !important;
+	border: 1px solid #1E1E1E !important;
+	box-shadow: none !important;
+	text-decoration: none !important;
+}
+.evolve-filter a.evolve-filter__clear:hover {
+	color: var(--evolve-filter-accent) !important;
+	border-color: var(--evolve-filter-accent) !important;
+}
+
+/* If a second filter widget somehow ends up on the page, dim the duplicate so
+   it's visually obvious in the editor (real fix is to delete it). */
+.evolve-filter ~ .evolve-filter {
+	opacity: .35;
+	outline: 2px dashed #FF4D4D;
+	outline-offset: 4px;
+	position: relative;
+}
+.evolve-filter ~ .evolve-filter::before {
+	content: "Duplicate widget — delete one";
+	position: absolute;
+	top: 8px; right: 8px;
+	background: #FF4D4D;
+	color: #000;
+	font-size: 10px;
+	font-weight: 800;
+	letter-spacing: .08em;
+	padding: 3px 8px;
+	border-radius: 999px;
+	z-index: 2;
+}
+
+/* ============================================================================
+   v1.2.2 — Bulletproof text colors. Hello Elementor / WC default label rules
+   were winning the cascade and turning the filter labels nearly black-on-black.
+   ========================================================================= */
+
+/* Section headings */
+.evolve-filter .evolve-filter__head,
+.evolve-filter .evolve-filter__section > summary,
+.evolve-filter .evolve-filter__section > summary .evolve-filter__head {
+	color: #FFFFFF !important;
+}
+
+/* Every label inside the panel — wins over Hello/WC's `label{color:...}` */
+.evolve-filter label,
+.evolve-filter .evolve-filter__check,
+.evolve-filter .evolve-filter__check span,
+.evolve-filter .evolve-filter__label,
+.evolve-filter .evolve-filter__rating,
+.evolve-filter .evolve-filter__rating-note,
+.evolve-filter__dash {
+	color: #B3B3B3 !important;
+}
+.evolve-filter .evolve-filter__check:hover .evolve-filter__label,
+.evolve-filter .evolve-filter__check:hover span:not(.evolve-filter__checkmark):not(.evolve-filter__count) {
+	color: #FFFFFF !important;
+}
+.evolve-filter .evolve-filter__count {
+	color: #6E6E6E !important;
+}
+
+/* Inputs (search + price min/max) — already white but enforce against
+   theme/WC default `input{color:#000}` overrides */
+.evolve-filter input[type="search"],
+.evolve-filter input[type="number"],
+.evolve-filter input[type="text"] {
+	color: #FFFFFF !important;
+	background: #161616 !important;
+}
+.evolve-filter input::placeholder { color: #6E6E6E !important; opacity: 1; }
+.evolve-filter input::-webkit-input-placeholder { color: #6E6E6E !important; }
+.evolve-filter input::-moz-placeholder         { color: #6E6E6E !important; opacity: 1; }
+
+/* Rating stars row */
+.evolve-filter .evolve-filter__stars { color: var(--evolve-filter-accent) !important; }
+
+/* Ensure the [+] / [−] caret on collapsible heads stays neon */
+.evolve-filter .evolve-filter__section > summary::after {
+	color: var(--evolve-filter-accent) !important;
+}
+
+/* ============================================================================
+   v1.8.7 — WooCommerce adds ::before/::after on ul.products for float
+   clearfix.  When CSS Grid is applied these pseudo-elements become grid
+   items, each consuming a cell — pushing the first product right and
+   leaving an empty cell at the end of the grid.  Hide them.
+   ========================================================================= */
+.woocommerce ul.products::before,
+.woocommerce ul.products::after,
+.elementor-widget-woocommerce-archive-products ul.products::before,
+.elementor-widget-woocommerce-archive-products ul.products::after,
+.elementor-widget-woocommerce-products ul.products::before,
+.elementor-widget-woocommerce-products ul.products::after,
+ul.products.elementor-grid::before,
+ul.products.elementor-grid::after {
+	display: none !important;
+	content: none !important;
+}

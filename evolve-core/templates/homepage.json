@@ -1,0 +1,184 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Homepage",
+	"type": "page",
+	"page_settings": {
+		"hide_title":"yes",
+		"background_background":"classic",
+		"background_color":"#050505"
+	},
+	"content": [
+		{
+			"id":"evh-hero",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"flex_direction":"row",
+				"flex_align_items":"center",
+				"flex_gap":{ "unit":"px","size":48,"column":"48","row":"48" },
+				"padding":{ "unit":"px","top":"80","right":"24","bottom":"110","left":"24","isLinked":false },
+				"background_background":"gradient",
+				"background_color":"#050505",
+				"background_color_b":"#0D0D0D",
+				"background_gradient_type":"radial",
+				"background_gradient_angle":{ "unit":"deg","size":135 },
+				"min_height":{ "unit":"vh","size":80 },
+				"css_classes":"evolve-hero-section"
+			},
+			"elements":[
+				{
+					"id":"evh-hero-left",
+					"elType":"container",
+					"settings":{ "content_width":"full", "width":{"unit":"%","size":52}, "flex_direction":"column", "flex_gap":{"unit":"px","size":18,"column":"18","row":"18"} },
+					"elements":[
+						{ "id":"evh-eyebrow","elType":"widget","widgetType":"heading","settings":{ "title":"NASHUA'S PREMIUM VAPE SHOP","header_size":"div","title_color":"#B7FF00","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"600","typography_font_size":{"unit":"px","size":12},"typography_letter_spacing":{"unit":"px","size":3},"typography_text_transform":"uppercase" } },
+						{ "id":"evh-h1","elType":"widget","widgetType":"heading","settings":{ "title":"Elevate Your<br>Vaping Experience.","header_size":"h1","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"900","typography_font_size":{"unit":"px","size":80},"typography_font_size_tablet":{"unit":"px","size":56},"typography_font_size_mobile":{"unit":"px","size":40},"typography_line_height":{"unit":"em","size":1.02},"typography_letter_spacing":{"unit":"px","size":-1.6} } },
+						{ "id":"evh-lede","elType":"widget","widgetType":"text-editor","settings":{ "editor":"<p>Disposables, e-juice, kits, pods, coils and more. Find top brands and expert advice at Evolve Vapor.</p>", "text_color":"#B3B3B3","typography_font_size":{"unit":"px","size":17} } },
+						{
+							"id":"evh-cta",
+							"elType":"container",
+							"settings":{ "content_width":"full","flex_direction":"row","flex_gap":{"unit":"px","size":14,"column":"14","row":"14"}, "padding":{"unit":"px","top":"6","right":"0","bottom":"0","left":"0","isLinked":false} },
+							"elements":[
+								{ "id":"evh-cta1","elType":"widget","widgetType":"button","settings":{ "text":"SHOP PRODUCTS","link":{"url":"/shop"},"background_color":"#B7FF00","button_text_color":"#000000","hover_background_color":"#7CFF4F","button_box_shadow_box_shadow":{"horizontal":0,"vertical":0,"blur":24,"spread":0,"color":"rgba(183,255,0,0.35)"},"button_box_shadow_box_shadow_type":"yes","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"},"icon":{"value":"fas fa-arrow-right","library":"fa-solid"},"icon_align":"right","size":"md" } },
+								{ "id":"evh-cta2","elType":"widget","widgetType":"button","settings":{ "text":"GET DIRECTIONS","link":{"url":"https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH"},"background_color":"transparent","button_text_color":"#FFFFFF","border_border":"solid","border_width":{"unit":"px","top":"1","right":"1","bottom":"1","left":"1","isLinked":true},"border_color":"#1E1E1E","hover_background_color":"transparent","hover_color":"#B7FF00","button_hover_border_color":"#B7FF00","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"},"size":"md" } }
+							]
+						},
+						{ "id":"evh-promo","elType":"widget","widgetType":"text-editor","settings":{ "editor":"<div style='display:inline-flex;align-items:center;gap:12px;padding:12px 18px;border:1px solid #1E1E1E;border-radius:14px;background:rgba(255,255,255,0.02);'><span style='color:#B7FF00;font-weight:800;letter-spacing:.05em;'>BUY 4 E-JUICE, GET THE 5TH FREE</span><span style='color:#6E6E6E;font-size:12px;'>Mix & Match · Equal or lesser value</span></div>" } }
+					]
+				},
+				{
+					"id":"evh-hero-right",
+					"elType":"container",
+					"settings":{ "content_width":"full", "width":{"unit":"%","size":48}, "flex_direction":"column", "flex_justify_content":"center", "min_height":{"unit":"px","size":520} },
+					"elements":[
+						{ "id":"evh-hero-img","elType":"widget","widgetType":"image","settings":{ "image":{"url":"https://images.unsplash.com/photo-1567606940710-7c8a14eebc04?w=900&q=80","id":""}, "image_size":"full","width":{"unit":"%","size":100},"_css_filters_css_filter":"custom","_css_filters_blur":{"unit":"px","size":0}, "_css_filters_brightness":{"unit":"%","size":105},"_css_filters_contrast":{"unit":"%","size":110}, "_css_filters_saturation":{"unit":"%","size":110} } }
+					]
+				}
+			]
+		},
+		{
+			"id":"evh-cats-sec",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"60","right":"24","bottom":"60","left":"24","isLinked":false },
+				"background_background":"classic","background_color":"#050505",
+				"flex_direction":"column","flex_gap":{"unit":"px","size":24,"column":"24","row":"24"}
+			},
+			"elements":[
+				{ "id":"evh-cats-head","elType":"widget","widgetType":"heading","settings":{ "title":"Shop By Category","header_size":"h2","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"800","typography_font_size":{"unit":"px","size":32}, "align":"left" } },
+				{ "id":"evh-cats","elType":"widget","widgetType":"woocommerce-product-categories","settings":{ "columns":6, "columns_tablet":3, "columns_mobile":2, "hide_empty":"no", "show_count":"no", "show_image":"yes" } }
+			]
+		},
+		{
+			"id":"evh-promo",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"0","right":"24","bottom":"20","left":"24","isLinked":false }
+			},
+			"elements":[
+				{ "id":"evh-promo-html","elType":"widget","widgetType":"html","settings":{ "html":"<div class='evolve-promo-strip'><div class='evolve-promo-strip__title'>BUY 4 E-JUICE, <em>GET THE 5TH FREE</em></div><div class='evolve-promo-strip__small'>Mix & Match · Equal or lesser value · In-store pickup at Pheasant Lane Mall</div></div>" } }
+			]
+		},
+		{
+			"id":"evh-feat",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"40","right":"24","bottom":"100","left":"24","isLinked":false },
+				"flex_direction":"column","flex_gap":{"unit":"px","size":24,"column":"24","row":"24"}
+			},
+			"elements":[
+				{
+					"id":"evh-feat-head",
+					"elType":"container",
+					"settings":{ "content_width":"full","flex_direction":"row","flex_justify_content":"space-between","flex_align_items":"flex-end" },
+					"elements":[
+						{ "id":"evh-feat-h","elType":"widget","widgetType":"heading","settings":{ "title":"Featured Products","header_size":"h2","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"800","typography_font_size":{"unit":"px","size":32} } },
+						{ "id":"evh-feat-link","elType":"widget","widgetType":"button","settings":{ "text":"VIEW ALL PRODUCTS","link":{"url":"/shop"},"background_color":"transparent","button_text_color":"#B7FF00","border_border":"none","size":"sm","typography_font_size":{"unit":"px","size":12},"typography_letter_spacing":{"unit":"px","size":2} } }
+					]
+				},
+				{ "id":"evh-feat-grid","elType":"widget","widgetType":"woocommerce-products","settings":{ "columns":5, "columns_tablet":3, "columns_mobile":2, "rows":1, "per_page":"5", "orderby":"date", "order":"desc", "show":"featured" } }
+			]
+		},
+		{
+			"id":"evh-why",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"80","right":"24","bottom":"80","left":"24","isLinked":false },
+				"background_background":"classic","background_color":"#0D0D0D",
+				"flex_direction":"column","flex_gap":{"unit":"px","size":28,"column":"28","row":"28"}
+			},
+			"elements":[
+				{ "id":"evh-why-h","elType":"widget","widgetType":"heading","settings":{ "title":"Why Shop With Evolve","header_size":"h2","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"800","typography_font_size":{"unit":"px","size":32} } },
+				{ "id":"evh-why-grid","elType":"widget","widgetType":"html","settings":{ "html":"<div class='evolve-features'><div class='evolve-feature'><div class='evolve-feature__icon'>📦</div><h3 class='evolve-feature__title'>Huge Selection</h3><p class='evolve-feature__text'>Top brands, products, and flavors — all in one place.</p></div><div class='evolve-feature'><div class='evolve-feature__icon'>🧠</div><h3 class='evolve-feature__title'>Expert Staff</h3><p class='evolve-feature__text'>Knowledgeable team to help you choose the right setup.</p></div><div class='evolve-feature'><div class='evolve-feature__icon'>📍</div><h3 class='evolve-feature__title'>Convenient Location</h3><p class='evolve-feature__text'>Inside Pheasant Lane Mall — easy in, easy out.</p></div><div class='evolve-feature'><div class='evolve-feature__icon'>🧪</div><h3 class='evolve-feature__title'>Test Before You Leave</h3><p class='evolve-feature__text'>Try flavors and devices on the spot.</p></div><div class='evolve-feature'><div class='evolve-feature__icon'>⭐</div><h3 class='evolve-feature__title'>Local & Trusted</h3><p class='evolve-feature__text'>Proudly serving the Nashua community.</p></div></div>" } }
+			]
+		},
+		{
+			"id":"evh-loc",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"100","right":"24","bottom":"100","left":"24","isLinked":false },
+				"flex_direction":"row","flex_gap":{"unit":"px","size":18,"column":"18","row":"18"},
+				"_element_id":"location"
+			},
+			"elements":[
+				{
+					"id":"evh-loc-info",
+					"elType":"container",
+					"settings":{ "content_width":"full","width":{"unit":"%","size":42},"flex_direction":"column","flex_gap":{"unit":"px","size":12,"column":"12","row":"12"}, "padding":{"unit":"px","top":"28","right":"28","bottom":"28","left":"28","isLinked":true}, "background_background":"classic","background_color":"#111111","border_radius":{"unit":"px","top":"20","right":"20","bottom":"20","left":"20"},"border_border":"solid","border_width":{"unit":"px","top":"1","right":"1","bottom":"1","left":"1","isLinked":true},"border_color":"#1E1E1E" },
+					"elements":[
+						{ "id":"evh-loc-h","elType":"widget","widgetType":"heading","settings":{ "title":"Visit Our Store","header_size":"h3","title_color":"#FFFFFF" } },
+						{ "id":"evh-loc-p","elType":"widget","widgetType":"text-editor","settings":{ "editor":"<p><strong style='color:#FFFFFF'>Evolve Vapor</strong><br>Pheasant Lane Mall<br>310 Daniel Webster Hwy<br>Nashua, NH 03060</p><p><strong style='color:#B7FF00;'>(603) 880-1014</strong></p><hr style='border:0;border-top:1px solid #1E1E1E;margin:14px 0;'><p style='color:#FFFFFF'><strong>STORE HOURS</strong></p><p>Mon–Sat &nbsp; 10:00 AM – 9:00 PM<br>Sunday &nbsp;&nbsp;&nbsp; 11:00 AM – 6:00 PM</p>", "text_color":"#B3B3B3" } },
+						{ "id":"evh-loc-cta","elType":"widget","widgetType":"button","settings":{ "text":"GET DIRECTIONS","link":{"url":"https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH"},"background_color":"#B7FF00","button_text_color":"#000000","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"},"icon":{"value":"fas fa-arrow-right","library":"fa-solid"},"icon_align":"right" } }
+					]
+				},
+				{
+					"id":"evh-loc-map",
+					"elType":"container",
+					"settings":{ "content_width":"full","width":{"unit":"%","size":58},"border_radius":{"unit":"px","top":"20","right":"20","bottom":"20","left":"20"},"border_border":"solid","border_width":{"unit":"px","top":"1","right":"1","bottom":"1","left":"1","isLinked":true},"border_color":"#1E1E1E","overflow":"hidden" },
+					"elements":[
+						{ "id":"evh-map","elType":"widget","widgetType":"google_maps","settings":{ "address":"Pheasant Lane Mall, Nashua, NH", "zoom":{"unit":"px","size":15}, "height":{"unit":"px","size":420} } }
+					]
+				}
+			]
+		},
+		{
+			"id":"evh-test",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"40","right":"24","bottom":"100","left":"24","isLinked":false },
+				"flex_direction":"column","flex_gap":{"unit":"px","size":24,"column":"24","row":"24"}
+			},
+			"elements":[
+				{ "id":"evh-test-h","elType":"widget","widgetType":"heading","settings":{ "title":"What Our Customers Say","header_size":"h2","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"800","typography_font_size":{"unit":"px","size":32} } },
+				{ "id":"evh-test-html","elType":"widget","widgetType":"html","settings":{ "html":"<div class='evolve-testimonials'><div class='evolve-testimonial'><div class='evolve-testimonial__stars'>★★★★★</div><div class='evolve-testimonial__quote'>“Best vape shop around — friendly staff and great prices. The selection is incredible.”</div><div class='evolve-testimonial__name'>— Mike A.</div></div><div class='evolve-testimonial'><div class='evolve-testimonial__stars'>★★★★★</div><div class='evolve-testimonial__quote'>“Helped me pick the perfect device. Super knowledgeable about everything in the store.”</div><div class='evolve-testimonial__name'>— Jessica R.</div></div><div class='evolve-testimonial'><div class='evolve-testimonial__stars'>★★★★★</div><div class='evolve-testimonial__quote'>“Love this place. Easy stop in the mall and the team always remembers my favorite juice.”</div><div class='evolve-testimonial__name'>— Tyler M.</div></div></div>" } }
+			]
+		},
+		{
+			"id":"evh-news",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"padding":{ "unit":"px","top":"40","right":"24","bottom":"100","left":"24","isLinked":false },
+				"flex_direction":"column","flex_gap":{"unit":"px","size":24,"column":"24","row":"24"}
+			},
+			"elements":[
+				{
+					"id":"evh-news-head",
+					"elType":"container",
+					"settings":{ "content_width":"full","flex_direction":"row","flex_justify_content":"space-between","flex_align_items":"flex-end" },
+					"elements":[
+						{ "id":"evh-news-h","elType":"widget","widgetType":"heading","settings":{ "title":"Vape News","header_size":"h2","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"800","typography_font_size":{"unit":"px","size":32} } },
+						{ "id":"evh-news-link","elType":"widget","widgetType":"button","settings":{ "text":"VIEW ALL NEWS","link":{"url":"/blog"},"background_color":"transparent","button_text_color":"#B7FF00","border_border":"none","size":"sm" } }
+					]
+				},
+				{ "id":"evh-news-grid","elType":"widget","widgetType":"posts","settings":{ "classic_columns":3, "classic_posts_per_page":3, "classic_show_excerpt":"yes","classic_excerpt_length":15,"classic_image_size":"medium_large" } }
+			]
+		}
+	]
+}

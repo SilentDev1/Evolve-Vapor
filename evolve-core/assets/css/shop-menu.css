@@ -1,0 +1,109 @@
+/* ============================================================================
+   Evolve — Shop Menu Widget
+   2-column category nav grid for mobile slide-out menu / anywhere.
+   ========================================================================= */
+
+.evolve-sm {
+	width: 100%;
+}
+
+/* Heading */
+.evolve-sm__heading {
+	font-family: var(--evolve-font-head, 'Poppins', sans-serif);
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.15em;
+	text-transform: uppercase;
+	color: var(--evolve-accent, #B7FF00);
+	margin: 0 0 12px 0;
+	padding: 0;
+	line-height: 1.2;
+}
+
+/* Grid */
+.evolve-sm__grid {
+	display: grid;
+	grid-template-columns: repeat(var(--sm-cols, 2), 1fr);
+	gap: 8px;
+	width: 100%;
+}
+
+/* Button */
+.evolve-sm__btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	padding: 14px 12px;
+	background: var(--evolve-card, #111111);
+	border: 1px solid var(--evolve-border, #1E1E1E);
+	border-radius: var(--evolve-radius-xs, 10px);
+	color: var(--evolve-text, #FFFFFF);
+	font-family: var(--evolve-font-body, 'Inter', sans-serif);
+	font-size: 14px;
+	font-weight: 500;
+	line-height: 1.3;
+	text-decoration: none;
+	text-align: center;
+	cursor: pointer;
+	transition: background-color var(--evolve-dur, .35s) var(--evolve-ease, ease),
+	            border-color    var(--evolve-dur, .35s) var(--evolve-ease, ease),
+	            color           var(--evolve-dur, .35s) var(--evolve-ease, ease),
+	            box-shadow      var(--evolve-dur, .35s) var(--evolve-ease, ease);
+	-webkit-tap-highlight-color: transparent;
+}
+
+.evolve-sm__btn:hover,
+.evolve-sm__btn:focus {
+	background: #1A1A1A;
+	border-color: var(--evolve-accent, #B7FF00);
+	color: var(--evolve-accent, #B7FF00);
+	box-shadow: var(--evolve-glow-soft, 0 0 12px rgba(183,255,0,0.18));
+	text-decoration: none;
+	outline: none;
+}
+
+.evolve-sm__btn:active {
+	transform: scale(0.97);
+}
+
+/* Active state — for current category page */
+.evolve-sm__btn--active {
+	background: var(--evolve-accent, #B7FF00);
+	border-color: var(--evolve-accent, #B7FF00);
+	color: var(--evolve-bg, #050505);
+	font-weight: 600;
+}
+
+.evolve-sm__btn--active:hover,
+.evolve-sm__btn--active:focus {
+	background: var(--evolve-accent-2, #7CFF4F);
+	border-color: var(--evolve-accent-2, #7CFF4F);
+	color: var(--evolve-bg, #050505);
+	box-shadow: var(--evolve-glow, 0 0 24px rgba(183,255,0,0.35));
+}
+
+/* Icon */
+.evolve-sm__icon {
+	display: inline-flex;
+	align-items: center;
+	font-size: 16px;
+	flex-shrink: 0;
+}
+
+.evolve-sm__icon svg {
+	width: 16px;
+	height: 16px;
+	fill: currentColor;
+}
+
+.evolve-sm__icon i {
+	font-size: 16px;
+}
+
+/* Label */
+.evolve-sm__label {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

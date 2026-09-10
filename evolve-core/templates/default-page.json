@@ -1,0 +1,88 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Default Page",
+	"type": "page",
+	"page_settings": { "background_background": "classic", "background_color": "#050505", "hide_title": "yes" },
+	"content": [
+		{
+			"id": "evd00001",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "80", "right": "24", "bottom": "20", "left": "24", "isLinked": false },
+				"flex_direction": "column", "flex_align_items": "flex-start",
+				"flex_gap": { "unit": "px", "size": 10, "column": "10", "row": "10" },
+				"background_background": "gradient",
+				"background_color": "#050505", "background_color_b": "#0D0D0D",
+				"background_gradient_type": "radial",
+				"background_gradient_angle": { "unit": "deg", "size": 135 }
+			},
+			"elements": [
+				{ "id": "evd00002", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "EVOLVE", "header_size": "div", "title_color": "#B7FF00",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "700",
+				    "typography_font_size": { "unit": "px", "size": 12 }, "typography_letter_spacing": { "unit": "px", "size": 3 },
+				    "typography_text_transform": "uppercase" } },
+				{ "id": "evd00003", "elType": "widget", "widgetType": "theme-page-title",
+				  "settings": { "title_color": "#FFFFFF", "header_size": "h1",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "900",
+				    "typography_font_size": { "unit": "px", "size": 56 },
+				    "typography_font_size_tablet": { "unit": "px", "size": 40 },
+				    "typography_font_size_mobile": { "unit": "px", "size": 30 },
+				    "typography_line_height": { "unit": "em", "size": 1.05 },
+				    "typography_letter_spacing": { "unit": "px", "size": -1.2 } } },
+				{ "id": "evd00004", "elType": "widget", "widgetType": "breadcrumbs",
+				  "settings": { "text_color": "#6E6E6E", "link_color": "#B3B3B3" } }
+			]
+		},
+		{
+			"id": "evd00005",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "30", "right": "24", "bottom": "30", "left": "24", "isLinked": false },
+				"flex_direction": "row", "flex_gap": { "unit": "px", "size": 40, "column": "40", "row": "40" }
+			},
+			"elements": [
+				{
+					"id": "evd00006",
+					"elType": "container",
+					"settings": { "content_width": "full", "width": { "unit": "%", "size": 70 },
+					  "background_background": "classic", "background_color": "#0D0D0D",
+					  "border_border": "solid", "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true }, "border_color": "#1E1E1E",
+					  "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20" },
+					  "padding": { "unit": "px", "top": "36", "right": "40", "bottom": "36", "left": "40", "isLinked": false },
+					  "_css_classes": "evolve-page-body" },
+					"elements": [
+						{ "id": "evd00007", "elType": "widget", "widgetType": "theme-post-content",
+						  "settings": { "_element_id": "evolve-page-content" } }
+					]
+				},
+				{
+					"id": "evd00008",
+					"elType": "container",
+					"settings": { "content_width": "full", "width": { "unit": "%", "size": 30 },
+					  "flex_direction": "column", "flex_gap": { "unit": "px", "size": 14, "column": "14", "row": "14" } },
+					"elements": [
+						{ "id": "evd00009", "elType": "widget", "widgetType": "html",
+						  "settings": { "html": "<div class='evolve-sideblock'><h3 class='evolve-sideblock__title'>Visit Evolve</h3><p class='evolve-sideblock__line'><strong>Phone</strong><br><a href='tel:+16038801014' style='color:#B7FF00;'>(603) 880-1014</a></p><p class='evolve-sideblock__line'><strong>Address</strong><br>Pheasant Lane Mall<br>310 Daniel Webster Hwy<br>Nashua, NH 03060</p><p class='evolve-sideblock__line'><strong>Hours</strong><br>Mon–Sat &nbsp; 10:00 – 21:00<br>Sun &nbsp;&nbsp; 11:00 – 18:00</p><span class='evolve-sideblock__pill'>21+ only</span></div>" } },
+						{ "id": "evd00010", "elType": "widget", "widgetType": "html",
+						  "settings": { "html": "<div class='evolve-sideblock evolve-sideblock--cta'><h3 class='evolve-sideblock__title'>Need something specific?</h3><p style='color:#B3B3B3;margin:0 0 14px;font-size:14px;'>Our team can usually grab it within a day. Send us a message.</p><a href='/contact' class='evolve-sideblock__btn'>Ask Evolve →</a></div>" } }
+					]
+				}
+			]
+		},
+		{
+			"id": "evd00011",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "40", "right": "24", "bottom": "100", "left": "24", "isLinked": false }
+			},
+			"elements": [
+				{ "id": "evd00012", "elType": "widget", "widgetType": "html",
+				  "settings": { "html": "<div class='evolve-bottom-cta'><div class='evolve-bottom-cta__copy'><span class='evolve-bottom-cta__eyebrow'>READY TO SHOP</span><h3 class='evolve-bottom-cta__title'>Disposables, kits, juice, pods, coils — all in one place.</h3></div><a href='/shop' class='evolve-bottom-cta__btn'>Shop the store →</a></div>" } }
+			]
+		}
+	]
+}

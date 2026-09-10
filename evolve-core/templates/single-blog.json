@@ -1,0 +1,117 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Single Blog Post",
+	"type": "single-post",
+	"page_settings": { "background_background": "classic", "background_color": "#050505", "hide_title": "yes" },
+	"content": [
+		{
+			"id": "evs00001",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "70", "right": "24", "bottom": "30", "left": "24", "isLinked": false },
+				"flex_direction": "column",
+				"flex_align_items": "flex-start",
+				"flex_gap": { "unit": "px", "size": 14, "column": "14", "row": "14" }
+			},
+			"elements": [
+				{ "id": "evs00002", "elType": "widget", "widgetType": "breadcrumbs",
+				  "settings": { "text_color": "#6E6E6E", "link_color": "#B3B3B3", "separator_type": "icon", "separator_icon": { "value": "fas fa-angle-right", "library": "fa-solid" } } },
+				{ "id": "evs00003", "elType": "widget", "widgetType": "post-info",
+				  "settings": { "meta_data": ["terms"], "term_taxonomy": "category",
+				    "icon_color": "#B7FF00", "text_color": "#B7FF00",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "700",
+				    "typography_font_size": { "unit": "px", "size": 12 }, "typography_letter_spacing": { "unit": "px", "size": 2.5 },
+				    "typography_text_transform": "uppercase", "view": "inline" } },
+				{ "id": "evs00004", "elType": "widget", "widgetType": "post-title",
+				  "settings": { "size": "h1", "title_color": "#FFFFFF",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "900",
+				    "typography_font_size": { "unit": "px", "size": 56 },
+				    "typography_font_size_tablet": { "unit": "px", "size": 40 },
+				    "typography_font_size_mobile": { "unit": "px", "size": 30 },
+				    "typography_line_height": { "unit": "em", "size": 1.08 },
+				    "typography_letter_spacing": { "unit": "px", "size": -1 } } },
+				{ "id": "evs00005", "elType": "widget", "widgetType": "post-info",
+				  "settings": { "meta_data": ["date","author","comments"],
+				    "icon_color": "#6E6E6E", "text_color": "#B3B3B3",
+				    "typography_typography": "custom", "typography_font_family": "Inter", "typography_font_size": { "unit": "px", "size": 13 } } },
+				{ "id": "evs00006", "elType": "widget", "widgetType": "featured-image",
+				  "settings": { "image_size": "large",
+				    "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20", "isLinked": true } } }
+			]
+		},
+		{
+			"id": "evs00007",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "30", "right": "24", "bottom": "30", "left": "24", "isLinked": false },
+				"width": { "unit": "%", "size": 100 },
+				"_css_classes": "evolve-post-body"
+			},
+			"elements": [
+				{ "id": "evs00008", "elType": "widget", "widgetType": "theme-post-content",
+				  "settings": { "_element_id": "evolve-post-content" } }
+			]
+		},
+		{
+			"id": "evs00009",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "0", "right": "24", "bottom": "30", "left": "24", "isLinked": false },
+				"flex_direction": "row", "flex_justify_content": "space-between", "flex_align_items": "center", "flex_wrap": "wrap",
+				"flex_gap": { "unit": "px", "size": 14, "column": "14", "row": "14" }
+			},
+			"elements": [
+				{ "id": "evs00010", "elType": "widget", "widgetType": "post-info",
+				  "settings": { "meta_data": ["terms"], "term_taxonomy": "post_tag",
+				    "icon_color": "#B7FF00", "text_color": "#B3B3B3",
+				    "typography_font_size": { "unit": "px", "size": 12 }, "typography_text_transform": "uppercase",
+				    "typography_letter_spacing": { "unit": "px", "size": 1.5 }, "view": "inline" } },
+				{ "id": "evs00011", "elType": "widget", "widgetType": "share-buttons",
+				  "settings": { "shape": "rounded", "columns": "0", "share_buttons": [
+				      { "button": "facebook" }, { "button": "twitter" }, { "button": "linkedin" }, { "button": "email" } ],
+				    "skin": "minimal", "color_source": "official" } }
+			]
+		},
+		{
+			"id": "evs00012",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "0", "right": "24", "bottom": "60", "left": "24", "isLinked": false }
+			},
+			"elements": [
+				{ "id": "evs00013", "elType": "widget", "widgetType": "author-box",
+				  "settings": { "view": "left",
+				    "name_color": "#FFFFFF", "biography_color": "#B3B3B3",
+				    "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20", "isLinked": true },
+				    "background_color": "#111111",
+				    "_css_classes": "evolve-author-card" } }
+			]
+		},
+		{
+			"id": "evs00014",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "0", "right": "24", "bottom": "100", "left": "24", "isLinked": false },
+				"flex_direction": "column",
+				"flex_gap": { "unit": "px", "size": 20, "column": "20", "row": "20" }
+			},
+			"elements": [
+				{ "id": "evs00015", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "More from Vape News", "header_size": "h2", "title_color": "#FFFFFF",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "800",
+				    "typography_font_size": { "unit": "px", "size": 28 } } },
+				{ "id": "evs00016", "elType": "widget", "widgetType": "posts",
+				  "settings": { "classic_columns": 3, "classic_columns_tablet": 2, "classic_columns_mobile": 1,
+				    "classic_posts_per_page": 3, "classic_show_excerpt": "yes", "classic_excerpt_length": 18,
+				    "classic_image_size": "medium_large",
+				    "classic_show_meta": "yes", "classic_meta_data": ["date"],
+				    "classic_show_read_more": "yes", "classic_read_more_text": "Read →" } }
+			]
+		}
+	]
+}

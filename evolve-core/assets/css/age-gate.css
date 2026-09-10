@@ -1,0 +1,68 @@
+/* Evolve — Age Gate (21+) overlay */
+
+.evolve-agegate {
+	position: fixed; inset: 0; z-index: 999999;
+	display: flex; align-items: center; justify-content: center;
+	padding: 24px;
+	opacity: 1;
+	transition: opacity .35s cubic-bezier(.2,.7,.2,1);
+}
+.evolve-agegate.is-hidden { opacity: 0; pointer-events: none; }
+
+.evolve-agegate__bg {
+	position: absolute; inset: 0;
+	background:
+		radial-gradient(600px 400px at 30% 20%, rgba(183,255,0,0.15), transparent 60%),
+		radial-gradient(500px 350px at 80% 80%, rgba(124,255,79,0.12), transparent 60%),
+		rgba(5,5,5,0.92);
+	backdrop-filter: blur(18px);
+	-webkit-backdrop-filter: blur(18px);
+}
+
+.evolve-agegate__card {
+	position: relative;
+	max-width: 480px;
+	width: 100%;
+	text-align: center;
+	background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01));
+	border: 1px solid rgba(255,255,255,0.10);
+	border-radius: 20px;
+	padding: 44px 32px;
+	box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(183,255,0,0.10);
+}
+.evolve-agegate__logo {
+	max-width: 200px; height: auto; margin: 0 auto 18px;
+	display: block;
+	filter: drop-shadow(0 0 14px rgba(183,255,0,0.30));
+}
+.evolve-agegate__title {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 900;
+	color: #fff;
+	font-size: clamp(1.5rem, 4vw, 2rem);
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+	margin: 0 0 12px;
+}
+.evolve-agegate__lede {
+	color: #B3B3B3;
+	font-family: 'Inter', sans-serif;
+	font-size: 14px;
+	line-height: 1.6;
+	margin: 0 0 24px;
+}
+.evolve-agegate__cta {
+	display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+	margin-bottom: 18px;
+}
+.evolve-agegate__cta .evolve-btn {
+	flex: 1 1 180px;
+}
+.evolve-agegate__note {
+	color: #6E6E6E;
+	font-size: 12px;
+	margin: 6px 0 0;
+}
+
+/* Lock body scroll while gate is visible */
+body:has(#evolveAgeGate:not(.is-hidden)) { overflow: hidden; }

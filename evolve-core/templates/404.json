@@ -1,0 +1,32 @@
+{
+	"version": "0.4",
+	"title": "Evolve — 404",
+	"type": "error-404",
+	"page_settings":{ "background_background":"classic","background_color":"#050505" },
+	"content":[
+		{
+			"id":"e4-wrap",
+			"elType":"container",
+			"settings":{
+				"content_width":"boxed",
+				"min_height":{ "unit":"vh","size":70 },
+				"padding":{ "unit":"px","top":"80","right":"24","bottom":"80","left":"24","isLinked":false },
+				"flex_direction":"column","flex_justify_content":"center","flex_align_items":"center","flex_gap":{"unit":"px","size":18,"column":"18","row":"18"}
+			},
+			"elements":[
+				{ "id":"e4-code","elType":"widget","widgetType":"heading","settings":{ "title":"404","header_size":"h1","align":"center","title_color":"#B7FF00","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"900","typography_font_size":{"unit":"px","size":160},"text_shadow_text_shadow_type":"yes","text_shadow_text_shadow":{"horizontal":0,"vertical":0,"blur":40,"color":"rgba(183,255,0,0.4)"} } },
+				{ "id":"e4-h","elType":"widget","widgetType":"heading","settings":{ "title":"This page went up in vapor.","header_size":"h2","align":"center","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"800","typography_font_size":{"unit":"px","size":32} } },
+				{ "id":"e4-p","elType":"widget","widgetType":"text-editor","settings":{ "editor":"<p style='text-align:center;color:#B3B3B3;'>The page you're looking for doesn't exist. Try the shop or head back home.</p>" } },
+				{
+					"id":"e4-cta",
+					"elType":"container",
+					"settings":{ "content_width":"full","flex_direction":"row","flex_gap":{"unit":"px","size":10,"column":"10","row":"10"},"flex_justify_content":"center" },
+					"elements":[
+						{ "id":"e4-b1","elType":"widget","widgetType":"button","settings":{ "text":"SHOP NOW","link":{"url":"/shop"},"background_color":"#B7FF00","button_text_color":"#000000","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"} } },
+						{ "id":"e4-b2","elType":"widget","widgetType":"button","settings":{ "text":"HOMEPAGE","link":{"url":"/"},"background_color":"transparent","button_text_color":"#FFFFFF","border_border":"solid","border_width":{"unit":"px","top":"1","right":"1","bottom":"1","left":"1","isLinked":true},"border_color":"#1E1E1E","border_radius":{"unit":"px","top":"14","right":"14","bottom":"14","left":"14"} } }
+					]
+				}
+			]
+		}
+	]
+}

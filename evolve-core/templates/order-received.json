@@ -1,0 +1,42 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Order Received (Thank you)",
+	"type": "page",
+	"page_settings": { "background_background": "classic", "background_color": "#050505", "hide_title": "yes" },
+	"content": [
+		{
+			"id": "evor0001",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "100", "right": "24", "bottom": "30", "left": "24", "isLinked": false },
+				"flex_direction": "column", "flex_align_items": "center",
+				"flex_gap": { "unit": "px", "size": 14, "column": "14", "row": "14" }
+			},
+			"elements": [
+				{ "id": "evor0002", "elType": "widget", "widgetType": "html",
+				  "settings": { "html": "<div class='evolve-ok-glyph' aria-hidden='true'><svg viewBox='0 0 64 64' width='64' height='64' fill='none' stroke='#B7FF00' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><circle cx='32' cy='32' r='28'/><path d='M20 33 l9 9 l16 -19'/></svg></div>" } },
+				{ "id": "evor0003", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "Order received.", "header_size": "h1", "title_color": "#FFFFFF", "align": "center",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "900",
+				    "typography_font_size": { "unit": "px", "size": 56 },
+				    "typography_font_size_mobile": { "unit": "px", "size": 34 },
+				    "typography_letter_spacing": { "unit": "px", "size": -1.2 } } },
+				{ "id": "evor0004", "elType": "widget", "widgetType": "text-editor",
+				  "settings": { "editor": "<p style='text-align:center;color:#B3B3B3;font-size:17px;max-width:560px;margin:0 auto;'>Thanks! Your order is in. We'll text or email when it's ready for pickup at <strong style='color:#FFFFFF;'>Pheasant Lane Mall</strong>. Bring a valid <strong style='color:#B7FF00;'>21+ ID</strong>.</p>" } }
+			]
+		},
+		{
+			"id": "evor0005",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "20", "right": "24", "bottom": "100", "left": "24", "isLinked": false }
+			},
+			"elements": [
+				{ "id": "evor0006", "elType": "widget", "widgetType": "shortcode",
+				  "settings": { "shortcode": "[woocommerce_order_received]" } }
+			]
+		}
+	]
+}

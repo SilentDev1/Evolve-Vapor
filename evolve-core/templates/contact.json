@@ -1,0 +1,181 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Contact",
+	"type": "page",
+	"page_settings": { "background_background": "classic", "background_color": "#050505", "hide_title": "yes" },
+	"content": [
+		{
+			"id": "evc00001",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "90", "right": "24", "bottom": "30", "left": "24", "isLinked": false },
+				"flex_direction": "column", "flex_align_items": "flex-start",
+				"flex_gap": { "unit": "px", "size": 10, "column": "10", "row": "10" },
+				"background_background": "gradient", "background_color": "#050505", "background_color_b": "#0D0D0D",
+				"background_gradient_type": "radial", "background_gradient_angle": { "unit": "deg", "size": 135 }
+			},
+			"elements": [
+				{ "id": "evc00002", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "GET IN TOUCH", "header_size": "div", "title_color": "#B7FF00",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "700",
+				    "typography_font_size": { "unit": "px", "size": 12 }, "typography_letter_spacing": { "unit": "px", "size": 3 },
+				    "typography_text_transform": "uppercase" } },
+				{ "id": "evc00003", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "Visit Evolve.<br>We're in your neighborhood.", "header_size": "h1", "title_color": "#FFFFFF",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "900",
+				    "typography_font_size": { "unit": "px", "size": 64 },
+				    "typography_font_size_tablet": { "unit": "px", "size": 44 },
+				    "typography_font_size_mobile": { "unit": "px", "size": 32 },
+				    "typography_line_height": { "unit": "em", "size": 1.05 },
+				    "typography_letter_spacing": { "unit": "px", "size": -1.5 } } },
+				{ "id": "evc00004", "elType": "widget", "widgetType": "text-editor",
+				  "settings": { "editor": "<p style='color:#B3B3B3;font-size:17px;max-width:640px;'>Pheasant Lane Mall, Nashua NH. Call ahead, get directions, or drop us a question below — we usually reply within an hour during store hours.</p>" } },
+				{
+					"id": "evc00005",
+					"elType": "container",
+					"settings": { "content_width": "full", "flex_direction": "row",
+					  "flex_gap": { "unit": "px", "size": 10, "column": "10", "row": "10" }, "flex_wrap": "wrap",
+					  "padding": { "unit": "px", "top": "10", "right": "0", "bottom": "0", "left": "0", "isLinked": false } },
+					"elements": [
+						{ "id": "evc00006", "elType": "widget", "widgetType": "button",
+						  "settings": { "text": "CALL (603) 880-1014", "link": { "url": "tel:+16038801014" },
+						    "background_color": "#B7FF00", "button_text_color": "#000000",
+						    "icon": { "value": "fas fa-phone", "library": "fa-solid" }, "icon_align": "left",
+						    "border_radius": { "unit": "px", "top": "14", "right": "14", "bottom": "14", "left": "14" }, "size": "md" } },
+						{ "id": "evc00007", "elType": "widget", "widgetType": "button",
+						  "settings": { "text": "GET DIRECTIONS", "link": { "url": "https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH" },
+						    "background_color": "transparent", "button_text_color": "#FFFFFF",
+						    "border_border": "solid", "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true }, "border_color": "#1E1E1E",
+						    "icon": { "value": "fas fa-map-marker-alt", "library": "fa-solid" }, "icon_align": "left",
+						    "border_radius": { "unit": "px", "top": "14", "right": "14", "bottom": "14", "left": "14" }, "size": "md" } },
+						{ "id": "evc00008", "elType": "widget", "widgetType": "button",
+						  "settings": { "text": "EMAIL US", "link": { "url": "mailto:hello@evolvevapornh.com" },
+						    "background_color": "transparent", "button_text_color": "#FFFFFF",
+						    "border_border": "solid", "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true }, "border_color": "#1E1E1E",
+						    "icon": { "value": "fas fa-envelope", "library": "fa-solid" }, "icon_align": "left",
+						    "border_radius": { "unit": "px", "top": "14", "right": "14", "bottom": "14", "left": "14" }, "size": "md" } }
+					]
+				}
+			]
+		},
+		{
+			"id": "evc00009",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "60", "right": "24", "bottom": "60", "left": "24", "isLinked": false },
+				"flex_direction": "row", "flex_gap": { "unit": "px", "size": 24, "column": "24", "row": "24" }
+			},
+			"elements": [
+				{
+					"id": "evc00010",
+					"elType": "container",
+					"settings": { "content_width": "full", "width": { "unit": "%", "size": 58 },
+					  "background_background": "classic", "background_color": "#111111",
+					  "border_border": "solid", "border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true }, "border_color": "#1E1E1E",
+					  "border_radius": { "unit": "px", "top": "20", "right": "20", "bottom": "20", "left": "20" },
+					  "padding": { "unit": "px", "top": "32", "right": "32", "bottom": "32", "left": "32", "isLinked": true },
+					  "flex_direction": "column", "flex_gap": { "unit": "px", "size": 14, "column": "14", "row": "14" } },
+					"elements": [
+						{ "id": "evc00011", "elType": "widget", "widgetType": "heading",
+						  "settings": { "title": "Send us a note", "header_size": "h3", "title_color": "#FFFFFF",
+						    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "800",
+						    "typography_font_size": { "unit": "px", "size": 22 } } },
+						{ "id": "evc00012", "elType": "widget", "widgetType": "text-editor",
+						  "settings": { "editor": "<p style='color:#B3B3B3;'>Got a flavor request? Curious about a kit? Ask away — we'll get back to you fast.</p>" } },
+						{ "id": "evc00013", "elType": "widget", "widgetType": "form",
+						  "settings": {
+						    "form_name": "Evolve Contact",
+						    "form_fields": [
+						      { "_id": "name", "field_label": "Name", "field_type": "text", "placeholder": "Your name", "required": "true", "width": "100" },
+						      { "_id": "email", "field_label": "Email", "field_type": "email", "placeholder": "you@email.com", "required": "true", "width": "100" },
+						      { "_id": "phone", "field_label": "Phone (optional)", "field_type": "tel", "placeholder": "(603) 555-0100", "width": "100" },
+						      { "_id": "subject", "field_label": "Topic", "field_type": "select", "field_options": "General question\nProduct request\nDeals\nOther", "width": "100" },
+						      { "_id": "message", "field_label": "Message", "field_type": "textarea", "placeholder": "Tell us a bit…", "rows": 5, "required": "true", "width": "100" }
+						    ],
+						    "submit_actions": [ "email" ],
+						    "email_to": "hello@evolvevapornh.com",
+						    "email_subject": "[Evolve] New contact form message",
+						    "button_text": "Send Message",
+						    "button_align": "stretch",
+						    "button_size": "md",
+						    "input_size": "md",
+						    "label_typography_typography": "custom",
+						    "label_typography_font_family": "Poppins",
+						    "label_typography_font_weight": "600",
+						    "label_typography_font_size": { "unit": "px", "size": 12 },
+						    "label_typography_letter_spacing": { "unit": "px", "size": 1.5 },
+						    "label_typography_text_transform": "uppercase",
+						    "label_color": "#B3B3B3",
+						    "field_text_color": "#FFFFFF",
+						    "field_background_color": "#161616",
+						    "field_border_color": "#1E1E1E",
+						    "field_border_width": { "unit": "px", "top": "1", "right": "1", "bottom": "1", "left": "1", "isLinked": true },
+						    "field_border_radius": { "unit": "px", "top": "12", "right": "12", "bottom": "12", "left": "12" },
+						    "button_background_color": "#B7FF00",
+						    "button_text_color": "#000000",
+						    "button_hover_background_color": "#7CFF4F",
+						    "button_border_radius": { "unit": "px", "top": "14", "right": "14", "bottom": "14", "left": "14" }
+						  } }
+					]
+				},
+				{
+					"id": "evc00014",
+					"elType": "container",
+					"settings": { "content_width": "full", "width": { "unit": "%", "size": 42 },
+					  "flex_direction": "column", "flex_gap": { "unit": "px", "size": 14, "column": "14", "row": "14" } },
+					"elements": [
+						{ "id": "evc00015", "elType": "widget", "widgetType": "html",
+						  "settings": { "html": "<div class='evolve-contact-card'><div class='evolve-contact-card__row'><span class='evolve-contact-card__icon'><svg viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='currentColor' stroke-width='2'><path d='M3 5l3 3-1 2a11 11 0 005 5l2-1 3 3-2 2a2 2 0 01-2 .5A15 15 0 013 9a2 2 0 01.5-2L5 5z'/></svg></span><div><span class='evolve-contact-card__label'>Phone</span><a class='evolve-contact-card__value' href='tel:+16038801014'>(603) 880-1014</a></div></div><div class='evolve-contact-card__row'><span class='evolve-contact-card__icon'><svg viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='currentColor' stroke-width='2'><path d='M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z'/><circle cx='12' cy='10' r='3'/></svg></span><div><span class='evolve-contact-card__label'>Address</span><a class='evolve-contact-card__value' href='https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH' target='_blank' rel='noopener'>Pheasant Lane Mall<br>310 Daniel Webster Hwy<br>Nashua, NH 03060</a></div></div><div class='evolve-contact-card__row'><span class='evolve-contact-card__icon'><svg viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='currentColor' stroke-width='2'><circle cx='12' cy='12' r='10'/><path d='M12 6v6l4 2'/></svg></span><div><span class='evolve-contact-card__label'>Hours</span><span class='evolve-contact-card__value'><strong>Mon–Sat</strong> 10:00 AM – 9:00 PM<br><strong>Sun</strong> 11:00 AM – 6:00 PM</span></div></div><div class='evolve-contact-card__row'><span class='evolve-contact-card__icon'><svg viewBox='0 0 24 24' width='18' height='18' fill='none' stroke='currentColor' stroke-width='2'><path d='M4 4h16v16H4z'/><path d='M4 4l8 8 8-8'/></svg></span><div><span class='evolve-contact-card__label'>Email</span><a class='evolve-contact-card__value' href='mailto:hello@evolvevapornh.com'>hello@evolvevapornh.com</a></div></div><div class='evolve-contact-card__pickup'><span class='evolve-contact-card__dot'></span>In-store pickup · 21+ ID required</div></div>" } }
+					]
+				}
+			]
+		},
+		{
+			"id": "evc00016",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "0", "right": "24", "bottom": "60", "left": "24", "isLinked": false }
+			},
+			"elements": [
+				{ "id": "evc00017", "elType": "widget", "widgetType": "google_maps",
+				  "settings": { "address": "Pheasant Lane Mall, Nashua, NH",
+				    "zoom": { "unit": "px", "size": 15 },
+				    "height": { "unit": "px", "size": 420 },
+				    "css_filters_css_filter": "custom",
+				    "css_filters_saturate": { "unit": "%", "size": 40 } } }
+			]
+		},
+		{
+			"id": "evc00018",
+			"elType": "container",
+			"settings": {
+				"content_width": "boxed",
+				"padding": { "unit": "px", "top": "30", "right": "24", "bottom": "100", "left": "24", "isLinked": false },
+				"flex_direction": "column",
+				"flex_gap": { "unit": "px", "size": 18, "column": "18", "row": "18" }
+			},
+			"elements": [
+				{ "id": "evc00019", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "Quick answers", "header_size": "h2", "title_color": "#FFFFFF",
+				    "typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "800",
+				    "typography_font_size": { "unit": "px", "size": 28 } } },
+				{ "id": "evc00020", "elType": "widget", "widgetType": "accordion",
+				  "settings": { "tabs": [
+				      { "tab_title": "Do you offer shipping?", "tab_content": "<p>No — we're in-store pickup only at Pheasant Lane Mall. Order online, then come pick up at the counter. Faster, fresher, no porch theft.</p>" },
+				      { "tab_title": "Do I need to be 21 to enter?", "tab_content": "<p>Yes. Federal and state law: 21+ to buy any vape or tobacco product. Bring a valid photo ID — we card everyone, every time.</p>" },
+				      { "tab_title": "What's the deal on the 4-juice promo?", "tab_content": "<p>Buy any 4 e-juice bottles, get the 5th free. Mix and match — the free bottle must be equal or lesser value. No code needed; we'll apply it at pickup.</p>" },
+				      { "tab_title": "Can I test a flavor before I buy?", "tab_content": "<p>Yes — we have testers for most house e-juice flavors. Just ask at the counter.</p>" },
+				      { "tab_title": "How long until my order is ready?", "tab_content": "<p>Most orders are ready within 30 minutes of checkout during store hours. We'll email you when it's set aside.</p>" }
+				    ],
+				    "title_html_tag": "h3",
+				    "icon_align": "right",
+				    "selected_icon": { "value": "fas fa-plus", "library": "fa-solid" },
+				    "selected_active_icon": { "value": "fas fa-minus", "library": "fa-solid" },
+				    "_css_classes": "evolve-accordion" } }
+			]
+		}
+	]
+}

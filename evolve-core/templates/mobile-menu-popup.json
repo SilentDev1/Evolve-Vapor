@@ -1,0 +1,105 @@
+{
+	"version": "0.4",
+	"title": "Evolve — Mobile Menu",
+	"type": "popup",
+	"page_settings": {
+		"width": { "unit": "vw", "size": 88 },
+		"height": { "unit": "vh", "size": 100 },
+		"position_horizontal": "start",
+		"position_vertical": "start",
+		"entrance_animation": "slideInLeft",
+		"exit_animation": "slideOutLeft",
+		"close_button_display": "yes",
+		"close_button_color": "#FFFFFF",
+		"close_button_size": { "unit": "px", "size": 22 },
+		"close_button_position_horizontal_position": "end",
+		"close_button_position_horizontal_offset": { "unit": "px", "size": 18 },
+		"close_button_position_vertical_offset": { "unit": "px", "size": 18 },
+		"background_background": "gradient",
+		"background_color": "#050505",
+		"background_color_b": "#0D0D0D",
+		"background_gradient_type": "linear",
+		"background_gradient_angle": { "unit": "deg", "size": 180 },
+		"overlay_background_background": "classic",
+		"overlay_background_color": "rgba(0,0,0,0.7)",
+		"prevent_close_on_background_click": "no",
+		"_element_id": "mobile-menu"
+	},
+	"content": [
+		{
+			"id": "evmm0001",
+			"elType": "container",
+			"settings": {
+				"content_width": "full",
+				"flex_direction": "column",
+				"flex_align_items": "stretch",
+				"padding": { "unit": "px", "top": "84", "right": "28", "bottom": "32", "left": "28", "isLinked": false },
+				"flex_gap": { "unit": "px", "size": 22, "column": "22", "row": "22" }
+			},
+			"elements": [
+				{ "id": "evmm0002", "elType": "widget", "widgetType": "theme-site-logo",
+				  "settings": { "align": "left", "width": { "unit": "px", "size": 140 } } },
+
+				{ "id": "evmm0003", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "MENU", "header_size": "div", "title_color": "#B7FF00",
+					"typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "700",
+					"typography_font_size": { "unit": "px", "size": 11 }, "typography_letter_spacing": { "unit": "px", "size": 3 },
+					"typography_text_transform": "uppercase" } },
+
+				{ "id": "evmm0004", "elType": "widget", "widgetType": "nav-menu",
+				  "settings": {
+					"menu": "mobile",
+					"layout": "vertical",
+					"submenu_icon": { "value": "fas fa-chevron-right", "library": "fa-solid" },
+					"pointer": "none",
+					"color_menu_item": "#FFFFFF",
+					"color_menu_item_hover": "#B7FF00",
+					"color_menu_item_active": "#B7FF00",
+					"typography_menu_item_typography": "custom",
+					"typography_menu_item_font_family": "Poppins",
+					"typography_menu_item_font_weight": "800",
+					"typography_menu_item_font_size": { "unit": "px", "size": 22 },
+					"typography_menu_item_text_transform": "uppercase",
+					"typography_menu_item_letter_spacing": { "unit": "px", "size": 0.4 },
+					"menu_space_between": { "unit": "px", "size": 6 },
+					"padding_horizontal_menu_item": { "unit": "px", "size": 0 },
+					"padding_vertical_menu_item": { "unit": "px", "size": 10 },
+					"_css_classes": "evolve-mm-nav"
+				  } },
+
+				{ "id": "evmm0005", "elType": "widget", "widgetType": "divider",
+				  "settings": { "color": "#1E1E1E", "weight": { "unit": "px", "size": 1 }, "gap": { "unit": "px", "size": 6 } } },
+
+				{ "id": "evmm0006", "elType": "widget", "widgetType": "heading",
+				  "settings": { "title": "SHOP", "header_size": "div", "title_color": "#6E6E6E",
+					"typography_typography": "custom", "typography_font_family": "Poppins", "typography_font_weight": "700",
+					"typography_font_size": { "unit": "px", "size": 11 }, "typography_letter_spacing": { "unit": "px", "size": 2.4 },
+					"typography_text_transform": "uppercase" } },
+
+				{ "id": "evmm0007", "elType": "widget", "widgetType": "text-editor",
+				  "settings": { "editor": "<div class='evolve-mm-quick'><a href='/product-category/disposable-vapes/'>Disposable Vapes</a><a href='/product-category/e-juice/'>E-Juice</a><a href='/product-category/kits/'>Kits</a><a href='/product-category/pods/'>Pods</a><a href='/product-category/coils/'>Coils</a><a href='/product-category/delta/'>Delta 8 / 9</a></div>" } },
+
+				{ "id": "evmm0008", "elType": "widget", "widgetType": "divider",
+				  "settings": { "color": "#1E1E1E", "weight": { "unit": "px", "size": 1 }, "gap": { "unit": "px", "size": 6 } } },
+
+				{ "id": "evmm0009", "elType": "widget", "widgetType": "html",
+				  "settings": { "html": "<div class='evolve-mm-info'><a class='evolve-mm-info__row' href='tel:+16038801014'><span class='evolve-mm-info__icon'><svg viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='currentColor' stroke-width='2'><path d='M3 5l3 3-1 2a11 11 0 005 5l2-1 3 3-2 2a2 2 0 01-2 .5A15 15 0 013 9a2 2 0 01.5-2L5 5z'/></svg></span><span><strong>(603) 880-1014</strong><em>Call the store</em></span></a><a class='evolve-mm-info__row' href='https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH' target='_blank' rel='noopener'><span class='evolve-mm-info__icon'><svg viewBox='0 0 24 24' width='16' height='16' fill='none' stroke='currentColor' stroke-width='2'><path d='M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1118 0z'/><circle cx='12' cy='10' r='3'/></svg></span><span><strong>Pheasant Lane Mall</strong><em>Nashua, NH · 21+ ID required</em></span></a></div>" } },
+
+				{ "id": "evmm0010", "elType": "widget", "widgetType": "button",
+				  "settings": {
+					"text": "VISIT THE STORE",
+					"link": { "url": "https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH" },
+					"background_color": "#B7FF00",
+					"button_text_color": "#000000",
+					"hover_background_color": "#7CFF4F",
+					"border_radius": { "unit": "px", "top": "14", "right": "14", "bottom": "14", "left": "14" },
+					"size": "md",
+					"align": "justify",
+					"icon": { "value": "fas fa-arrow-right", "library": "fa-solid" },
+					"icon_align": "right",
+					"_css_classes": "evolve-pulse evolve-pulse--width"
+				  } }
+			]
+		}
+	]
+}
