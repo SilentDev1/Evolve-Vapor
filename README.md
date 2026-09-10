@@ -85,11 +85,11 @@ The frontend presents the results through the custom questionnaire interface. A 
 
 ### AI product search from customer wording
 
-The custom **Header Search** widget integrates with **OmniSuggest AI** to match the customer's search wording to catalog products and display AI-ranked results with short explanations.
+The custom **Header Search** widget integrates with [**OmniSuggest AI**](https://github.com/SilentDev1/OmniSuggest) to match the customer's search wording to catalog products and display AI-ranked results with short explanations.
 
 When its **Use OmniSuggest AI** option is enabled and the dependency is available, the Evolve search handler forwards the query to `/omnisuggest/v1/search-suggest`. It maps the returned product data and match reasons into the site's own result cards. The interface also handles the service's alternative-match flag. If the service is unavailable, fails, or returns no matches, the handler falls back to local WordPress product search.
 
-This repository contains the Evolve widget, integration handler, and result presentation. The separate OmniSuggest plugin supplies the AI search engine and must be installed and configured independently.
+This repository contains the Evolve widget, integration handler, and result presentation. The [separate OmniSuggest plugin](https://github.com/SilentDev1/OmniSuggest#readme), also built by Hung Cao / Cao-Tech LLC, supplies the AI search engine and must be installed and configured independently. Its repository documents the ranking pipeline, AI providers, chat tools, and WordPress integration.
 
 ### AI-assisted product metadata
 
