@@ -1,0 +1,74 @@
+{
+  "e-juice": {
+    "h1": "E-Juice in Nashua, NH",
+    "intro": "Shop regular (freebase) e-juice at Evolve Vapor in Pheasant Lane Mall — 60ml and 100ml bottles in 0mg, 3mg and 6mg from brands like Monster Vape Labs, Coastal Clouds, Twist, Naked 100, Candy King and Cloud Nurdz. Order online and pick up in store.",
+    "more": "<h2>Regular e-juice at Evolve Vapor</h2><p>Our E-Juice section is freebase e-liquid for sub-ohm tanks, mods and refillable pod kits. Most bottles are 60ml or 100ml, in 0mg, 3mg and 6mg nicotine, and most sell for about $10–$25. You'll find fruit, dessert, candy, menthol and tobacco flavors from Monster Vape Labs (Jam, Custard, Fruit and Frozen Fruit Monster), Coastal Clouds, Twist, Naked 100, Candy King, Cloud Nurdz, Juice Head, Innevape, Air Factory and more.</p><p>Looking for higher nicotine in a smaller bottle for a pod system? That's <a href=\"/product-category/salt-nicotine/\">Salt Nicotine E-Juice</a>. Not sure which fits your device? Our staff can help you pick at the store.</p>",
+    "faq": [
+      ["What's the difference between e-juice and salt nicotine e-juice?", "Regular e-juice uses freebase nicotine, usually 0–6mg, and is made for sub-ohm tanks and higher-wattage devices. Salt nicotine e-juice comes in higher strengths (about 20–50mg) in 30ml bottles and is made for low-wattage pod systems. We list them separately so you get the right one."],
+      ["Can I order e-juice online and pick it up?", "Yes. Order on the website and pick it up at Evolve Vapor in Pheasant Lane Mall, Nashua, NH. Bring a valid photo ID — you must be 21 or older."],
+      ["What does \"Regular\" or \"New\" mean on a strength option?", "\"Regular\" on an e-juice listing is 3mg. \"New\" means the maker updated the product code (SKU) for the same strength."]
+    ]
+  },
+  "salt-nicotine": {
+    "h1": "Salt Nicotine E-Juice in Nashua, NH",
+    "intro": "Nic salt e-juice for pod systems at Evolve Vapor in Pheasant Lane Mall — 30ml bottles in higher strengths from Pod Juice, Monster Vape Labs, Pachamama, Cloud Nurdz, Air Factory, Salt Bae, Juice Head and Candy King. Order online and pick up in store.",
+    "more": "<h2>Nic salts at Evolve Vapor</h2><p>Salt nicotine e-juice (nic salt) is made for low-wattage pod systems and refillable pods. Bottles are usually 30ml, in strengths from about 20mg to 55mg depending on the brand, and most sell for about $10–$25. Popular lines include Pod Juice, Jam and Custard Monster Salts, Pachamama, Cloud Nurdz, Air Factory, Salt Bae, Juice Head, Candy King, Innevape, Twist and Naked 100 salts.</p><p>Nic salt is stronger than regular e-juice, so it isn't meant for sub-ohm tanks. For those, see <a href=\"/product-category/e-juice/\">E-Juice</a>. Need a device for it? Browse <a href=\"/product-category/pods/\">Pods</a> and <a href=\"/product-category/salt-nicotine-devices/\">Salt Nicotine Devices</a>.</p>",
+    "faq": [
+      ["What strengths do nic salts come in?", "Most of our salt nicotine e-juice comes in about 20mg to 55mg, depending on the brand (for example 25mg and 50mg, or 35mg and 55mg). Each listing shows the strengths in stock."],
+      ["Can I use nic salt in a sub-ohm tank?", "It isn't recommended. Nic salt is made for low-wattage pod systems; for sub-ohm tanks, choose regular e-juice."],
+      ["What does \"Regular\" mean on a salt listing?", "On a salt nicotine listing, \"Regular\" is 35mg. \"New\" means the maker updated the product code (SKU) for the same strength."]
+    ]
+  },
+  "disposable": {
+    "h1": "Disposable Vapes in Nashua, NH",
+    "intro": "Disposable vapes at Evolve Vapor in Pheasant Lane Mall — Elf Bar, Geek Bar, Lost Mary, Raz, Crave, Hyde and more, in dozens of flavors. See what's in stock, order online and pick up in store.",
+    "more": "<h2>Disposables at Evolve Vapor</h2><p>Disposable vapes come pre-filled and pre-charged (many are rechargeable by USB-C), so there's nothing to set up. We carry Elf Bar, Geek Bar, Lost Mary, Raz, Crave, Hyde, Suorin, VIHO, Tyson and more, from compact devices to high-puff models, and most sell for about $10–$40. Each listing shows the flavors in stock right now.</p><p>Want something refillable instead? See <a href=\"/product-category/pods/\">Pods</a> and <a href=\"/product-category/kit/\">Kits</a>.</p>",
+    "faq": [
+      ["Which disposable brands do you carry?", "Brands we carry include Elf Bar, Geek Bar, Lost Mary, Raz, Crave, Hyde, Suorin, VIHO and Tyson. Stock changes often — each product page shows the flavors in stock."],
+      ["Do you ship disposables?", "No. Online orders are for in-store pickup only at Evolve Vapor in Pheasant Lane Mall, Nashua, NH. Bring a valid photo ID; you must be 21 or older."]
+    ]
+  },
+  "pods": {
+    "h1": "Vape Pods & Cartridges in Nashua, NH",
+    "intro": "Replacement pods and cartridges at Evolve Vapor in Pheasant Lane Mall — Uwell Caliburn, SMOK Novo and Nord, Vaporesso XROS and LUXE, Voopoo, GeekVape, Suorin and more. Order online and pick up in store.",
+    "more": "<h2>Pods and cartridges at Evolve Vapor</h2><p>We stock refillable replacement pods and cartridges for popular pod systems, including Uwell Caliburn, SMOK Novo, Nord and RPM, Vaporesso XROS and LUXE, Voopoo, GeekVape, Suorin, Lost Vape and Innokin. Most sell for about $5–$26, in single pods and multi-packs, with different coil resistances where the maker offers them.</p><p>Check your device name on the pod listing to make sure it fits, or bring your device to the store and we'll match it. Pair them with <a href=\"/product-category/salt-nicotine/\">Salt Nicotine E-Juice</a>.</p>",
+    "faq": [
+      ["How do I know which pod fits my device?", "Match the device name and model on the listing (for example \"Caliburn G\" or \"XROS\"). If you're unsure, bring your device to the store and we'll find the right pod."],
+      ["What does the ohm number on a pod mean?", "It's the coil resistance. Higher resistance (around 0.8–1.2 ohm) is typical for a tighter, mouth-to-lung draw with nic salts; lower resistance is for a looser draw and lower-nicotine e-juice."]
+    ]
+  },
+  "coils": {
+    "h1": "Vape Coils in Nashua, NH",
+    "intro": "Replacement coils at Evolve Vapor in Pheasant Lane Mall — SMOK, FreeMax, Uwell, GeekVape, Aspire, Voopoo, Vaporesso and Horizon Tech. Order online and pick up in store.",
+    "more": "<h2>Replacement coils at Evolve Vapor</h2><p>We carry replacement coils for popular tanks and pod systems from SMOK, FreeMax, Uwell, GeekVape, Aspire, Voopoo, Vaporesso, Horizon Tech and more, usually in packs, and most sell for about $5–$25. Coils are made for specific tanks, so match the series on the listing (for example TFV16, Fireluke or Cleito) to your tank.</p><p>Not sure which coil your tank takes? Bring it in and we'll match it. Also see <a href=\"/product-category/tanks/\">Tanks</a> and <a href=\"/product-category/pods/\">Pods</a>.</p>",
+    "faq": [
+      ["How often should I replace my coil?", "It depends on how much you vape and the e-juice you use. A burnt taste or weaker flavor usually means it's time for a new coil."],
+      ["Will these coils fit my tank?", "Coils are made for specific tank series. Check that the listing names your tank, or bring your tank to the store and we'll match it."]
+    ]
+  },
+  "kit": {
+    "h1": "Vape Kits & Devices in Nashua, NH",
+    "intro": "Vape kits at Evolve Vapor in Pheasant Lane Mall — pod kits and mod kits from SMOK, Vaporesso, Voopoo, Uwell, GeekVape, FreeMax and Suorin. Order online, pick up in store, and we'll help you set it up.",
+    "more": "<h2>Vape kits at Evolve Vapor</h2><p>Kits include the device and what you need to start: pod kits for a simple, low-wattage setup with nic salts, and mod kits with a tank for more power and regular e-juice. We carry SMOK, Vaporesso, Voopoo (Drag, Argus), Uwell (Caliburn), GeekVape (Aegis), FreeMax and Suorin, and most kits sell for about $15–$90.</p><p>Not sure where to start? Our staff can help you choose and set up your kit at the store. Then grab <a href=\"/product-category/coils/\">coils</a> or <a href=\"/product-category/pods/\">pods</a> and <a href=\"/product-category/e-juice/\">e-juice</a> or <a href=\"/product-category/salt-nicotine/\">nic salt</a>.</p>",
+    "faq": [
+      ["Pod kit or mod kit — which should I get?", "Pod kits are small and simple and are usually used with nic salt. Mod kits give more power and bigger clouds and are used with regular e-juice. Our staff can help you choose."],
+      ["Can you help me set up my kit?", "Yes. Pick it up at the store and our staff can walk you through filling, priming the coil and settings."]
+    ]
+  },
+  "tanks": {
+    "h1": "Vape Tanks in Nashua, NH",
+    "intro": "Sub-ohm and mouth-to-lung tanks at Evolve Vapor in Pheasant Lane Mall — SMOK, Uwell, Voopoo, Aspire, GeekVape, Vaporesso and FreeMax. Order online and pick up in store.",
+    "more": "<h2>Tanks at Evolve Vapor</h2><p>We carry tanks from SMOK (TFV16, TFV18), Uwell (Crown, Nunchaku), Voopoo (UForce), Aspire (Cleito, Nautilus), GeekVape, Vaporesso and FreeMax, and most sell for about $4–$60. Sub-ohm tanks pair with regular e-juice; mouth-to-lung tanks work with lower-wattage setups.</p><p>Every tank uses its own coil series — find replacements in <a href=\"/product-category/coils/\">Coils</a>, and e-liquid in <a href=\"/product-category/e-juice/\">E-Juice</a>.</p>",
+    "faq": [
+      ["Which coils go with my tank?", "Each tank uses its own coil series (for example SMOK TFV16 coils for the TFV16 tank). The tank listing names the coils it takes, or ask us at the store."]
+    ]
+  },
+  "salt-nicotine-devices": {
+    "h1": "Salt Nicotine Pod Systems in Nashua, NH",
+    "intro": "Pod systems made for nic salts at Evolve Vapor in Pheasant Lane Mall — SMOK, Suorin, Vaporesso, Uwell Caliburn, Lost Vape, Voopoo and GeekVape. Order online and pick up in store.",
+    "more": "<h2>Salt nicotine devices at Evolve Vapor</h2><p>These are low-wattage pod systems designed for salt nicotine e-juice: compact, simple and refillable. We carry SMOK, Suorin, Vaporesso (XROS), Uwell (Caliburn), Lost Vape (Orion), Voopoo, GeekVape and Innokin, and most sell for about $8–$80.</p><p>Fill them with <a href=\"/product-category/salt-nicotine/\">Salt Nicotine E-Juice</a> and keep spare <a href=\"/product-category/pods/\">pods</a> on hand.</p>",
+    "faq": [
+      ["What e-juice do I use in a salt nicotine device?", "Use salt nicotine e-juice (nic salt). Regular e-juice works too at lower nicotine, but these devices are made for nic salts."]
+    ]
+  }
+}

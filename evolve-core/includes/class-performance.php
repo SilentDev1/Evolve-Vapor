@@ -17,6 +17,13 @@
  *    (e.g. Kits-1024x1024.png.webp), image src/srcset point at it instead. The
  *    originals stay untouched, so deleting the .webp file reverts that image.
  *    The homepage banners/category tiles were 0.9–1.5 MB PNGs each.
+ * 5. (1.11) Nothing that blocks the first paint without need: the Inter stylesheet loads
+ *    without holding up rendering (fonts.gstatic is preconnected), and the WordPress block
+ *    stylesheets are dropped — no page on the site is built with blocks.
+ * 6. (1.11) No hover-zoom on product images: it downloads the full-size original of every
+ *    product photo (hundreds of KB, off screen) and does nothing on phones. The lightbox stays.
+ * 7. (1.11) Home page: the browser is told to fetch the hero banner first (it's the largest
+ *    thing on screen), a phone-sized one on phones.
  */
 namespace Evolve_Core;
 
@@ -28,6 +35,10 @@ class Performance {
 		add_action( 'wp',                           [ $this, 'trim_recaptcha' ] );
 		add_action( 'wp_enqueue_scripts',           [ $this, 'dequeue_registration_assets' ], 100 );
 		add_filter( 'elementor/frontend/print_google_fonts', [ $this, 'skip_duplicate_inter' ] );
+		add_filter( 'style_loader_tag',             [ $this, 'async_fonts' ], 10, 4 );
+		add_action( 'wp_head',                      [ $this, 'preconnect_and_preload' ], 1 );
+		add_action( 'wp_enqueue_scripts',           [ $this, 'drop_block_styles' ], 200 );
+		add_action( 'after_setup_theme',            [ $this, 'no_zoom' ], 100 );
 		add_action( 'template_redirect',            [ $this, 'redirect_shop_slug' ], 1 );
 
 		if ( ! is_admin() ) {
@@ -108,6 +119,49 @@ class Performance {
 	 * Only drop Elementor's Google Fonts when the child theme's Inter stylesheet is
 	 * enqueued, so switching themes can never leave Elementor text unstyled.
 	 */
+	/** Google Fonts CSS without blocking the first paint (text shows in the fallback font, then Inter). */
+	public function async_fonts( $tag, $handle, $href, $media ) {
+		if ( is_admin() || strpos( (string) $href, 'fonts.googleapis.com' ) === false ) {
+			return $tag;
+		}
+		$href = esc_url( $href );
+		return '<link rel="preload" as="style" href="' . $href . '" />' . "\n"
+			. '<link rel="stylesheet" id="' . esc_attr( $handle ) . '-css" href="' . $href . '" media="print" onload="this.media=\'all\'" />' . "\n"
+			. '<noscript><link rel="stylesheet" href="' . $href . '" /></noscript>' . "\n";
+	}
+
+	public function preconnect_and_preload() {
+		if ( is_admin() ) {
+			return;
+		}
+		echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />' . "\n";
+		if ( is_front_page() ) {
+			$hero = (array) apply_filters( 'evolve_hero_preload', get_option( 'evolve_hero_preload', [] ) );
+			if ( ! empty( $hero['desktop'] ) ) {
+				$mobile = $hero['mobile'] ?? '';
+				if ( $mobile ) {
+					printf( '<link rel="preload" as="image" href="%s" media="(max-width: 767px)" fetchpriority="high" />' . "\n", esc_url( $mobile ) );
+					printf( '<link rel="preload" as="image" href="%s" media="(min-width: 768px)" fetchpriority="high" />' . "\n", esc_url( $hero['desktop'] ) );
+				} else {
+					printf( '<link rel="preload" as="image" href="%s" fetchpriority="high" />' . "\n", esc_url( $hero['desktop'] ) );
+				}
+			}
+		}
+	}
+
+	public function drop_block_styles() {
+		if ( is_admin() ) {
+			return;
+		}
+		foreach ( [ 'wp-block-library', 'wp-block-library-theme', 'classic-theme-styles', 'global-styles', 'wc-blocks-style' ] as $h ) {
+			wp_dequeue_style( $h );
+		}
+	}
+
+	public function no_zoom() {
+		remove_theme_support( 'wc-product-gallery-zoom' );
+	}
+
 	public function skip_duplicate_inter( $print ) {
 		return wp_style_is( 'evolve-fonts', 'enqueued' ) ? false : $print;
 	}
