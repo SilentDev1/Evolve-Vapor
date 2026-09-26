@@ -9,7 +9,7 @@
  * 3. robots.txt: no Crawl-delay (it only slows Bing down).
  * 4. llms.txt (GhostPilot): opening hours, in-store pickup and the 21+ policy.
  *
- * Phone and hours confirmed by the owner 2026-09-26. Change them here in one place.
+ * Phone confirmed by the owner 2026-09-26; hours = Pheasant Lane Mall hours (simon.com). Change them here in one place.
  *
  * @package Evolve_Core
  */
@@ -34,9 +34,9 @@ class Seo {
 	const HOURS = [
 		[ [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday' ], '10:00', '20:00' ],
 		[ [ 'Friday', 'Saturday' ], '10:00', '21:00' ],
-		[ [ 'Sunday' ], '12:00', '18:00' ],
+		[ [ 'Sunday' ], '11:00', '18:00' ],
 	];
-	const HOURS_TXT = 'Mon–Thu 10 AM–8 PM, Fri–Sat 10 AM–9 PM, Sun 12–6 PM';
+	const HOURS_TXT = 'Mon–Thu 10 AM–8 PM, Fri–Sat 10 AM–9 PM, Sun 11 AM–6 PM';
 
 	public function __construct() {
 		add_filter( 'wpseo_schema_graph', [ $this, 'local_business' ], 20, 2 );

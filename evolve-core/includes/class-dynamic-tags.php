@@ -36,9 +36,9 @@ class Dynamic_Tags {
 	public static function store() {
 		return apply_filters( 'evolve_store_info', [
 			'name'    => 'Evolve Vapor',
-			'phone'   => '(603) 880-1014',
+			'phone'   => '(603) 888-4514',
 			'address' => 'Pheasant Lane Mall · 310 Daniel Webster Hwy · Nashua, NH 03060',
-			'hours'   => "Mon–Sat 10:00–21:00\nSunday 11:00–18:00",
+			'hours'   => "Mon–Thu 10:00–20:00\nFri–Sat 10:00–21:00\nSunday 11:00–18:00",
 			'maps'    => 'https://maps.google.com/?q=Pheasant+Lane+Mall+Nashua+NH',
 		] );
 	}

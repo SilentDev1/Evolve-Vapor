@@ -66,7 +66,7 @@
 					"settings":{ "content_width":"full","width":{"unit":"%","size":26},"flex_direction":"column" },
 					"elements":[
 						{ "id":"evf-h3","elType":"widget","widgetType":"heading","settings":{ "title":"Store Info","header_size":"h4","title_color":"#FFFFFF","typography_typography":"custom","typography_font_family":"Poppins","typography_font_weight":"700","typography_font_size":{"unit":"px","size":13},"typography_text_transform":"uppercase","typography_letter_spacing":{"unit":"px","size":1.5} } },
-						{ "id":"evf-l3","elType":"widget","widgetType":"text-editor","settings":{ "editor":"Pheasant Lane Mall<br>310 Daniel Webster Hwy<br>Nashua, NH 03060<br><br><strong style='color:#FFFFFF'>Mon–Sat</strong> 10:00–21:00<br><strong style='color:#FFFFFF'>Sun</strong> 11:00–18:00<br><br><a href='tel:+16038801014' style='color:#B7FF00;'>(603) 880-1014</a>","text_color":"#B3B3B3" } }
+						{ "id":"evf-l3","elType":"widget","widgetType":"text-editor","settings":{ "editor":"Pheasant Lane Mall<br>310 Daniel Webster Hwy<br>Nashua, NH 03060<br><br><strong style='color:#FFFFFF'>Mon–Thu</strong> 10:00–20:00<br><strong style='color:#FFFFFF'>Fri–Sat</strong> 10:00–21:00<br><strong style='color:#FFFFFF'>Sun</strong> 11:00–18:00<br><br><a href='tel:+16038884514' style='color:#B7FF00;'>(603) 888-4514</a>","text_color":"#B3B3B3" } }
 					]
 				}
 			]

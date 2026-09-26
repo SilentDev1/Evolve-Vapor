@@ -3,7 +3,7 @@
  * Plugin Name: Evolve Core
  * Plugin URI:  https://evolvevapornh.com
  * Description: Companion plugin for the Evolve Child theme — age gate, dynamic tags, WooCommerce helpers, and a one-click Elementor template importer.
- * Version:     1.10.0
+ * Version:     1.10.1
  * Author:      Evolve Vapor
  * Author URI:  https://evolvevapornh.com
  * Text Domain: evolve-core
@@ -14,7 +14,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'EVOLVE_CORE_VERSION', '1.10.0' );
+define( 'EVOLVE_CORE_VERSION', '1.10.1' );
 define( 'EVOLVE_CORE_FILE',    __FILE__ );
 define( 'EVOLVE_CORE_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'EVOLVE_CORE_URL',     plugin_dir_url( __FILE__ ) );

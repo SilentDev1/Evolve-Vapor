@@ -27,7 +27,7 @@
 					"elType": "widget",
 					"widgetType": "text-editor",
 					"settings": {
-						"editor": "<span style='color:#B7FF00;font-weight:700;'>(603) 880-1014</span>  ·  Pheasant Lane Mall · Nashua, NH  ·  In-store pickup",
+						"editor": "<span style='color:#B7FF00;font-weight:700;'>(603) 888-4514</span>  ·  Pheasant Lane Mall · Nashua, NH  ·  In-store pickup",
 						"text_color": "#B3B3B3",
 						"typography_typography": "custom",
 						"typography_font_family": "Inter",
@@ -40,7 +40,7 @@
 					"elType": "widget",
 					"widgetType": "text-editor",
 					"settings": {
-						"editor": "<span style='background:#B7FF00;color:#000;padding:2px 10px;border-radius:999px;font-weight:800;font-size:11px;letter-spacing:.08em;'>21+</span>  Orders ready in 30 min · Mon–Sat 10–9",
+						"editor": "<span style='background:#B7FF00;color:#000;padding:2px 10px;border-radius:999px;font-weight:800;font-size:11px;letter-spacing:.08em;'>21+</span>  Orders ready in 30 min · Mon–Thu 10–8 · Fri–Sat 10–9 · Sun 11–6",
 						"text_color": "#B3B3B3",
 						"typography_typography": "custom",
 						"typography_font_family": "Inter",
