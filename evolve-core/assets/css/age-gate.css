@@ -66,3 +66,14 @@
 
 /* Lock body scroll while gate is visible */
 body:has(#evolveAgeGate:not(.is-hidden)) { overflow: hidden; }
+
+/* Links in the notice; Exit reads as the secondary action. */
+.evolve-agegate__lede a { color: #B7FF00; text-decoration: underline; text-underline-offset: 2px; }
+.evolve-agegate .evolve-btn--ghost {
+	background: transparent !important;
+	color: #E6E6E6 !important;
+	border: 1px solid rgba(255,255,255,0.35) !important;
+	box-shadow: none !important;
+}
+.evolve-agegate .evolve-btn--ghost:hover,
+.evolve-agegate .evolve-btn--ghost:focus-visible { border-color: #fff !important; color: #fff !important; }

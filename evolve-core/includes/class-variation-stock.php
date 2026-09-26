@@ -69,7 +69,9 @@ class Variation_Stock {
 					/* translators: %d: quantity in stock */
 					? sprintf( _n( '%d in stock', '%d in stock', $n, 'evolve-core' ), $n )
 					: __( 'out of stock', 'evolve-core' );
-				return $m[1] . $m[3] . ' — ' . esc_html( $note ) . $m[4];
+				// Sold out: still listed, but can't be picked.
+				$open = $n > 0 ? $m[1] : preg_replace( '#>$#', ' disabled="disabled">', $m[1] );
+				return $open . $m[3] . ' — ' . esc_html( $note ) . $m[4];
 			},
 			$html
 		);

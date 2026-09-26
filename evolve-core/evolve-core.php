@@ -3,7 +3,7 @@
  * Plugin Name: Evolve Core
  * Plugin URI:  https://evolvevapornh.com
  * Description: Companion plugin for the Evolve Child theme — age gate, dynamic tags, WooCommerce helpers, and a one-click Elementor template importer.
- * Version:     1.9.8
+ * Version:     1.9.9
  * Author:      Evolve Vapor
  * Author URI:  https://evolvevapornh.com
  * Text Domain: evolve-core
@@ -14,7 +14,7 @@
 
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'EVOLVE_CORE_VERSION', '1.9.8' );
+define( 'EVOLVE_CORE_VERSION', '1.9.9' );
 define( 'EVOLVE_CORE_FILE',    __FILE__ );
 define( 'EVOLVE_CORE_DIR',     plugin_dir_path( __FILE__ ) );
 define( 'EVOLVE_CORE_URL',     plugin_dir_url( __FILE__ ) );
@@ -34,6 +34,7 @@ require_once EVOLVE_CORE_DIR . 'includes/class-bogo-promotion.php';
 require_once EVOLVE_CORE_DIR . 'includes/class-weekly-promo.php';
 require_once EVOLVE_CORE_DIR . 'includes/class-performance.php';
 require_once EVOLVE_CORE_DIR . 'includes/class-variation-stock.php';
+require_once EVOLVE_CORE_DIR . 'includes/class-storefront.php';
 
 add_action( 'plugins_loaded', function () {
 	new \Evolve_Core\Age_Gate();
@@ -50,6 +51,7 @@ add_action( 'plugins_loaded', function () {
 	new \Evolve_Core\Weekly_Promo();
 	new \Evolve_Core\Performance();
 	new \Evolve_Core\Variation_Stock();
+	new \Evolve_Core\Storefront();
 
 	// Elementor dynamic tags register on its own hook.
 	add_action( 'elementor/dynamic_tags/register', function ( $dynamic_tags_manager ) {

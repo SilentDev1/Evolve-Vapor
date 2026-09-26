@@ -62,7 +62,11 @@ class Age_Gate {
 					<img class="evolve-agegate__logo" src="<?php echo esc_url( $logo ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" />
 				<?php endif; ?>
 				<h2 id="evolveAgeGateTitle" class="evolve-agegate__title">You must be 21+ to enter.</h2>
-				<p class="evolve-agegate__lede">By entering this site you certify that you are at least 21 years of age and accept our Terms of Use and Privacy Policy.</p>
+				<?php
+				$terms   = function_exists( 'wc_terms_and_conditions_page_id' ) && wc_terms_and_conditions_page_id() ? get_permalink( wc_terms_and_conditions_page_id() ) : home_url( '/website-terms-conditions/' );
+				$privacy = get_privacy_policy_url() ?: home_url( '/evolve-vapor-privacy-policy/' );
+				?>
+				<p class="evolve-agegate__lede">By entering this site you certify that you are at least 21 years of age and accept our <a href="<?php echo esc_url( $terms ); ?>">Terms of Use</a> and <a href="<?php echo esc_url( $privacy ); ?>">Privacy Policy</a>.</p>
 				<div class="evolve-agegate__cta">
 					<button type="button" class="evolve-btn evolve-btn--primary" data-evolve-age="enter">I'm 21 or older — Enter</button>
 					<button type="button" class="evolve-btn evolve-btn--ghost"   data-evolve-age="exit">Exit</button>

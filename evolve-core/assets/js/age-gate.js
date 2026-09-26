@@ -15,6 +15,7 @@
 		// Set client-side cookie immediately so the gate stays gone on refresh,
 		// then hit the server so the cookie is also set with the proper domain/secure flags.
 		setCookie(evolveAgeGate.days || 30);
+		document.removeEventListener('keydown', onKey);
 		gate.classList.add('is-hidden');
 		setTimeout(() => gate.remove(), 400);
 
@@ -35,8 +36,14 @@
 		else if (btn.dataset.evolveAge === 'exit') exit();
 	});
 
-	document.addEventListener('keydown', function (e) {
+	// Keys only answer the gate while it's on screen (Escape used to send visitors to Google from any page).
+	function onKey(e) {
+		if (!gate.isConnected || gate.classList.contains('is-hidden')) {
+			document.removeEventListener('keydown', onKey);
+			return;
+		}
 		if (e.key === 'Enter')  enter();
 		if (e.key === 'Escape') exit();
-	});
+	}
+	document.addEventListener('keydown', onKey);
 })();
