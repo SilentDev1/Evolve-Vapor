@@ -79,7 +79,7 @@ class Storefront {
 			var io = new IntersectionObserver(function (entries) {
 				entries.forEach(function (e) { if (e.isIntersecting) shown.add(e.target); else shown.delete(e.target); });
 				document.body.classList.toggle('evolve-buy-in-view', shown.size > 0);
-			}, { rootMargin: '0px 0px -10% 0px' });
+			}, { rootMargin: '0px' });
 			targets.forEach(function (t) { io.observe(t); });
 		})();
 		</script>

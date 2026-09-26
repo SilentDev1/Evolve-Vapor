@@ -24,6 +24,11 @@
  *    product photo (hundreds of KB, off screen) and does nothing on phones. The lightbox stays.
  * 7. (1.11) Home page: the browser is told to fetch the hero banner first (it's the largest
  *    thing on screen), a phone-sized one on phones.
+ * 8. (1.12.1) Product pages: the main product photo is fetched first (preload + high priority).
+ *    Home category tiles say how wide they really are, so phones stop downloading 768–1024px
+ *    images for ~170px tiles.
+ * 9. (1.12.2) WooCommerce hides the product gallery (opacity 0) until its gallery script has
+ *    run, which held the product photo back ~4s on phones. It's shown straight away.
  */
 namespace Evolve_Core;
 
@@ -39,6 +44,7 @@ class Performance {
 		add_action( 'wp_head',                      [ $this, 'preconnect_and_preload' ], 1 );
 		add_action( 'wp_enqueue_scripts',           [ $this, 'drop_block_styles' ], 200 );
 		add_action( 'after_setup_theme',            [ $this, 'no_zoom' ], 100 );
+		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'image_hints' ], 20, 2 );
 		add_action( 'template_redirect',            [ $this, 'redirect_shop_slug' ], 1 );
 
 		if ( ! is_admin() ) {
@@ -135,6 +141,15 @@ class Performance {
 			return;
 		}
 		echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />' . "\n";
+		if ( function_exists( 'is_product' ) && is_product() ) {
+			echo '<style id="evolve-gallery-visible">.woocommerce-product-gallery{opacity:1!important}</style>' . "\n";
+		}
+		if ( function_exists( 'is_product' ) && is_product() && ( $tid = get_post_thumbnail_id() ) ) {
+			$src = wp_get_attachment_image_src( $tid, 'woocommerce_single' );
+			if ( $src ) {
+				printf( '<link rel="preload" as="image" href="%s" fetchpriority="high" />' . "\n", esc_url( $src[0] ) );
+			}
+		}
 		if ( is_front_page() ) {
 			$hero = (array) apply_filters( 'evolve_hero_preload', get_option( 'evolve_hero_preload', [] ) );
 			if ( ! empty( $hero['desktop'] ) ) {
@@ -147,6 +162,23 @@ class Performance {
 				}
 			}
 		}
+	}
+
+	/** Home category tiles (Coils, Disposable, E-Juice, Kits, Pods, Salt). */
+	const TILE_IDS = [ 34816, 34817, 34818, 34819, 34820, 34821 ];
+
+	public function image_hints( $attr, $attachment ) {
+		if ( is_admin() || ! $attachment ) {
+			return $attr;
+		}
+		if ( is_front_page() && in_array( (int) $attachment->ID, self::TILE_IDS, true ) ) {
+			$attr['sizes'] = '(max-width: 767px) 46vw, (max-width: 1200px) 17vw, 200px';
+		}
+		if ( function_exists( 'is_product' ) && is_product() && (int) $attachment->ID === (int) get_post_thumbnail_id() && strpos( (string) ( $attr['class'] ?? '' ), 'wp-post-image' ) !== false ) {
+			$attr['fetchpriority'] = 'high';
+			$attr['loading']       = 'eager';
+		}
+		return $attr;
 	}
 
 	public function drop_block_styles() {
